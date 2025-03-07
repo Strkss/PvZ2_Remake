@@ -39,7 +39,7 @@ bool initEngines() {
 		return 0;
 	}
 
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 4, 2048) < 0) {
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 16, 2048) < 0) {
 		printf("initEngines -> Mix_OpenAudio\n");
 		return 0;
 	}
