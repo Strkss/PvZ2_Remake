@@ -20,10 +20,10 @@ enum GRID_STATES {
 	GRID_POTATOMINE
 };
 
-const double SPRITE_DOWNSCALE = 1.35;
+const double SPRITE_DOWNSCALE = 1.75;
 
 const int FRAME_PACING = 2;
-const int SPRITE_SIZE = 390;
+const int SPRITE_SIZE = 140;
 const int PEASHOOTER_ATTACK_FRAME = 31;
 const int PEASHOOTER_IDLE_FRAME = 31;
 const std::string PEASHOOTER_ATTACK_IMG = "Assets/PlantAnimation/peashooter_attack.png";

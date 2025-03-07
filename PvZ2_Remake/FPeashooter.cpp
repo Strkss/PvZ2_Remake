@@ -27,8 +27,8 @@ FPeashooter::FPeashooter(int r, int c) {
 	hp = 300;
 	row = r;
 	col = c;
-	x = LAWN_START_X + LAWN_GRID_WIDTH * col + LAWN_GRID_WIDTH / 3;
-	y = LAWN_START_Y + LAWN_GRID_HEIGHT * row * LAWN_GRID_HEIGHT / 5;
+	x = LAWN_START_X + LAWN_GRID_WIDTH * col + 5;
+	y = LAWN_START_Y + LAWN_GRID_HEIGHT * row + 8;
 	animState = 0;
 	animFrame = 0;
 	FLawn::updateGrid(row, col, GRID_PEASHOOTER);

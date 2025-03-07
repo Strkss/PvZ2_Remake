@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 	mTexture.loadFromFile(mRenderer, LAWN_IMG);
 	FLawn::initGrid();
 	FPeashooter::loadMedia(mRenderer);
-	FPeashooter myPea(0, 0);
+	FPeashooter myPea(2, 3);
 
 	bool quit = false;
 	SDL_Event e;
