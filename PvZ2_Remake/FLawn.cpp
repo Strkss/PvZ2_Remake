@@ -4,7 +4,9 @@
 #include "Constants.hpp"
 #include "FLawn.hpp"
 
-FLawn::FLawn() {
+FGrid FLawn::grid[5][9];
+
+void FLawn::initGrid() {
 	for (int rowI = 0; rowI < numRow; rowI++) {
 		for (int colJ = 0; colJ < numCol; colJ++) {
 			grid[rowI][colJ].row = rowI;
@@ -16,7 +18,7 @@ FLawn::FLawn() {
 	}
 }
 
-bool FLawn::updateGrid(int row, int col, enum GRID_STATE state) {
+bool FLawn::updateGrid(int row, int col, enum GRID_STATES state) {
 	grid[row][col].state = state;
 	
 	switch (state) {

@@ -46,17 +46,20 @@ bool FTexture::loadFromFile(SDL_Renderer * mRenderer, const std::string & path) 
 		return 0;
 	}
 
-	printf("DONE: loadFromFile %s", path.c_str());
+	printf("DONE: loadFromFile %s\n", path.c_str());
 	return 1;
 }
 
-void FTexture::renderAtPosition(SDL_Renderer* mRenderer, int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip) {
+void FTexture::renderAtPosition(SDL_Renderer* mRenderer, int x, int y, SDL_Rect* clip, double downScale, double angle, SDL_Point* center, SDL_RendererFlip flip) {
 	SDL_Rect renderRect = { x, y, w, h};
 
 	if (clip != NULL) {
 		renderRect.w = clip->w;
 		renderRect.h = clip->h;
 	}
+
+	renderRect.w /= downScale;
+	renderRect.h /= downScale;
 
 	SDL_RenderCopyEx(mRenderer, mTexture, clip, &renderRect, angle, center, flip);
 }

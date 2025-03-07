@@ -8,14 +8,14 @@
 
 class FLawn {
 private:
-	const int numRow = 5, numCol = 9;
-	FGrid grid[5][9];
+	const static int numRow = 5, numCol = 9;
+	static FGrid grid[5][9];
 
 public:
-	FLawn();
-	bool updateGrid(int row, int col, enum GRID_STATE state);
+	static void initGrid();
+	static bool updateGrid(int row, int col, enum GRID_STATES state);
 	
 
 	// Debug functions
-	void drawGridHitbox(SDL_Renderer* mRenderer);
+	static void drawGridHitbox(SDL_Renderer* mRenderer);
 };

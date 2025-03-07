@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
+    <ClCompile Include="FPeashooter.cpp" />
     <ClCompile Include="FTexture.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
@@ -143,6 +144,7 @@
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />
+    <ClInclude Include="FPeashooter.hpp" />
     <ClInclude Include="Init.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />

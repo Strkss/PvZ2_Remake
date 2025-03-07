@@ -6,22 +6,20 @@
 #include "FTexture.hpp"
 #include "FLawn.hpp"
 #include "FGrid.hpp"
+#include "FPeashooter.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
 	SDL_Renderer* mRenderer = NULL;
 	SDL_Window* mWindow = NULL;
 	FTexture mTexture;
-	FLawn mLawn;
 	createWindow(mWindow);
 	createRenderer(mRenderer, mWindow);
-	mTexture.loadFromFile(mRenderer, LAWN_IMG);
-	mTexture.renderAtPosition(mRenderer, -10, 0);
-	mLawn.drawGridHitbox(mRenderer);
-	
-	SDL_RenderPresent(mRenderer);
 
-	
+	mTexture.loadFromFile(mRenderer, LAWN_IMG);
+	FLawn::initGrid();
+	FPeashooter::loadMedia(mRenderer);
+	FPeashooter myPea(0, 0);
 
 	bool quit = false;
 	SDL_Event e;
@@ -37,6 +35,13 @@ int main(int argc, char* argv[]) {
 				printf("%d %d\n", x, y);
 			}
 		}
+		SDL_RenderClear(mRenderer);
+
+		mTexture.renderAtPosition(mRenderer, -10, 0);
+		FLawn::drawGridHitbox(mRenderer);
+		myPea.playAnim(mRenderer);
+
+		SDL_RenderPresent(mRenderer);
 	}
 
 	quitEngines();
