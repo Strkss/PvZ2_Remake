@@ -10,3 +10,5 @@
 
 bool createWindow(SDL_Window*& mWindow);
 bool initEngines();
+
+void quitEngines();

@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FTexture.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="Init.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
+    <ClInclude Include="FTexture.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

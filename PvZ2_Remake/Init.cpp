@@ -47,3 +47,10 @@ bool initEngines() {
 	printf("DONE: initEngines\n");
 	return 1;
 }
+
+void quitEngines() {
+	SDL_Quit();
+	TTF_Quit();
+	IMG_Quit();
+	Mix_Quit();
+}

@@ -22,4 +22,3 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 	printf("DONE: createRenderer\n");
 	return 1;
 }
-
