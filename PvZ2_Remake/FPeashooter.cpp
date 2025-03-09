@@ -8,6 +8,7 @@
 
 SDL_Rect peashooterIdleSprite[PEASHOOTER_IDLE_FRAME], peashooterAttackSprite[PEASHOOTER_ATTACK_FRAME];
 FTexture peashooterIdlePNG, peashooterAttackPNG;
+vector<FPeashooter*> vecPeashooter;
 
 bool FPeashooter::loadMedia(SDL_Renderer* mRenderer) {
 	for (int i = 0; i < PEASHOOTER_IDLE_FRAME; i++) {
@@ -29,18 +30,65 @@ FPeashooter::FPeashooter(int r, int c) {
 	col = c;
 	x = LAWN_START_X + LAWN_GRID_WIDTH * col + 5;
 	y = LAWN_START_Y + LAWN_GRID_HEIGHT * row + 8;
-	animState = 0;
+	animState = PEASHOOTER_IDLE;
 	animFrame = 0;
 	FLawn::updateGrid(row, col, GRID_PEASHOOTER);
+	vecPeashooter.push_back(this);
+}
+
+void FPeashooter::free() {
+	FLawn::updateGrid(row, col, GRID_EMPTY);
+	hp = 0;
+	row = -1;
+	col = -1;
+	x = 0;
+	y = 0;
+	animState = PEASHOOTER_IDLE;
+	animFrame = 0;
 }
 
 void FPeashooter::playAnim(SDL_Renderer* mRenderer) {
 	++animFrame;
-	if (!animState) {
+	switch (animState) {
+	case PEASHOOTER_IDLE:
 		if (animFrame / FRAME_PACING >= PEASHOOTER_IDLE_FRAME) animFrame = 0;
 		peashooterIdlePNG.renderAtPosition(mRenderer, x, y, &peashooterIdleSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+		break;
 	}
-	else {
+}
 
+void FPeashooter::playAllAnim(SDL_Renderer* mRenderer) {
+	for (FPeashooter* myPea : vecPeashooter) {
+		myPea->playAnim(mRenderer);
 	}
+}
+
+bool FPeashooter::removePlant(int row, int col) {
+	int delIndex = -1;
+	for (int i = 0; i < (int)vecPeashooter.size(); i++) {
+		if (vecPeashooter[i]->getRow() == row && vecPeashooter[i]->getCol() == col) {
+			delIndex = i;
+			break;
+		}
+	}
+	if (delIndex == -1) {
+		printf("Can't remove plant at %d %d\n", row, col);
+		return 0;
+	}
+	vecPeashooter[delIndex]->free();
+	vecPeashooter.erase(vecPeashooter.begin() + delIndex);
+	printf("DONE: Removed plant at %d %d\n", row, col);
+	return 1;
+}
+
+bool FPeashooter::compFunc(FPeashooter*& lhs, FPeashooter*& rhs) {
+	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getCol() < rhs->getCol());
+}
+
+int FPeashooter::getRow() {
+	return row;
+}
+
+int FPeashooter::getCol() {
+	return col;
 }

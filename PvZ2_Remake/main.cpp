@@ -7,6 +7,7 @@
 #include "FLawn.hpp"
 #include "FGrid.hpp"
 #include "FPeashooter.hpp"
+#include "EventHandler.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -19,7 +20,6 @@ int main(int argc, char* argv[]) {
 	mTexture.loadFromFile(mRenderer, LAWN_IMG);
 	FLawn::initGrid();
 	FPeashooter::loadMedia(mRenderer);
-	FPeashooter myPea(2, 3);
 
 	bool quit = false;
 	SDL_Event e;
@@ -29,17 +29,13 @@ int main(int argc, char* argv[]) {
 				quit = true;
 				break;
 			}
-			else if (e.type == SDL_MOUSEBUTTONDOWN){
-				int x, y;
-				SDL_GetMouseState(&x, &y);
-				printf("%d %d\n", x, y);
-			}
+			handleEvent(e);
 		}
 		SDL_RenderClear(mRenderer);
 
 		mTexture.renderAtPosition(mRenderer, -10, 0);
 		FLawn::drawGridHitbox(mRenderer);
-		myPea.playAnim(mRenderer);
+		FPeashooter::playAllAnim(mRenderer);
 
 		SDL_RenderPresent(mRenderer);
 	}

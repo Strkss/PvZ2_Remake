@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
     <ClCompile Include="FPeashooter.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp" />
+    <ClInclude Include="EventHandler.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />
     <ClInclude Include="FPeashooter.hpp" />

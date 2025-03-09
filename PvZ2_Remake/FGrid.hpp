@@ -6,7 +6,7 @@
 #include "FTexture.hpp"
 
 struct FGrid {
-	int state;
+	enum GRID_STATES state;
 	int row, col;
 	int x, y;
 

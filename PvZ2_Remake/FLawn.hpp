@@ -8,13 +8,12 @@
 
 class FLawn {
 private:
-	const static int numRow = 5, numCol = 9;
-	static FGrid grid[5][9];
+	static FGrid grid[LAWN_ROW_NUM][LAWN_COLUMN_NUM];
 
 public:
 	static void initGrid();
 	static bool updateGrid(int row, int col, enum GRID_STATES state);
-	
+	static enum GRID_STATES getGridState(int row, int col);
 
 	// Debug functions
 	static void drawGridHitbox(SDL_Renderer* mRenderer);

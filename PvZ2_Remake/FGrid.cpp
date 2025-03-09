@@ -9,7 +9,7 @@ FGrid::FGrid() {
 	col = 0;
 	x = 0;
 	y = 0;
-	state = 0;
+	state = GRID_EMPTY;
 }
 
 FGrid::FGrid(int r, int c) {
@@ -17,5 +17,5 @@ FGrid::FGrid(int r, int c) {
 	col = c;
 	x = LAWN_START_X + c * LAWN_GRID_WIDTH;
 	y = LAWN_START_Y + r * LAWN_GRID_HEIGHT;
-	state = 0;
+	state = GRID_EMPTY;
 }
