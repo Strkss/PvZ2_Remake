@@ -36,10 +36,22 @@ enum PLANTS {
 };
 
 const double SPRITE_DOWNSCALE = 1.75;
-
 const int FRAME_PACING = 2;
-const int SPRITE_SIZE = 140;
+
+const int PEASHOOTER_SPRITE_SIZE = 140;
 const int PEASHOOTER_ATTACK_FRAME = 31;
 const int PEASHOOTER_IDLE_FRAME = 31;
 const std::string PEASHOOTER_ATTACK_IMG = "Assets/PlantAnimation/peashooter_attack.png";
 const std::string PEASHOOTER_IDLE_IMG = "Assets/PlantAnimation/peashooter_idle.png";
+
+const std::string SEEDPACKET_PEASHOOTER_IMG_UNCHOSEN = "Assets/SeedPacket/peashooter_0.png";
+const std::string SEEDPACKET_PEASHOOTER_IMG_CHOSEN = "Assets/SeedPacket/peashooter_1.png";
+const std::string SEEDPACKET_PEASHOOTER_IMG_COOLDOWN = "Assets/SeedPacket/peashooter_2.png";
+
+enum SEEDPACKET_STATES {
+	SEEDPACKET_UNCHOSEN,
+	SEEDPACKET_CHOSEN,
+	SEEDPACKET_COOLDOWN,
+	SEEDPACKET_NUM
+};
+

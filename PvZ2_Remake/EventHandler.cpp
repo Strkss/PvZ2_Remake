@@ -5,6 +5,7 @@
 #include "Constants.hpp"
 #include "FPeashooter.hpp"
 #include "FLawn.hpp"
+#include "FSeedPacket.hpp"
 
 static enum PLANTS chosen = NONE;
 static bool shovelChosen = false;
@@ -23,8 +24,14 @@ void handleEvent(SDL_Event& e) {
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
 		switch (e.key.keysym.sym) {
 		case SDLK_1:
-			if (chosen == PEASHOOTER) chosen = NONE;
-			else chosen = PEASHOOTER;
+			if (chosen == PEASHOOTER) {
+				chosen = NONE;
+				FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_UNCHOSEN);
+			}
+			else {
+				chosen = PEASHOOTER;
+				FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_CHOSEN);
+			}
 			shovelChosen = false;
 			break;
 		case SDLK_q:
@@ -58,6 +65,7 @@ void handleEvent(SDL_Event& e) {
 				}
 			}
 		}
+		if (chosen != NONE) FSeedPacket::updateState(chosen, SEEDPACKET_UNCHOSEN);
 		chosen = NONE;
 		shovelChosen = false;
 	}

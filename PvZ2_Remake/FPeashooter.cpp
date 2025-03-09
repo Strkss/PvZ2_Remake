@@ -12,10 +12,10 @@ vector<FPeashooter*> vecPeashooter;
 
 bool FPeashooter::loadMedia(SDL_Renderer* mRenderer) {
 	for (int i = 0; i < PEASHOOTER_IDLE_FRAME; i++) {
-		peashooterIdleSprite[i] = { SPRITE_SIZE * i, 0, SPRITE_SIZE, SPRITE_SIZE };
+		peashooterIdleSprite[i] = { PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE };
 	}
 	for (int i = 0; i < PEASHOOTER_ATTACK_FRAME; i++) {
-		peashooterAttackSprite[i] = { SPRITE_SIZE * i, 0, SPRITE_SIZE, SPRITE_SIZE };
+		peashooterAttackSprite[i] = { PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE };
 	}
 	peashooterIdlePNG.loadFromFile(mRenderer, PEASHOOTER_IDLE_IMG);
 	peashooterAttackPNG.loadFromFile(mRenderer, PEASHOOTER_ATTACK_IMG);

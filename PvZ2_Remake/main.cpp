@@ -8,6 +8,7 @@
 #include "FGrid.hpp"
 #include "FPeashooter.hpp"
 #include "EventHandler.hpp"
+#include "FSeedPacket.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -20,6 +21,7 @@ int main(int argc, char* argv[]) {
 	mTexture.loadFromFile(mRenderer, LAWN_IMG);
 	FLawn::initGrid();
 	FPeashooter::loadMedia(mRenderer);
+	FSeedPacket::loadMedia(mRenderer);
 
 	bool quit = false;
 	SDL_Event e;
@@ -36,6 +38,7 @@ int main(int argc, char* argv[]) {
 		mTexture.renderAtPosition(mRenderer, -10, 0);
 		FLawn::drawGridHitbox(mRenderer);
 		FPeashooter::playAllAnim(mRenderer);
+		FSeedPacket::renderGUI(mRenderer);
 
 		SDL_RenderPresent(mRenderer);
 	}
