@@ -30,13 +30,23 @@ void handleEvent(SDL_Event& e) {
 			}
 			else {
 				chosen = PEASHOOTER;
+				shovelChosen = false;
+				FSeedPacket::updateState(SHOVEL, SEEDPACKET_UNCHOSEN);
 				FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_CHOSEN);
 			}
 			shovelChosen = false;
 			break;
 		case SDLK_q:
-			if (shovelChosen) shovelChosen = false;
-			else shovelChosen = true;
+			if (shovelChosen) {
+				shovelChosen = false;
+				FSeedPacket::updateState(SHOVEL, SEEDPACKET_UNCHOSEN);
+			}
+			else {
+				chosen = NONE;
+				shovelChosen = true;
+				FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_UNCHOSEN);
+				FSeedPacket::updateState(SHOVEL, SEEDPACKET_CHOSEN);
+			}
 			chosen = NONE;
 			break;
 		}
@@ -67,6 +77,7 @@ void handleEvent(SDL_Event& e) {
 		}
 		if (chosen != NONE) FSeedPacket::updateState(chosen, SEEDPACKET_UNCHOSEN);
 		chosen = NONE;
+		if (shovelChosen) FSeedPacket::updateState(SHOVEL, SEEDPACKET_UNCHOSEN);
 		shovelChosen = false;
 	}
 }

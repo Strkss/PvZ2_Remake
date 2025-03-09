@@ -32,7 +32,8 @@ enum PLANTS {
 	PEASHOOTER,
 	SUNFLOWER,
 	WALLNUT,
-	POTATOMINE
+	POTATOMINE,
+	SHOVEL
 };
 
 const double SPRITE_DOWNSCALE = 1.75;
@@ -47,6 +48,9 @@ const std::string PEASHOOTER_IDLE_IMG = "Assets/PlantAnimation/peashooter_idle.p
 const std::string SEEDPACKET_PEASHOOTER_IMG_UNCHOSEN = "Assets/SeedPacket/peashooter_0.png";
 const std::string SEEDPACKET_PEASHOOTER_IMG_CHOSEN = "Assets/SeedPacket/peashooter_1.png";
 const std::string SEEDPACKET_PEASHOOTER_IMG_COOLDOWN = "Assets/SeedPacket/peashooter_2.png";
+
+const std::string SEEDPACKET_SHOVEL_IMG_UNCHOSEN = "Assets/SeedPacket/shovel_0.png";
+const std::string SEEDPACKET_SHOVEL_IMG_CHOSEN = "Assets/SeedPacket/shovel_1.png";
 
 enum SEEDPACKET_STATES {
 	SEEDPACKET_UNCHOSEN,

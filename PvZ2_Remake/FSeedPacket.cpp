@@ -6,22 +6,32 @@
 
 FTexture FSeedPacket::seedPacketPeashooter[SEEDPACKET_NUM];
 enum SEEDPACKET_STATES FSeedPacket::statePeashooter;
+FTexture FSeedPacket::shovel[SEEDPACKET_NUM];
+enum SEEDPACKET_STATES FSeedPacket::stateShovel;
 
 void FSeedPacket::loadMedia(SDL_Renderer* mRenderer) {
 	seedPacketPeashooter[SEEDPACKET_UNCHOSEN].loadFromFile(mRenderer, SEEDPACKET_PEASHOOTER_IMG_UNCHOSEN);
 	seedPacketPeashooter[SEEDPACKET_CHOSEN].loadFromFile(mRenderer, SEEDPACKET_PEASHOOTER_IMG_CHOSEN);
 	seedPacketPeashooter[SEEDPACKET_COOLDOWN].loadFromFile(mRenderer, SEEDPACKET_PEASHOOTER_IMG_COOLDOWN);
+
+	shovel[SEEDPACKET_UNCHOSEN].loadFromFile(mRenderer, SEEDPACKET_SHOVEL_IMG_UNCHOSEN);
+	shovel[SEEDPACKET_CHOSEN].loadFromFile(mRenderer, SEEDPACKET_SHOVEL_IMG_CHOSEN);
+	
 	printf("DONE: Loaded Seed Packet Texture\n");
 }
 
 void FSeedPacket::renderGUI(SDL_Renderer* mRenderer) {
-	seedPacketPeashooter[statePeashooter].renderAtPosition(mRenderer, 10, 50, NULL, SPRITE_DOWNSCALE);
+	seedPacketPeashooter[statePeashooter].renderAtPosition(mRenderer, 10, 100, NULL, SPRITE_DOWNSCALE);
+	shovel[stateShovel].renderAtPosition(mRenderer, 10, SCREEN_HEIGHT - 100, NULL, SPRITE_DOWNSCALE);
 }
 
 void FSeedPacket::updateState(enum PLANTS plant, enum SEEDPACKET_STATES state) {
 	switch (plant) {
 	case PEASHOOTER:
 		statePeashooter = state;
+		break;
+	case SHOVEL:
+		stateShovel = state;
 		break;
 	}
 	printf("DONE: Updated state of %d to state %d\n", plant, state);

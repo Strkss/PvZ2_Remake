@@ -7,6 +7,8 @@
 class FSeedPacket {
 	static FTexture seedPacketPeashooter[SEEDPACKET_NUM];
 	static enum SEEDPACKET_STATES statePeashooter;
+	static FTexture shovel[SEEDPACKET_NUM];
+	static enum SEEDPACKET_STATES stateShovel;
 public:
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static void renderGUI(SDL_Renderer* mRenderer);
