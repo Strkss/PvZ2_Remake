@@ -2,5 +2,8 @@
 #include <SDL.h>
 #include "FSun.hpp"
 
-void handleEvent(SDL_Event& e);
+extern int peashooterSeedPacketTime;
+
+void refreshSeedPacket();
+void handleEvent(SDL_Renderer* mRenderer, SDL_Event& e);
 bool findGrid(int& x, int& y, int& row, int& col);

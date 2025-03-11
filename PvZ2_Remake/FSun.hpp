@@ -37,6 +37,7 @@ public:
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static void removeSun(int x, int y);
 	static bool findSunClick(int x, int y);
+	static int getCurSun();
 };
 
 extern vector<FSun*> vecSun;

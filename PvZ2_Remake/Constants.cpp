@@ -16,3 +16,4 @@ Mix_Chunk* sfxExplode = NULL;
 Mix_Chunk* sfxHit = NULL;
 Mix_Chunk* sfxPlant = NULL;
 Mix_Chunk* sfxSun = NULL;
+Mix_Chunk* sfxBuzz = NULL;

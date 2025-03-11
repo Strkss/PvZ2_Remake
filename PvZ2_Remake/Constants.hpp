@@ -20,6 +20,7 @@ extern Mix_Chunk* sfxExplode;
 extern Mix_Chunk* sfxHit;
 extern Mix_Chunk* sfxPlant;
 extern Mix_Chunk* sfxSun;
+extern Mix_Chunk* sfxBuzz;
 
 extern TTF_Font* font;
 const std::string FONT = "Assets/Font/font.ttf";
@@ -64,6 +65,7 @@ const int FRAME_PACING = 2;
 const int PEASHOOTER_SPRITE_SIZE = 140;
 const int PEASHOOTER_ATTACK_FRAME = 31;
 const int PEASHOOTER_IDLE_FRAME = 31;
+const int SEEDPACKET_PEASHOOTER_COOLDOWN = 300;
 const std::string PEASHOOTER_ATTACK_IMG = "Assets/PlantAnimation/peashooter_attack.png";
 const std::string PEASHOOTER_IDLE_IMG = "Assets/PlantAnimation/peashooter_idle.png";
 
@@ -93,4 +95,11 @@ enum SUN_STATES {
 	SUN_STILL,
 	SUN_MOVE,
 	SUN_STATES_NUM
+};
+
+enum PLANT_COSTS {
+	PEASHOOTER_COST = 100,
+	SUNFLOWER_COST = 50,
+	WALLNUT_COST = 50,
+	POTATOMINE_COST = 25
 };

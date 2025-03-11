@@ -32,16 +32,17 @@ int main(int argc, char* argv[]) {
 	Mix_PlayMusic(intro, 0);
 
 	bool quit = false;
-	SDL_Event e;
+	SDL_Event e, nullE;
 	while (!quit) {
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
 				quit = true;
 				break;
 			}
-			handleEvent(e);
+			handleEvent(mRenderer, e);
 		}
-		
+		refreshSeedPacket();
+
 		if (Mix_PlayingMusic() == 0) {
 			Mix_PlayMusic(flag_0, INT_MAX);
 		}

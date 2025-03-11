@@ -85,6 +85,10 @@ void FSun::summonSkySun() {
 	time = 0;
 }
 
+int FSun::getCurSun() {
+	return curSun;
+}
+
 FSun::FSun(int x, int y) {
 	curX = x;
 	curY = y;

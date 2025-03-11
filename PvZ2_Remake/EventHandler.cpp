@@ -9,6 +9,7 @@
 
 static enum PLANTS chosen = NONE;
 static bool shovelChosen = false;
+int peashooterSeedPacketTime = 0;
 
 bool findGrid(int& x, int& y, int& row, int& col) {
 	x -= LAWN_START_X;
@@ -20,7 +21,12 @@ bool findGrid(int& x, int& y, int& row, int& col) {
 	return 1;
 }
 
-void handleEvent(SDL_Event& e) {
+void refreshSeedPacket() {
+	if (peashooterSeedPacketTime - 1 == 0) FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_UNCHOSEN);
+	peashooterSeedPacketTime = std::max(peashooterSeedPacketTime - 1, 0);
+}
+
+void handleEvent(SDL_Renderer* mRenderer, SDL_Event& e) {
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
 		switch (e.key.keysym.sym) {
 		case SDLK_1:
@@ -62,9 +68,15 @@ void handleEvent(SDL_Event& e) {
 			case NONE:
 				break;
 			case PEASHOOTER:
-				if (FLawn::getGridState(row, col) == GRID_EMPTY) {
+				if (FLawn::getGridState(row, col) == GRID_EMPTY && peashooterSeedPacketTime == 0 && FSun::getCurSun() - PEASHOOTER_COST >= 0) {
 					Mix_PlayChannel(-1, sfxPlant, 0);
+					FSun::updateSunCounter(mRenderer, -PEASHOOTER_COST);
 					FPeashooter* myPea = new FPeashooter(row, col);
+					FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_COOLDOWN);
+					peashooterSeedPacketTime = SEEDPACKET_PEASHOOTER_COOLDOWN;
+				}
+				else {
+					Mix_PlayChannel(-1, sfxBuzz, 0);
 				}
 				break;
 			}

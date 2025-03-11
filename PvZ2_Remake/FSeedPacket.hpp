@@ -3,6 +3,7 @@
 
 #include "FTexture.hpp"
 #include "Constants.hpp"
+#include "EventHandler.hpp"
 
 class FSeedPacket {
 	static FTexture seedPacketPeashooter[SEEDPACKET_NUM];

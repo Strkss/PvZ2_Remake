@@ -28,6 +28,7 @@ void FSeedPacket::renderGUI(SDL_Renderer* mRenderer) {
 void FSeedPacket::updateState(enum PLANTS plant, enum SEEDPACKET_STATES state) {
 	switch (plant) {
 	case PEASHOOTER:
+		if (peashooterSeedPacketTime > 1) break;
 		statePeashooter = state;
 		break;
 	case SHOVEL:
