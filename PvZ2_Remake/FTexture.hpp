@@ -13,7 +13,6 @@ class FTexture {
 private:
 	int w, h;
 	SDL_Texture* mTexture;
-	TTF_Font* font;
 
 public:
 	FTexture();

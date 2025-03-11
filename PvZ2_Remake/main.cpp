@@ -24,7 +24,9 @@ int main(int argc, char* argv[]) {
 	FPeashooter::loadMedia(mRenderer);
 	FSeedPacket::loadMedia(mRenderer);
 	FSun::loadMedia(mRenderer);
-	FSun mySun(400, 400);
+
+	//FTexture temp;
+	//temp.loadFromText(mRenderer, "YES", COLOR_WHITE, 50);
 
 	bool quit = false;
 	SDL_Event e;
@@ -44,9 +46,13 @@ int main(int argc, char* argv[]) {
 		FSeedPacket::renderGUI(mRenderer);
 		FSun::renderAll(mRenderer);
 
+		//temp.renderAtPosition(mRenderer, 0, 0);
+
 		SDL_RenderPresent(mRenderer);
 	}
 
+	TTF_CloseFont(font);
+	font = NULL;
 	quitEngines();
 
 	return 0;

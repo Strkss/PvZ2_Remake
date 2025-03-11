@@ -26,16 +26,16 @@ void FSun::renderAll(SDL_Renderer* mRenderer) {
 	if (time >= 600)	summonSkySun();
 	sunCounter.renderAtPosition(mRenderer, 10, 5);
 	sunText.renderAtPosition(mRenderer, 120, 30);
-	vector<FSun*> toBeRemoved;
+	vector<FSun*> collected;
 	vector<FSun*> despawn;
 	for (auto it : vecSun) {
 		sun.renderAtPosition(mRenderer, it->curX, it->curY, NULL, SPRITE_DOWNSCALE);
 		it->despawnTime++;
 		if (it->state == SUN_MOVE) it->move();
-		if (inSourceRect(it->curX, it->curY, 150, 50)) toBeRemoved.push_back(it);
+		if (inSourceRect(it->curX, it->curY, 150, 50)) collected.push_back(it);
 		if (it->state == SUN_STILL && it->despawnTime >= SUN_DESPAWN_TIME) despawn.push_back(it);
 	}
-	for (auto it : toBeRemoved) {
+	for (auto it : collected) {
 		removeSun(it->sX, it->sY);
 		updateSunCounter(mRenderer, SUN_VALUE);
 	}

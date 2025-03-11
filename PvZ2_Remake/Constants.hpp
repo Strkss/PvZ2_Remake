@@ -1,10 +1,12 @@
 #pragma once
 #include <string>
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
+extern TTF_Font* font;
 const std::string FONT = "Assets/Font/font.ttf";
 
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
@@ -67,7 +69,7 @@ enum SEEDPACKET_STATES {
 const int SUN_VALUE = 25;
 const int SUN_SKYFALL_DELAY = 600;
 const int SUN_DESPAWN_TIME = 500;
-const int SUN_VEL = 20;
+const int SUN_VEL = 30;
 const int SUN_HITBOX = 70;
 const std::string UI_SUN = "Assets/UI/sun.png";
 const std::string UI_SUN_COUNTER = "Assets/UI/sun_counter.png";
