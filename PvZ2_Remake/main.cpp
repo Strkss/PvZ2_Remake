@@ -9,6 +9,7 @@
 #include "FPeashooter.hpp"
 #include "EventHandler.hpp"
 #include "FSeedPacket.hpp"
+#include "FSun.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -22,6 +23,8 @@ int main(int argc, char* argv[]) {
 	FLawn::initGrid();
 	FPeashooter::loadMedia(mRenderer);
 	FSeedPacket::loadMedia(mRenderer);
+	FSun::loadMedia(mRenderer);
+	FSun mySun(400, 400);
 
 	bool quit = false;
 	SDL_Event e;
@@ -39,6 +42,7 @@ int main(int argc, char* argv[]) {
 		FLawn::drawGridHitbox(mRenderer);
 		FPeashooter::playAllAnim(mRenderer);
 		FSeedPacket::renderGUI(mRenderer);
+		FSun::renderAll(mRenderer);
 
 		SDL_RenderPresent(mRenderer);
 	}

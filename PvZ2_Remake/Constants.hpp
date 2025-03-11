@@ -1,8 +1,13 @@
 #pragma once
 #include <string>
+#include <SDL.h>
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
+
+const std::string FONT = "Assets/Font/font.ttf";
+
+const SDL_Color COLOR_WHITE = { 255, 255, 255 };
 
 const std::string LAWN_IMG = "Assets/Lawn/lawn.png";
 const int LAWN_GRID_WIDTH = 81;
@@ -59,3 +64,16 @@ enum SEEDPACKET_STATES {
 	SEEDPACKET_NUM
 };
 
+const int SUN_VALUE = 25;
+const int SUN_SKYFALL_DELAY = 600;
+const int SUN_DESPAWN_TIME = 500;
+const int SUN_VEL = 20;
+const int SUN_HITBOX = 70;
+const std::string UI_SUN = "Assets/UI/sun.png";
+const std::string UI_SUN_COUNTER = "Assets/UI/sun_counter.png";
+
+enum SUN_STATES {
+	SUN_STILL,
+	SUN_MOVE,
+	SUN_STATES_NUM
+};

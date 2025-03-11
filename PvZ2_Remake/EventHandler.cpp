@@ -55,7 +55,9 @@ void handleEvent(SDL_Event& e) {
 		int row = 0, col = 0;
 		int x = 0, y = 0;
 		SDL_GetMouseState(&x, &y);
-		if (findGrid(x, y, row, col)) {
+		bool sunClick = false;
+		if (FSun::findSunClick(x, y)) sunClick = true;
+		if (findGrid(x, y, row, col) && sunClick == false) {
 			switch (chosen) {
 			case NONE:
 				break;

@@ -13,6 +13,7 @@ FTexture::FTexture() {
 	w = 0;
 	h = 0;
 	mTexture = NULL;
+	font = NULL;
 }
 
 FTexture::~FTexture() {
@@ -22,8 +23,36 @@ FTexture::~FTexture() {
 void FTexture::free() {
 	SDL_DestroyTexture(mTexture);
 	mTexture = NULL;
+	TTF_CloseFont(font);
+	font = nullptr;
 	w = 0;
 	h = 0;
+}
+
+bool FTexture::loadFromText(SDL_Renderer* mRenderer, const std::string& text, const SDL_Color& color, const int& size) {
+	free();
+
+	font = TTF_OpenFont(FONT.c_str(), size);
+
+	SDL_Surface* loadSurf = NULL;
+	loadSurf = TTF_RenderText_Solid(font, text.c_str(), color);
+
+	if (loadSurf == NULL) {
+		printf("loadFromText -> loadSurf == NULL\n");
+		return 0;
+	}
+
+	mTexture = SDL_CreateTextureFromSurface(mRenderer, loadSurf);
+	w = loadSurf->w;
+	h = loadSurf->h;
+
+	if (mTexture == NULL) {
+		printf("loadFromFile -> mTexture == NULL\n");
+		return 0;
+	}
+
+	printf("DONE: loadFromText %s\n", text.c_str());
+	return 1;
 }
 
 bool FTexture::loadFromFile(SDL_Renderer * mRenderer, const std::string & path) {

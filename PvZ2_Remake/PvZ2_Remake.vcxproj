@@ -137,9 +137,11 @@
     <ClCompile Include="FLawn.cpp" />
     <ClCompile Include="FPeashooter.cpp" />
     <ClCompile Include="FSeedPacket.cpp" />
+    <ClCompile Include="FSun.cpp" />
     <ClCompile Include="FTexture.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +151,9 @@
     <ClInclude Include="FLawn.hpp" />
     <ClInclude Include="FPeashooter.hpp" />
     <ClInclude Include="FSeedPacket.hpp" />
+    <ClInclude Include="FSun.hpp" />
     <ClInclude Include="Init.hpp" />
+    <ClInclude Include="Math.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
   </ItemGroup>
