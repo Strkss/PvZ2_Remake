@@ -12,13 +12,13 @@ using std::vector;
 
 FTexture sun, sunCounter, sunText;
 vector<FSun*> vecSun;
-int FSun::curSun = 0;
+int FSun::curSun = 50;
 int FSun::time = 0;
 
 void FSun::loadMedia(SDL_Renderer* mRenderer) {
 	sun.loadFromFile(mRenderer, UI_SUN);
 	sunCounter.loadFromFile(mRenderer, UI_SUN_COUNTER);
-	sunText.loadFromText(mRenderer, "0", COLOR_WHITE, 40);
+	sunText.loadFromText(mRenderer, "50", COLOR_WHITE, 40);
 }
 
 void FSun::renderAll(SDL_Renderer* mRenderer) {
@@ -70,6 +70,7 @@ void FSun::removeSun(int x, int y) {
 bool FSun::findSunClick(int x, int y) {
 	for (auto it : vecSun) {
 		if (inRect(x, y, it->curX, it->curY, SUN_HITBOX, SUN_HITBOX) && it->state == SUN_STILL) {
+			Mix_PlayChannel(-1, sfxSun, 0);
 			it->state = SUN_MOVE;
 			return 1;
 		}

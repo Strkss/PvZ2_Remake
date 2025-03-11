@@ -63,6 +63,7 @@ void handleEvent(SDL_Event& e) {
 				break;
 			case PEASHOOTER:
 				if (FLawn::getGridState(row, col) == GRID_EMPTY) {
+					Mix_PlayChannel(-1, sfxPlant, 0);
 					FPeashooter* myPea = new FPeashooter(row, col);
 				}
 				break;
@@ -72,6 +73,7 @@ void handleEvent(SDL_Event& e) {
 				case GRID_EMPTY:
 					break;
 				case GRID_PEASHOOTER:
+					Mix_PlayChannel(-1, sfxPlant, 0);
 					FPeashooter::removePlant(row, col);
 					break;
 				}

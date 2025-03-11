@@ -10,5 +10,7 @@
 
 bool createWindow(SDL_Window*& mWindow);
 bool initEngines();
+bool loadMusic();
+bool closeMusic();
 
 void quitEngines();

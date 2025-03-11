@@ -2,9 +2,24 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
+
+extern Mix_Music* flag_0;
+extern Mix_Music* flag_1;
+extern Mix_Music* flag_2;
+extern Mix_Music* flag_3;
+extern Mix_Music* intro;
+extern Mix_Music* won;
+extern Mix_Music* lost;
+
+extern Mix_Chunk* sfxEat;
+extern Mix_Chunk* sfxExplode;
+extern Mix_Chunk* sfxHit;
+extern Mix_Chunk* sfxPlant;
+extern Mix_Chunk* sfxSun;
 
 extern TTF_Font* font;
 const std::string FONT = "Assets/Font/font.ttf";

@@ -13,6 +13,7 @@
 
 int main(int argc, char* argv[]) {
 	initEngines();
+	loadMusic();
 	SDL_Renderer* mRenderer = NULL;
 	SDL_Window* mWindow = NULL;
 	FTexture mTexture;
@@ -28,6 +29,8 @@ int main(int argc, char* argv[]) {
 	//FTexture temp;
 	//temp.loadFromText(mRenderer, "YES", COLOR_WHITE, 50);
 
+	Mix_PlayMusic(intro, 0);
+
 	bool quit = false;
 	SDL_Event e;
 	while (!quit) {
@@ -38,6 +41,11 @@ int main(int argc, char* argv[]) {
 			}
 			handleEvent(e);
 		}
+		
+		if (Mix_PlayingMusic() == 0) {
+			Mix_PlayMusic(flag_0, INT_MAX);
+		}
+
 		SDL_RenderClear(mRenderer);
 
 		mTexture.renderAtPosition(mRenderer, -10, 0);
@@ -53,6 +61,7 @@ int main(int argc, char* argv[]) {
 
 	TTF_CloseFont(font);
 	font = NULL;
+	closeMusic();
 	quitEngines();
 
 	return 0;

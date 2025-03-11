@@ -75,6 +75,10 @@
     <IncludePath>C:\vclib\SDL2-2.32.0\include;C:\vclib\SDL2_ttf-2.24.0\include;C:\vclib\SDL2_mixer-2.8.1\include;C:\vclib\SDL2_image-2.8.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\vclib\SDL2-2.32.0\lib\x64;C:\vclib\SDL2_ttf-2.24.0\lib\x64;C:\vclib\SDL2_mixer-2.8.1\lib\x64;C:\vclib\SDL2_image-2.8.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\vclib\SDL2-2.32.0\include;C:\vclib\SDL2_ttf-2.24.0\include;C:\vclib\SDL2_mixer-2.8.1\include;C:\vclib\SDL2_image-2.8.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclib\SDL2-2.32.0\lib\x64;C:\vclib\SDL2_ttf-2.24.0\lib\x64;C:\vclib\SDL2_mixer-2.8.1\lib\x64;C:\vclib\SDL2_image-2.8.5\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -130,6 +134,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

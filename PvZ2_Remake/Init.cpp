@@ -39,12 +39,94 @@ bool initEngines() {
 		return 0;
 	}
 
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 16, 2048) < 0) {
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 8, 2048) < 0) {
 		printf("initEngines -> Mix_OpenAudio\n");
 		return 0;
 	}
 
 	printf("DONE: initEngines\n");
+	return 1;
+}
+
+bool loadMusic() {
+	flag_0 = Mix_LoadMUS("Assets/Music/flag_0.mp3");
+	if (flag_0 == NULL) {
+		printf("loadMusic -> flag_0\n");
+		return 0;
+	}
+	flag_1 = Mix_LoadMUS("Assets/Music/flag_1.mp3");
+	if (flag_1 == NULL) {
+		printf("loadMusic -> flag_1\n");
+		return 0;
+	}
+	flag_2 = Mix_LoadMUS("Assets/Music/flag_2.mp3");
+	if (flag_2 == NULL) {
+		printf("loadMusic -> flag_2\n");
+		return 0;
+	}
+	flag_3 = Mix_LoadMUS("Assets/Music/flag_3.mp3");
+	if (flag_3 == NULL) {
+		printf("loadMusic -> flag_3\n");
+		return 0;
+	}
+	intro = Mix_LoadMUS("Assets/Music/intro.mp3");
+	if (intro == NULL) {
+		printf("loadMusic -> intro\n");
+		return 0;
+	}
+	won = Mix_LoadMUS("Assets/Music/won.mp3");
+	if (won == NULL) {
+		printf("loadMusic -> won\n");
+		return 0;
+	}
+	lost = Mix_LoadMUS("Assets/Music/lost.mp3");
+	if (lost == NULL) {
+		printf("loadMusic -> lost\n");
+		return 0;
+	}
+	sfxEat = Mix_LoadWAV("Assets/SFX/eat.mp3");
+	if (sfxEat == NULL) {
+		printf("loadMusic -> sfxEat\n");
+		return 0;
+	}
+	sfxExplode = Mix_LoadWAV("Assets/SFX/explode.mp3");
+	if (sfxExplode == NULL) {
+		printf("loadMusic -> sfxExplode\n");
+		return 0;
+	}
+	sfxHit = Mix_LoadWAV("Assets/SFX/hit.mp3");
+	if (sfxHit == NULL) {
+		printf("loadMusic -> sfxHit\n");
+		return 0;
+	}
+	sfxPlant = Mix_LoadWAV("Assets/SFX/plant.mp3");
+	if (sfxPlant == NULL) {
+		printf("loadMusic -> sfxPlant\n");
+		return 0;
+	}
+	sfxSun = Mix_LoadWAV("Assets/SFX/sun.mp3");
+	if (sfxSun == NULL) {
+		printf("loadMusic -> sfxSun\n");
+		return 0;
+	}
+	printf("DONE: loadMusic\n");
+	return 1;
+}
+
+bool closeMusic() {
+	Mix_FreeMusic(flag_0);
+	Mix_FreeMusic(flag_1);
+	Mix_FreeMusic(flag_2);
+	Mix_FreeMusic(flag_3);
+	Mix_FreeMusic(intro);
+	Mix_FreeMusic(won);
+	Mix_FreeMusic(lost);
+	Mix_FreeChunk(sfxEat);
+	Mix_FreeChunk(sfxExplode);
+	Mix_FreeChunk(sfxHit);
+	Mix_FreeChunk(sfxPlant);
+	Mix_FreeChunk(sfxSun);
+	printf("DONE: closeMusic\n");
 	return 1;
 }
 
