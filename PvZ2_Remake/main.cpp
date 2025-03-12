@@ -10,6 +10,8 @@
 #include "EventHandler.hpp"
 #include "FSeedPacket.hpp"
 #include "FSun.hpp"
+#include "FPea.hpp"
+#include "FZombie.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -25,14 +27,17 @@ int main(int argc, char* argv[]) {
 	FPeashooter::loadMedia(mRenderer);
 	FSeedPacket::loadMedia(mRenderer);
 	FSun::loadMedia(mRenderer);
+	FPea::loadMedia(mRenderer);
+	FZombie::loadMedia(mRenderer);
+	FZombie myZombie(LAWN_END_X - LAWN_GRID_WIDTH, LAWN_END_Y - LAWN_GRID_HEIGHT, ZOMBIE_BASIC);
 
 	//FTexture temp;
-	//temp.loadFromText(mRenderer, "YES", COLOR_WHITE, 50);
+	//temp.loadFromFile(mRenderer, ZOMBIE_BASIC_EAT_IMG);
 
 	Mix_PlayMusic(intro, 0);
 
 	bool quit = false;
-	SDL_Event e, nullE;
+	SDL_Event e;
 	while (!quit) {
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
@@ -54,8 +59,12 @@ int main(int argc, char* argv[]) {
 		FPeashooter::playAllAnim(mRenderer);
 		FSeedPacket::renderGUI(mRenderer);
 		FSun::renderAll(mRenderer);
+		FPea::renderAll(mRenderer);
+		FZombie::renderAll(mRenderer);
 
-		//temp.renderAtPosition(mRenderer, 0, 0);
+		/*basicWalkTexture.renderAtPosition(mRenderer, LAWN_START_X, LAWN_START_Y, &basicWalkSprite[0], SPRITE_DOWNSCALE);*/
+		//myZombie.playAnim(mRenderer);
+		//temp.renderAtPosition(mRenderer, 100, 100);
 
 		SDL_RenderPresent(mRenderer);
 	}

@@ -83,7 +83,7 @@ enum SEEDPACKET_STATES {
 	SEEDPACKET_NUM
 };
 
-const int SUN_VALUE = 25;
+const int SUN_VALUE = 100;
 const int SUN_SKYFALL_DELAY = 600;
 const int SUN_DESPAWN_TIME = 500;
 const int SUN_VEL = 30;
@@ -97,9 +97,51 @@ enum SUN_STATES {
 	SUN_STATES_NUM
 };
 
-enum PLANT_COSTS {
-	PEASHOOTER_COST = 100,
-	SUNFLOWER_COST = 50,
-	WALLNUT_COST = 50,
-	POTATOMINE_COST = 25
+const int PEASHOOTER_COST = 100;
+const int SUNFLOWER_COST = 50;
+const int WALLNUT_COST = 50;
+const int POTATOMINE_COST = 25;
+
+const std::string PEA_IMG = "Assets/Etc/pea.png";
+const int PEA_VEL = 7;
+extern long long PEA_ID;
+
+enum ZOMBIE_TYPES {
+	ZOMBIE_BASIC,
+	ZOMBIE_CONE,
+	ZOMBIE_BUCKET,
+	ZOMBIE_FLAG,
+	ZOMBIE_TYPES_NUM
 };
+
+enum ZOMBIE_STATES {
+	ZOMBIE_WALK,
+	ZOMBIE_EAT,
+	ZOMBIE_DIE,
+	ZOMBIE_STATES_NUM
+};
+
+const int ZOMBIE_BASIC_HP = 190;
+const int ZOMBIE_CONE_HP = 560;
+const int ZOMBIE_BUCKET_HP = 1290;
+const int ZOMBIE_FLAG_HP = 190;
+extern int ZOMBIE_ID;
+
+const int ZOMBIE_INV_VEL = 4;
+const int ZOMBIE_DMG = 2;
+
+const std::string ZOMBIE_BASIC_WALK_IMG = "Assets/ZombieAnimation/basic_walk.png";
+const std::string ZOMBIE_BASIC_EAT_IMG = "Assets/ZombieAnimation/basic_eat.png";
+const std::string ZOMBIE_DIE_IMG = "Assets/ZombieAnimation/zombie_die.png";
+
+const int ZOMBIE_BASIC_WALK_FRAME = 90;
+const int ZOMBIE_BASIC_WALK_SPRITE_WIDTH = 182;
+const int ZOMBIE_BASIC_WALK_SPRITE_HEIGHT = 182;
+
+const int ZOMBIE_BASIC_EAT_FRAME = 259;
+const int ZOMBIE_BASIC_EAT_SPRITE_WIDTH = 155;
+const int ZOMBIE_BASIC_EAT_SPRITE_HEIGHT = 250;
+
+const int ZOMBIE_DIE_FRAME = 55;
+const int ZOMBIE_DIE_SPRITE_WIDTH = 182;
+const int ZOMBIE_DIE_SPRITE_HEIGHT = 182;

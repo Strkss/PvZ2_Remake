@@ -4,6 +4,7 @@
 
 #include "FTexture.hpp"
 #include "Constants.hpp"
+#include "FPea.hpp"
 
 using std::vector;
 
@@ -22,6 +23,7 @@ public:
 	void free();
 	int getRow();
 	int getCol();
+	void shoot();
 	static void playAllAnim(SDL_Renderer* mRenderer);
 	static bool loadMedia(SDL_Renderer* mRenderer);
 	static bool removePlant(int row, int col);

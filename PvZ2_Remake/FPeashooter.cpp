@@ -30,7 +30,7 @@ FPeashooter::FPeashooter(int r, int c) {
 	col = c;
 	x = LAWN_START_X + LAWN_GRID_WIDTH * col + 5;
 	y = LAWN_START_Y + LAWN_GRID_HEIGHT * row + 8;
-	animState = PEASHOOTER_IDLE;
+	animState = PEASHOOTER_ATTACK;
 	animFrame = 0;
 	FLawn::updateGrid(row, col, GRID_PEASHOOTER);
 	vecPeashooter.push_back(this);
@@ -54,6 +54,12 @@ void FPeashooter::playAnim(SDL_Renderer* mRenderer) {
 		if (animFrame / FRAME_PACING >= PEASHOOTER_IDLE_FRAME) animFrame = 0;
 		peashooterIdlePNG.renderAtPosition(mRenderer, x, y, &peashooterIdleSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 		break;
+	case PEASHOOTER_ATTACK:
+		if (animFrame / FRAME_PACING >= PEASHOOTER_ATTACK_FRAME) animFrame = 0;
+		if (animFrame * FRAME_PACING - 1 == PEASHOOTER_ATTACK_FRAME * 2 - 1) {
+			shoot();
+		}
+		peashooterAttackPNG.renderAtPosition(mRenderer, x, y, &peashooterAttackSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 	}
 }
 
@@ -91,4 +97,8 @@ int FPeashooter::getRow() {
 
 int FPeashooter::getCol() {
 	return col;
+}
+
+void FPeashooter::shoot() {
+	FPea* myPea = new FPea(LAWN_START_X + LAWN_GRID_WIDTH * col + LAWN_GRID_WIDTH / 2, LAWN_START_Y + LAWN_GRID_HEIGHT * row + LAWN_GRID_HEIGHT / 2 - peaTexture.getH() / SPRITE_DOWNSCALE);
 }

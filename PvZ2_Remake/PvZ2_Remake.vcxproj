@@ -128,6 +128,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,10 +143,12 @@
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
+    <ClCompile Include="FPea.cpp" />
     <ClCompile Include="FPeashooter.cpp" />
     <ClCompile Include="FSeedPacket.cpp" />
     <ClCompile Include="FSun.cpp" />
     <ClCompile Include="FTexture.cpp" />
+    <ClCompile Include="FZombie.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
@@ -156,9 +159,11 @@
     <ClInclude Include="EventHandler.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />
+    <ClInclude Include="FPea.hpp" />
     <ClInclude Include="FPeashooter.hpp" />
     <ClInclude Include="FSeedPacket.hpp" />
     <ClInclude Include="FSun.hpp" />
+    <ClInclude Include="FZombie.hpp" />
     <ClInclude Include="Init.hpp" />
     <ClInclude Include="Math.hpp" />
     <ClInclude Include="RenderEngine.hpp" />

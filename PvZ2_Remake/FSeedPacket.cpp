@@ -35,5 +35,5 @@ void FSeedPacket::updateState(enum PLANTS plant, enum SEEDPACKET_STATES state) {
 		stateShovel = state;
 		break;
 	}
-	printf("DONE: Updated state of %d to state %d\n", plant, state);
+	//printf("DONE: Updated state of %d to state %d\n", plant, state);
 }
