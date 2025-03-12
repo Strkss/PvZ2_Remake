@@ -12,6 +12,8 @@
 #include "FSun.hpp"
 #include "FPea.hpp"
 #include "FZombie.hpp"
+#include "CollisionChecker.hpp"
+#include "ZombieSpawner.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -29,10 +31,6 @@ int main(int argc, char* argv[]) {
 	FSun::loadMedia(mRenderer);
 	FPea::loadMedia(mRenderer);
 	FZombie::loadMedia(mRenderer);
-	FZombie myZombie(LAWN_END_X - LAWN_GRID_WIDTH, LAWN_END_Y - LAWN_GRID_HEIGHT, ZOMBIE_BASIC);
-
-	//FTexture temp;
-	//temp.loadFromFile(mRenderer, ZOMBIE_BASIC_EAT_IMG);
 
 	Mix_PlayMusic(intro, 0);
 
@@ -58,13 +56,12 @@ int main(int argc, char* argv[]) {
 		FLawn::drawGridHitbox(mRenderer);
 		FPeashooter::playAllAnim(mRenderer);
 		FSeedPacket::renderGUI(mRenderer);
-		FSun::renderAll(mRenderer);
 		FPea::renderAll(mRenderer);
+		spawnWave();
 		FZombie::renderAll(mRenderer);
-
-		/*basicWalkTexture.renderAtPosition(mRenderer, LAWN_START_X, LAWN_START_Y, &basicWalkSprite[0], SPRITE_DOWNSCALE);*/
-		//myZombie.playAnim(mRenderer);
-		//temp.renderAtPosition(mRenderer, 100, 100);
+		checkPeaAndZombie();
+		detectPeashooterZombie();
+		FSun::renderAll(mRenderer);
 
 		SDL_RenderPresent(mRenderer);
 	}

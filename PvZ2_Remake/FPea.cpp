@@ -9,9 +9,10 @@
 FTexture peaTexture;
 std::vector<FPea*> vecPea;
 
-FPea::FPea(int x, int y) {
+FPea::FPea(int x, int y, int row) {
 	this->x = x;
 	this->y = y;
+	this->row = row;
 	id = ++PEA_ID;
 	vecPea.push_back(this);
 }
@@ -64,4 +65,20 @@ bool FPea::removePea(long long id) {
 	vecPea.erase(vecPea.begin() + delIndex);
 	printf("DONE: Removed pea with id %lli\n", id);
 	return 1;
+}
+
+bool sortByRow(FPea*& lhs, FPea*& rhs) {
+	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getX() < rhs->getX());
+}
+
+int FPea::getRow() {
+	return row;
+}
+
+int FPea::getX() {
+	return x;
+}
+
+int FPea::getY() {
+	return y;
 }

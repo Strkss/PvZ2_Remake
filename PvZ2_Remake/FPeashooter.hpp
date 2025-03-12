@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <vector>
 #include <SDL.h>
@@ -24,12 +25,15 @@ public:
 	int getRow();
 	int getCol();
 	void shoot();
+	void playAnim(SDL_Renderer* mRenderer);
+	void updateState(enum PEASHOOTER_STATES state);
+	enum PEASHOOTER_STATES getState();
+
 	static void playAllAnim(SDL_Renderer* mRenderer);
 	static bool loadMedia(SDL_Renderer* mRenderer);
 	static bool removePlant(int row, int col);
-	static bool compFunc(FPeashooter*& lhs, FPeashooter*& rhs);
-	void playAnim(SDL_Renderer* mRenderer);
-	
 };
+
+bool sortByRow(FPeashooter*& lhs, FPeashooter*& rhs);
 
 extern vector<FPeashooter*> vecPeashooter;

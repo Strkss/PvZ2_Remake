@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <SDL.h>
 #include <vector>
@@ -11,6 +12,7 @@ extern SDL_Rect zombieDieSprite[ZOMBIE_DIE_FRAME], basicWalkSprite[ZOMBIE_BASIC_
 class FZombie {
 	int hp;
 	int x, y;
+	int row;
 	int id;
 	int step;
 	int animFrame;
@@ -18,15 +20,21 @@ class FZombie {
 	enum ZOMBIE_TYPES type;
 
 public:
-	FZombie(int x, int y, ZOMBIE_TYPES type);
+	FZombie(int x, int y, int row, ZOMBIE_TYPES type);
 	void free();
 	void move();
 	int getID();
 	void playAnim(SDL_Renderer* mRenderer);
+	int getRow();
+	int getX();
+	int getY();
+	void takeDamage(int dmg);
 	
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static bool renderAll(SDL_Renderer* mRenderer);
 	static bool removeZombie(int id);
 };
+
+bool sortByRow(FZombie*& lhs, FZombie*& rhs);
 
 extern std::vector<FZombie*> vecZombie;

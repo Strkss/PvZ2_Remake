@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FGrid.cpp" />
@@ -153,8 +154,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
+    <ClCompile Include="ZombieSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionChecker.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="EventHandler.hpp" />
     <ClInclude Include="FGrid.hpp" />
@@ -168,6 +171,7 @@
     <ClInclude Include="Math.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
+    <ClInclude Include="ZombieSpawner.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

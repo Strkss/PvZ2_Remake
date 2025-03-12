@@ -4,7 +4,7 @@ FTexture zombieDieTexture, basicWalkTexture, basicEatTexture;
 std::vector<FZombie*> vecZombie;
 SDL_Rect zombieDieSprite[ZOMBIE_DIE_FRAME], basicWalkSprite[ZOMBIE_BASIC_WALK_FRAME], basicEatSprite[ZOMBIE_BASIC_EAT_FRAME];
 
-FZombie::FZombie(int x, int y, ZOMBIE_TYPES type) {
+FZombie::FZombie(int x, int y, int row, ZOMBIE_TYPES type) {
 	switch (type) {
 	case ZOMBIE_BASIC:
 		this->type = ZOMBIE_BASIC;
@@ -28,6 +28,7 @@ FZombie::FZombie(int x, int y, ZOMBIE_TYPES type) {
 	}
 	this->x = x;
 	this->y = y;
+	this->row = row;
 	id = ++ZOMBIE_ID;
 	step = 0;
 	state = ZOMBIE_WALK;
@@ -62,7 +63,7 @@ void FZombie::playAnim(SDL_Renderer* mRenderer) {
 		switch (type) {
 		case ZOMBIE_BASIC:
 			if (animFrame / FRAME_PACING >= ZOMBIE_BASIC_WALK_FRAME) animFrame = 0;
-			basicWalkTexture.renderAtPosition(mRenderer, x, y, &basicWalkSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+			basicWalkTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_WALK_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &basicWalkSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 			//printf("Zombie at %d %d %d\n", x, y, animFrame);
 			break;
 		}
@@ -70,21 +71,48 @@ void FZombie::playAnim(SDL_Renderer* mRenderer) {
 	}
 }
 
+int FZombie::getRow() {
+	return row;
+}
+
+int FZombie::getX() {
+	return x;
+}
+
+int FZombie::getY() {
+	return y;
+}
+
+void FZombie::takeDamage(int dmg) {
+	hp -= dmg;
+	if (hp < 0) {
+		state = ZOMBIE_DIE;
+	}
+}
+
+bool sortByRow(FZombie*& lhs, FZombie*& rhs) {
+	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getX() < rhs->getX());
+}
+
 void FZombie::loadMedia(SDL_Renderer* mRenderer) {
 	zombieDieTexture.loadFromFile(mRenderer, ZOMBIE_DIE_IMG);
 	basicWalkTexture.loadFromFile(mRenderer, ZOMBIE_BASIC_WALK_IMG);
 	basicEatTexture.loadFromFile(mRenderer, ZOMBIE_BASIC_EAT_IMG);
 
-	for (int i = 0; i < ZOMBIE_DIE_FRAME; i++) {
-		zombieDieSprite[i] = { ZOMBIE_DIE_SPRITE_WIDTH * i, 0, ZOMBIE_DIE_SPRITE_WIDTH, ZOMBIE_DIE_SPRITE_HEIGHT };
+	for (int i = 0; i <= ZOMBIE_DIE_FRAME / 10; i++) { // for row
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_DIE_FRAME) { // for col
+			zombieDieSprite[i * 10 + j] = { ZOMBIE_DIE_SPRITE_WIDTH * j, ZOMBIE_DIE_SPRITE_HEIGHT * i, ZOMBIE_DIE_SPRITE_WIDTH, ZOMBIE_DIE_SPRITE_HEIGHT };
+		}
 	}
-	
-	for (int i = 0; i < ZOMBIE_BASIC_WALK_FRAME; i++) {
-		basicWalkSprite[i] = { ZOMBIE_BASIC_WALK_SPRITE_WIDTH * i, 0, ZOMBIE_BASIC_WALK_SPRITE_WIDTH, ZOMBIE_BASIC_WALK_SPRITE_HEIGHT };
+	for (int i = 0; i <= ZOMBIE_BASIC_WALK_FRAME / 10; i++) {
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_BASIC_WALK_FRAME) {
+			basicWalkSprite[i * 10 + j] = { ZOMBIE_BASIC_WALK_SPRITE_WIDTH * j, ZOMBIE_BASIC_WALK_SPRITE_HEIGHT * i, ZOMBIE_BASIC_WALK_SPRITE_WIDTH, ZOMBIE_BASIC_WALK_SPRITE_HEIGHT };
+		}
 	}
-
-	for (int i = 0; i < ZOMBIE_BASIC_EAT_FRAME; i++) {
-		basicEatSprite[i] = { ZOMBIE_BASIC_EAT_SPRITE_WIDTH * i, 0, ZOMBIE_BASIC_EAT_SPRITE_WIDTH, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT };
+	for (int i = 0; i <= ZOMBIE_BASIC_EAT_FRAME / 10; i++) {
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_BASIC_EAT_FRAME) {
+			basicEatSprite[i * 10 + j] = { ZOMBIE_BASIC_EAT_SPRITE_WIDTH * j, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT * i, ZOMBIE_BASIC_EAT_SPRITE_WIDTH, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT };
+		}
 	}
 
 	printf("DONE: FZombie -> loadMedia\n");
@@ -123,12 +151,11 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 			break;
 		}
 		it->move();
-		if (it->x < LAWN_START_X) {
+		if (it->x < LAWN_START_X - 4 * LAWN_GRID_WIDTH / 3 || it->state == ZOMBIE_DIE) {
 			despawn.push_back(it->id);
 		}
 	}
 	for (auto it : despawn) {
-		printf("GAME: Zombie WON\n");
 		removeZombie(it);
 		return 1;
 	}

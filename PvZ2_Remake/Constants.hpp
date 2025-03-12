@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
+#include <fstream>
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -105,6 +106,7 @@ const int POTATOMINE_COST = 25;
 const std::string PEA_IMG = "Assets/Etc/pea.png";
 const int PEA_VEL = 7;
 extern long long PEA_ID;
+const int PEA_DMG = 20;
 
 enum ZOMBIE_TYPES {
 	ZOMBIE_BASIC,
@@ -136,12 +138,16 @@ const std::string ZOMBIE_DIE_IMG = "Assets/ZombieAnimation/zombie_die.png";
 
 const int ZOMBIE_BASIC_WALK_FRAME = 90;
 const int ZOMBIE_BASIC_WALK_SPRITE_WIDTH = 182;
-const int ZOMBIE_BASIC_WALK_SPRITE_HEIGHT = 182;
+const int ZOMBIE_BASIC_WALK_SPRITE_HEIGHT = 254;
 
 const int ZOMBIE_BASIC_EAT_FRAME = 259;
 const int ZOMBIE_BASIC_EAT_SPRITE_WIDTH = 155;
 const int ZOMBIE_BASIC_EAT_SPRITE_HEIGHT = 250;
 
 const int ZOMBIE_DIE_FRAME = 55;
-const int ZOMBIE_DIE_SPRITE_WIDTH = 182;
-const int ZOMBIE_DIE_SPRITE_HEIGHT = 182;
+const int ZOMBIE_DIE_SPRITE_WIDTH = 208;
+const int ZOMBIE_DIE_SPRITE_HEIGHT = 169;
+
+const int WAVE_DELAY = 1500;
+
+const std::string WAVE_INFO = "Assets/Level/wave.txt";

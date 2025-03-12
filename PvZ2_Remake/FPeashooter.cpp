@@ -47,6 +47,11 @@ void FPeashooter::free() {
 	animFrame = 0;
 }
 
+void FPeashooter::updateState(enum PEASHOOTER_STATES state) {
+	this->animState = state;
+	animFrame = 0;
+}
+
 void FPeashooter::playAnim(SDL_Renderer* mRenderer) {
 	++animFrame;
 	switch (animState) {
@@ -87,7 +92,7 @@ bool FPeashooter::removePlant(int row, int col) {
 	return 1;
 }
 
-bool FPeashooter::compFunc(FPeashooter*& lhs, FPeashooter*& rhs) {
+bool sortByRow(FPeashooter*& lhs, FPeashooter*& rhs) {
 	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getCol() < rhs->getCol());
 }
 
@@ -100,5 +105,9 @@ int FPeashooter::getCol() {
 }
 
 void FPeashooter::shoot() {
-	FPea* myPea = new FPea(LAWN_START_X + LAWN_GRID_WIDTH * col + LAWN_GRID_WIDTH / 2, LAWN_START_Y + LAWN_GRID_HEIGHT * row + LAWN_GRID_HEIGHT / 2 - peaTexture.getH() / SPRITE_DOWNSCALE);
+	FPea* myPea = new FPea(LAWN_START_X + LAWN_GRID_WIDTH * col + LAWN_GRID_WIDTH / 2, LAWN_START_Y + LAWN_GRID_HEIGHT * row + LAWN_GRID_HEIGHT / 2 - peaTexture.getH() / SPRITE_DOWNSCALE, row);
+}
+
+enum PEASHOOTER_STATES FPeashooter::getState() {
+	return animState;
 }
