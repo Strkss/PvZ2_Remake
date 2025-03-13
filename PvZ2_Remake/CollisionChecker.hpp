@@ -15,6 +15,6 @@ struct sortExtra {
 	bool operator()(FPeashooter*& lhs, FPeashooter*& rhs);
 };
 
-void checkPeaAndZombie();
-void checkZombieAndPlant();
+void checkPeaAndZombie(SDL_Renderer* mRenderer = NULL);
+void checkZombieAndPlant(SDL_Renderer* mRenderer = NULL);
 void detectPeashooterZombie();

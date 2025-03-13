@@ -11,57 +11,107 @@ bool sortExtra::operator()(FPeashooter*& lhs, FPeashooter*& rhs) {
 	return sortByRow(lhs, rhs);
 }
 
-void checkPeaAndZombie() {
+// Chuan hoa bang cach lay center cua sprite lam hitbox
+void checkPeaAndZombie(SDL_Renderer* mRenderer) {
 	sort(vecPea.begin(), vecPea.end(), sortExtra());
 	sort(vecZombie.begin(), vecZombie.end(), sortExtra());
-	int l = 0, r = 0;
-	while (l < (int)vecPea.size() && r < (int)vecZombie.size()) {
-		if (vecPea[l]->getRow() < vecZombie[r]->getRow()) {
-			++l;
-			continue;
-		}
-		if (vecPea[l]->getRow() > vecZombie[r]->getRow()) {
-			++r;
-			continue;
-		}
-		if (inRect(vecPea[l]->getX(), vecPea[l]->getY(), vecZombie[r]->getX() + 4 * LAWN_GRID_WIDTH / 3, vecZombie[r]->getY() + LAWN_GRID_HEIGHT / 4, 4 * LAWN_GRID_WIDTH / 3 + PEA_VEL, LAWN_GRID_HEIGHT * 3 / 4)) {
-			vecZombie[r]->takeDamage(PEA_DMG);
-			FPea::removePea(vecPea[l]->getID());
-			Mix_PlayChannel(-1, sfxHit, 0);
-			++l;
-		}
-		else if (vecPea[l]->getX() < vecZombie[r]->getX()) {
-			++l;
-		}
-		else {
-			++r;
+	vector<int> toBeRemoved;
+	for (int i = 0; i < (int)vecPea.size(); i++) {
+		int xPea = vecPea[i]->getX() + PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE / 2;
+		int yPea = vecPea[i]->getY() + PEA_SPRITE_HEIGHT / SPRITE_DOWNSCALE / 2;
+		for (int j = 0; j < (int)vecZombie.size(); j++) {
+			enum ZOMBIE_STATES state = vecZombie[j]->getState();
+			int addW, addH;
+			if (state == ZOMBIE_WALK) {
+				addW = ZOMBIE_BASIC_WALK_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+				addH = ZOMBIE_BASIC_WALK_SPRITE_HEIGHT / SPRITE_DOWNSCALE;
+			}
+			else {
+				addW = ZOMBIE_BASIC_EAT_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+				addH = ZOMBIE_BASIC_EAT_SPRITE_HEIGHT / SPRITE_DOWNSCALE;
+			}
+			int curX = vecZombie[j]->getX() + LAWN_GRID_WIDTH;
+			int curY = vecZombie[j]->getY() + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_WALK_SPRITE_HEIGHT / SPRITE_DOWNSCALE;
+			int xZom = curX + addW / 2;
+			int yZom = curY + addH / 2;
+			xZom -= PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+			yZom -= PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+
+			//Draw debug hitbox
+			SDL_Rect debugRect = { xZom, yZom, PEA_SPRITE_WIDTH * 2 / SPRITE_DOWNSCALE, PEA_SPRITE_WIDTH * 3 / SPRITE_DOWNSCALE };
+			SDL_Rect debugPea = { xPea, yPea, PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE , PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE };
+			SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 0);
+			SDL_RenderDrawRect(mRenderer, &debugRect);
+			SDL_RenderDrawRect(mRenderer, &debugPea);
+
+			//printf("%d %d %d %d\n", xZom, yZom, xPea, yPea);
+			if (inRect(xPea, yPea, xZom, yZom, PEA_SPRITE_WIDTH * 2 / SPRITE_DOWNSCALE, PEA_SPRITE_WIDTH * 3 / SPRITE_DOWNSCALE)) {
+				vecZombie[j]->takeDamage(PEA_DMG);
+				toBeRemoved.push_back(vecPea[i]->getID());
+				Mix_PlayChannel(-1, sfxHit, 0);
+				break;
+			}
 		}
 	}
+	for (int x : toBeRemoved) FPea::removePea(x);
 }
 
 void detectPeashooterZombie() {
 	sort(vecPeashooter.begin(), vecPeashooter.end(), sortExtra());
 	sort(vecZombie.begin(), vecZombie.end(), sortExtra());
-	int l = 0, r = 0;
-	while (l < (int)vecPeashooter.size() && r < (int)vecZombie.size()) {
-		if (vecPeashooter[l]->getRow() < vecZombie[r]->getRow()) {
-			++l;
-			continue;
+	for (int i = 0; i < (int)vecPeashooter.size(); i++) {
+		bool upd = false;
+		int xPea = vecPeashooter[i]->getCol() * LAWN_GRID_WIDTH + LAWN_START_X + LAWN_GRID_WIDTH / 2;
+		for (int j = 0; j < (int)vecZombie.size(); j++) {
+			enum ZOMBIE_STATES state = vecZombie[j]->getState();
+			int addW;
+			if (state == ZOMBIE_WALK) {
+				addW = ZOMBIE_BASIC_WALK_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+			}
+			else {
+				addW = ZOMBIE_BASIC_EAT_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+			}
+			int curX = vecZombie[j]->getX() + LAWN_GRID_WIDTH;
+			int xZom = curX + addW / 2;
+			xZom -= PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+
+			if (vecPeashooter[i]->getRow() == vecZombie[j]->getRow() && xPea < xZom) {
+				upd = true;
+				break;
+			}
 		}
-		if (vecPeashooter[l]->getRow() > vecZombie[r]->getRow()) {
-			++r;
-			continue;
-		}
-		if (vecPeashooter[l] -> getCol() * LAWN_GRID_WIDTH + LAWN_GRID_WIDTH / 2 + LAWN_START_X < vecZombie[r]->getX() + 3 * LAWN_GRID_WIDTH / 2) {
-			if (vecPeashooter[l]->getState() != PEASHOOTER_ATTACK) vecPeashooter[l]->updateState(PEASHOOTER_ATTACK);
-			++l;
+		if (upd && vecPeashooter[i]->getState() == PEASHOOTER_IDLE) vecPeashooter[i]->updateState(PEASHOOTER_ATTACK);
+		else if (!upd && vecPeashooter[i]->getState() == PEASHOOTER_ATTACK) vecPeashooter[i]->updateState(PEASHOOTER_IDLE);
+	}
+}
+
+void checkZombieAndPlant(SDL_Renderer* mRenderer) {
+	sort(vecPeashooter.begin(), vecPeashooter.end(), sortExtra());
+	sort(vecZombie.begin(), vecZombie.end(), sortExtra());
+	for (int i = 0; i < (int)vecZombie.size(); i++) {
+		bool upd = false;
+		enum ZOMBIE_STATES state = vecZombie[i]->getState();
+		int addW;
+		if (state == ZOMBIE_WALK) {
+			addW = ZOMBIE_BASIC_WALK_SPRITE_WIDTH / SPRITE_DOWNSCALE;
 		}
 		else {
-			if (vecPeashooter[l]->getState() != PEASHOOTER_IDLE) vecPeashooter[l]->updateState(PEASHOOTER_IDLE);
-			++r;
+			addW = ZOMBIE_BASIC_EAT_SPRITE_WIDTH / SPRITE_DOWNSCALE;
 		}
-	}
-	for (; l < (int)vecPeashooter.size(); ++l) {
-		if (vecPeashooter[l]->getState() != PEASHOOTER_IDLE) vecPeashooter[l]->updateState(PEASHOOTER_IDLE); 
+		int curX = vecZombie[i]->getX() + LAWN_GRID_WIDTH;
+		int xZom = curX + addW / 2;
+		xZom -= PEA_SPRITE_WIDTH / SPRITE_DOWNSCALE;
+		for (int j = 0; j < (int)vecPeashooter.size(); j++) {
+			int xPea = vecPeashooter[j]->getCol() * LAWN_GRID_WIDTH + LAWN_START_X + LAWN_GRID_WIDTH / 2;
+			int dis = LAWN_GRID_WIDTH / 4;
+			if (vecPeashooter[j]->getRow() == vecZombie[i]->getRow() && xPea - dis <= xZom && xZom <= xPea + dis) {
+				upd = true;
+				vecPeashooter[j]->takeDamage(ZOMBIE_DMG);
+				if (!Mix_Playing(7)) Mix_PlayChannel(7, sfxEat, 0);
+				break;
+			}
+		}
+		if (upd && vecZombie[i]->getState() == ZOMBIE_WALK) vecZombie[i]->updateState(ZOMBIE_EAT);
+		else if (!upd && vecZombie[i]->getState() == ZOMBIE_EAT) vecZombie[i]->updateState(ZOMBIE_WALK);
 	}
 }

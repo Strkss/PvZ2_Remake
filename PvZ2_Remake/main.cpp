@@ -54,13 +54,14 @@ int main(int argc, char* argv[]) {
 
 		mTexture.renderAtPosition(mRenderer, -10, 0);
 		FLawn::drawGridHitbox(mRenderer);
-		FPeashooter::playAllAnim(mRenderer);
+		FPeashooter::renderAll(mRenderer);
 		FSeedPacket::renderGUI(mRenderer);
 		FPea::renderAll(mRenderer);
 		spawnWave();
 		FZombie::renderAll(mRenderer);
-		checkPeaAndZombie();
+		checkPeaAndZombie(mRenderer);
 		detectPeashooterZombie();
+		checkZombieAndPlant();
 		FSun::renderAll(mRenderer);
 
 		SDL_RenderPresent(mRenderer);

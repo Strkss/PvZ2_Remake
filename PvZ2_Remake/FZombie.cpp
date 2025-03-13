@@ -64,10 +64,20 @@ void FZombie::playAnim(SDL_Renderer* mRenderer) {
 		case ZOMBIE_BASIC:
 			if (animFrame / FRAME_PACING >= ZOMBIE_BASIC_WALK_FRAME) animFrame = 0;
 			basicWalkTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_WALK_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &basicWalkSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+			SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 0);
+			SDL_Rect debugRect = { x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_WALK_SPRITE_HEIGHT / SPRITE_DOWNSCALE, ZOMBIE_BASIC_WALK_SPRITE_WIDTH / SPRITE_DOWNSCALE, ZOMBIE_BASIC_WALK_SPRITE_HEIGHT / SPRITE_DOWNSCALE };
+			SDL_RenderDrawRect(mRenderer, &debugRect);
 			//printf("Zombie at %d %d %d\n", x, y, animFrame);
 			break;
 		}
 		break;
+	case ZOMBIE_EAT:
+		switch (type) {
+		case ZOMBIE_BASIC:
+			if (animFrame / FRAME_PACING >= ZOMBIE_BASIC_EAT_FRAME) animFrame = 0;
+			basicEatTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_EAT_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &basicEatSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+			break;
+		}
 	}
 }
 
@@ -88,6 +98,14 @@ void FZombie::takeDamage(int dmg) {
 	if (hp < 0) {
 		state = ZOMBIE_DIE;
 	}
+}
+
+enum ZOMBIE_STATES FZombie::getState() {
+	return state;
+}
+
+void FZombie::updateState(enum ZOMBIE_STATES state) {
+	this->state = state;
 }
 
 bool sortByRow(FZombie*& lhs, FZombie*& rhs) {
@@ -150,7 +168,7 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 		case ZOMBIE_FLAG:
 			break;
 		}
-		it->move();
+		if (it->getState() == ZOMBIE_WALK) it->move();
 		if (it->x < LAWN_START_X - 4 * LAWN_GRID_WIDTH / 3 || it->state == ZOMBIE_DIE) {
 			despawn.push_back(it->id);
 		}

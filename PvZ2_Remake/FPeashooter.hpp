@@ -28,8 +28,9 @@ public:
 	void playAnim(SDL_Renderer* mRenderer);
 	void updateState(enum PEASHOOTER_STATES state);
 	enum PEASHOOTER_STATES getState();
+	void takeDamage(int dmg);
 
-	static void playAllAnim(SDL_Renderer* mRenderer);
+	static void renderAll(SDL_Renderer* mRenderer);
 	static bool loadMedia(SDL_Renderer* mRenderer);
 	static bool removePlant(int row, int col);
 };

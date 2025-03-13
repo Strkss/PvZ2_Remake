@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <SDL.h>
+#include <utility>
 
 #include "FTexture.hpp"
 #include "FPeashooter.hpp"
@@ -30,7 +31,7 @@ FPeashooter::FPeashooter(int r, int c) {
 	col = c;
 	x = LAWN_START_X + LAWN_GRID_WIDTH * col + 5;
 	y = LAWN_START_Y + LAWN_GRID_HEIGHT * row + 8;
-	animState = PEASHOOTER_ATTACK;
+	animState = PEASHOOTER_IDLE;
 	animFrame = 0;
 	FLawn::updateGrid(row, col, GRID_PEASHOOTER);
 	vecPeashooter.push_back(this);
@@ -68,9 +69,20 @@ void FPeashooter::playAnim(SDL_Renderer* mRenderer) {
 	}
 }
 
-void FPeashooter::playAllAnim(SDL_Renderer* mRenderer) {
+void FPeashooter::takeDamage(int dmg) {
+	hp -= dmg;
+}
+
+void FPeashooter::renderAll(SDL_Renderer* mRenderer) {
+	vector<std::pair<int, int>> toBeRemoved;
 	for (FPeashooter* myPea : vecPeashooter) {
-		myPea->playAnim(mRenderer);
+		if (myPea->hp < 0) {
+			toBeRemoved.push_back(std::make_pair(myPea->getRow(), myPea->getCol()));
+		}
+		else myPea->playAnim(mRenderer);
+	}
+	for (std::pair<int, int>& it : toBeRemoved) {
+		removePlant(it.first, it.second);
 	}
 }
 

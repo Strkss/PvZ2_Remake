@@ -107,6 +107,8 @@ const std::string PEA_IMG = "Assets/Etc/pea.png";
 const int PEA_VEL = 7;
 extern long long PEA_ID;
 const int PEA_DMG = 20;
+const int PEA_SPRITE_WIDTH = 30;
+const int PEA_SPRITE_HEIGHT = 30;
 
 enum ZOMBIE_TYPES {
 	ZOMBIE_BASIC,

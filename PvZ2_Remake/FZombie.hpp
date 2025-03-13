@@ -29,6 +29,8 @@ public:
 	int getX();
 	int getY();
 	void takeDamage(int dmg);
+	enum ZOMBIE_STATES getState();
+	void updateState(enum ZOMBIE_STATES state);
 	
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static bool renderAll(SDL_Renderer* mRenderer);

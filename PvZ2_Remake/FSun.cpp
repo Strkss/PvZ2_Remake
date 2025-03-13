@@ -12,13 +12,13 @@ using std::vector;
 
 FTexture sun, sunCounter, sunText;
 vector<FSun*> vecSun;
-int FSun::curSun = 50;
+int FSun::curSun = 200;
 int FSun::time = 0;
 
 void FSun::loadMedia(SDL_Renderer* mRenderer) {
 	sun.loadFromFile(mRenderer, UI_SUN);
 	sunCounter.loadFromFile(mRenderer, UI_SUN_COUNTER);
-	sunText.loadFromText(mRenderer, "50", COLOR_WHITE, 40);
+	sunText.loadFromText(mRenderer, "200", COLOR_WHITE, 40);
 }
 
 void FSun::renderAll(SDL_Renderer* mRenderer) {
