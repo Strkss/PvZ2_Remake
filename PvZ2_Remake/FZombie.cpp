@@ -2,6 +2,7 @@
 
 FTexture zombieDieTexture, basicWalkTexture, basicEatTexture;
 std::vector<FZombie*> vecZombie;
+std::vector<FZombie*> deadZombie;
 SDL_Rect zombieDieSprite[ZOMBIE_DIE_FRAME], basicWalkSprite[ZOMBIE_BASIC_WALK_FRAME], basicEatSprite[ZOMBIE_BASIC_EAT_FRAME];
 
 FZombie::FZombie(int x, int y, int row, ZOMBIE_TYPES type) {
@@ -34,6 +35,19 @@ FZombie::FZombie(int x, int y, int row, ZOMBIE_TYPES type) {
 	state = ZOMBIE_WALK;
 	animFrame = 0;
 	vecZombie.push_back(this);
+}
+
+FZombie::FZombie(int x, int y) {
+	this->x = x;
+	this->y = y;
+	this->type = ZOMBIE_BASIC;
+	row = -1;
+	hp = 1;
+	id = ++ZOMBIE_ID;
+	step = 0;
+	state = ZOMBIE_DIE;
+	animFrame = 0;
+	deadZombie.push_back(this);
 }
 
 void FZombie::free() {
@@ -78,6 +92,9 @@ void FZombie::playAnim(SDL_Renderer* mRenderer) {
 			basicEatTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_EAT_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &basicEatSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 			break;
 		}
+	case ZOMBIE_DIE:
+		zombieDieTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_DIE_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &zombieDieSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+		break;
 	}
 }
 
@@ -154,8 +171,27 @@ bool FZombie::removeZombie(int id) {
 	return 1;
 }
 
+bool FZombie::removeDeadZombie(int id) {
+	int delIndex = -1;
+	for (int i = 0; i < (int)deadZombie.size(); i++) {
+		if (deadZombie[i]->getID() == id) {
+			delIndex = i;
+			break;
+		}
+	}
+	if (delIndex == -1) {
+		printf("Can't remove dead zombie with id %d\n", id);
+		return 0;
+	}
+	deadZombie[delIndex]->free();
+	deadZombie.erase(deadZombie.begin() + delIndex);
+	printf("DONE: Removed dead zombie with id %d\n", id);
+	return 1;
+}
+
 bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 	std::vector<int> despawn;
+	std::vector<int> removeDead;
 	for (auto it : vecZombie) {
 		switch (it->type) {
 		case ZOMBIE_BASIC:
@@ -169,13 +205,24 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 			break;
 		}
 		if (it->getState() == ZOMBIE_WALK) it->move();
-		if (it->x < LAWN_START_X - 4 * LAWN_GRID_WIDTH / 3 || it->state == ZOMBIE_DIE) {
+		if (it->x < LAWN_START_X - 4 * LAWN_GRID_WIDTH / 3) {
+			despawn.push_back(it->id);
+			printf("GAME: YOU LOSE\n");
+		}
+		if (it->state == ZOMBIE_DIE) {
+			FZombie* myDedZom = new FZombie(it->x, it->y);
 			despawn.push_back(it->id);
 		}
 	}
+	for (auto it : deadZombie) {
+		if ((it->animFrame + 1) / FRAME_PACING >= ZOMBIE_DIE_FRAME) removeDead.push_back(it->id);
+		else it->playAnim(mRenderer);
+	}
 	for (auto it : despawn) {
 		removeZombie(it);
-		return 1;
+	}
+	for (auto it : removeDead) {
+		removeDeadZombie(it);
 	}
 	return 0;
 }

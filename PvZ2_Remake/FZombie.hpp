@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <SDL.h>
 #include <vector>
+#include <algorithm>
 
 #include "FTexture.hpp"
 #include "Constants.hpp"
@@ -21,6 +22,7 @@ class FZombie {
 
 public:
 	FZombie(int x, int y, int row, ZOMBIE_TYPES type);
+	FZombie(int x, int y); // Dead zombie
 	void free();
 	void move();
 	int getID();
@@ -35,8 +37,10 @@ public:
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static bool renderAll(SDL_Renderer* mRenderer);
 	static bool removeZombie(int id);
+	static bool removeDeadZombie(int id);
 };
 
 bool sortByRow(FZombie*& lhs, FZombie*& rhs);
 
 extern std::vector<FZombie*> vecZombie;
+extern std::vector<FZombie*> deadZombie;

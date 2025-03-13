@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 	FPea::loadMedia(mRenderer);
 	FZombie::loadMedia(mRenderer);
 
-	Mix_PlayMusic(intro, 0);
+	//Mix_PlayMusic(intro, 0);
 
 	bool quit = false;
 	SDL_Event e;
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 		refreshSeedPacket();
 
 		if (Mix_PlayingMusic() == 0) {
-			Mix_PlayMusic(flag_0, INT_MAX);
+			Mix_PlayMusic(flag_1, INT_MAX);
 		}
 
 		SDL_RenderClear(mRenderer);
