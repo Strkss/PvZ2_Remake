@@ -92,6 +92,7 @@ void FZombie::playAnim(SDL_Renderer* mRenderer) {
 			basicEatTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_BASIC_EAT_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &basicEatSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 			break;
 		}
+		break;
 	case ZOMBIE_DIE:
 		zombieDieTexture.renderAtPosition(mRenderer, x + LAWN_GRID_WIDTH, y + LAWN_GRID_HEIGHT - ZOMBIE_DIE_SPRITE_HEIGHT / SPRITE_DOWNSCALE, &zombieDieSprite[animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 		break;
@@ -192,6 +193,10 @@ bool FZombie::removeDeadZombie(int id) {
 bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 	std::vector<int> despawn;
 	std::vector<int> removeDead;
+	for (auto it : deadZombie) {
+		if ((it->animFrame + 1) / FRAME_PACING >= ZOMBIE_DIE_FRAME) removeDead.push_back(it->id);
+		else it->playAnim(mRenderer);
+	}
 	for (auto it : vecZombie) {
 		switch (it->type) {
 		case ZOMBIE_BASIC:
@@ -213,10 +218,6 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 			FZombie* myDedZom = new FZombie(it->x, it->y);
 			despawn.push_back(it->id);
 		}
-	}
-	for (auto it : deadZombie) {
-		if ((it->animFrame + 1) / FRAME_PACING >= ZOMBIE_DIE_FRAME) removeDead.push_back(it->id);
-		else it->playAnim(mRenderer);
 	}
 	for (auto it : despawn) {
 		removeZombie(it);

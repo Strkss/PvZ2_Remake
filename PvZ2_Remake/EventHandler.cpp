@@ -55,7 +55,20 @@ void handleEvent(SDL_Renderer* mRenderer, SDL_Event& e) {
 			}
 			chosen = NONE;
 			break;
+		case SDLK_p:
+			bool paused = 1;
+			while (paused) {
+				while (SDL_PollEvent(&e)) {
+					if (e.type == SDL_KEYDOWN) {
+						if (e.key.keysym.sym == SDLK_p && e.key.repeat == 0) {
+							paused = 0;
+						}
+					}
+				}
+			}
+			break;
 		}
+
 	}
 	else if (e.type == SDL_MOUSEBUTTONDOWN && e.key.repeat == 0) {
 		int row = 0, col = 0;
