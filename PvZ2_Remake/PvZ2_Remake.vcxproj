@@ -154,6 +154,7 @@
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
+    <ClCompile Include="FProgressBar.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
     <ClCompile Include="ZombieSpawner.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="FZombie.hpp" />
     <ClInclude Include="Init.hpp" />
     <ClInclude Include="Math.hpp" />
+    <ClInclude Include="FProgressBar.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
     <ClInclude Include="ZombieSpawner.hpp" />

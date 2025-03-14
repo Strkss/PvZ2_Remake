@@ -27,6 +27,7 @@ extern TTF_Font* font;
 const std::string FONT = "Assets/Font/font.ttf";
 
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
+const SDL_Color COLOR_RED = { 204, 0, 0 };
 
 const std::string LAWN_IMG = "Assets/Lawn/lawn.png";
 const int LAWN_GRID_WIDTH = 81;
@@ -61,6 +62,7 @@ enum PLANTS {
 };
 
 const double SPRITE_DOWNSCALE = 1.75;
+const double SPRITE_DOWNSCALE_OTHER = 1.5;
 const int FRAME_PACING = 2;
 
 const int PEASHOOTER_SPRITE_SIZE = 140;
@@ -153,3 +155,11 @@ const int ZOMBIE_DIE_SPRITE_HEIGHT = 169;
 const int WAVE_DELAY = 1500;
 
 const std::string WAVE_INFO = "Assets/Level/wave.txt";
+
+const std::string PROGRESS_ZOMBIE_IMG = "Assets/UI/progress_meter_zombie.png";
+const std::string PROGRESS_FLAG_IMG = "Assets/UI/progress_meter_flag_full.png";
+const std::string PROGRESS_METER_IMG = "Assets/UI/progress_meter.png";
+const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill.png";
+
+const int PROGRESS_MAX_FILL = 12;
+const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";

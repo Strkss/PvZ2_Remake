@@ -5,11 +5,16 @@
 int waveTime = 0;
 std::ifstream waveRead(WAVE_INFO);
 
-void spawnWave() {
+bool spawnWave(bool wait) {
+	if (waveRead.eof()) return 0;
+	if (wait) {
+		--waveTime;
+		return 0;
+	}
 	if ((int)vecZombie.size() == 0) waveTime = 0;
 	if (waveTime > 0) {
 		--waveTime;
-		return;
+		return 0;
 	}
 	int numZom;
 	waveRead >> numZom;
@@ -19,4 +24,5 @@ void spawnWave() {
 		FZombie* myZom = new FZombie(LAWN_END_X - LAWN_GRID_WIDTH + offset, LAWN_START_Y + row * LAWN_GRID_HEIGHT, row, ZOMBIE_BASIC);
 	}
 	waveTime = WAVE_DELAY;
+	return 1;
 }

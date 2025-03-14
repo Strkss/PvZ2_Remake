@@ -9,4 +9,4 @@
 extern int waveTime;
 extern std::ifstream waveRead;
 
-void spawnWave();
+bool spawnWave(bool wait);

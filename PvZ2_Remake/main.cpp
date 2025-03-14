@@ -14,6 +14,7 @@
 #include "FZombie.hpp"
 #include "CollisionChecker.hpp"
 #include "ZombieSpawner.hpp"
+#include "FProgressBar.hpp"
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -26,13 +27,15 @@ int main(int argc, char* argv[]) {
 
 	mTexture.loadFromFile(mRenderer, LAWN_IMG);
 	FLawn::initGrid();
+	FProgressBar::init();
 	FPeashooter::loadMedia(mRenderer);
 	FSeedPacket::loadMedia(mRenderer);
 	FSun::loadMedia(mRenderer);
 	FPea::loadMedia(mRenderer);
 	FZombie::loadMedia(mRenderer);
+	FProgressBar::loadMedia(mRenderer);
 
-	//Mix_PlayMusic(intro, 0);
+	Mix_PlayMusic(intro, 0);
 
 	bool quit = false;
 	SDL_Event e;
@@ -47,7 +50,7 @@ int main(int argc, char* argv[]) {
 		refreshSeedPacket();
 
 		if (Mix_PlayingMusic() == 0) {
-			Mix_PlayMusic(flag_1, INT_MAX);
+			Mix_PlayMusic(flag_0, INT_MAX);
 		}
 
 		SDL_RenderClear(mRenderer);
@@ -57,12 +60,12 @@ int main(int argc, char* argv[]) {
 		FPeashooter::renderAll(mRenderer);
 		FSeedPacket::renderGUI(mRenderer);
 		FPea::renderAll(mRenderer);
-		spawnWave();
 		FZombie::renderAll(mRenderer);
 		checkPeaAndZombie(mRenderer);
 		detectPeashooterZombie();
 		checkZombieAndPlant();
 		FSun::renderAll(mRenderer);
+		FProgressBar::renderAll(mRenderer);
 
 		SDL_RenderPresent(mRenderer);
 	}
