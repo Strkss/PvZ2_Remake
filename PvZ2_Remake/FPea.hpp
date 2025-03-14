@@ -21,6 +21,7 @@ public:
 	int getX();
 	int getY();
 
+	static void reset();
 	static void renderAll(SDL_Renderer* mRenderer);
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static bool removePea(long long id);

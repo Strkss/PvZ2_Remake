@@ -4,6 +4,7 @@ FTexture zombieDieTexture, basicWalkTexture, basicEatTexture;
 std::vector<FZombie*> vecZombie;
 std::vector<FZombie*> deadZombie;
 SDL_Rect zombieDieSprite[ZOMBIE_DIE_FRAME], basicWalkSprite[ZOMBIE_BASIC_WALK_FRAME], basicEatSprite[ZOMBIE_BASIC_EAT_FRAME];
+bool levelLost = false;
 
 FZombie::FZombie(int x, int y, int row, ZOMBIE_TYPES type) {
 	switch (type) {
@@ -68,6 +69,10 @@ void FZombie::move() {
 
 int FZombie::getID() {
 	return id;
+}
+
+void FZombie::updateAnimFrame(int frame) {
+	animFrame = frame;
 }
 
 void FZombie::playAnim(SDL_Renderer* mRenderer) {
@@ -212,7 +217,7 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 		if (it->getState() == ZOMBIE_WALK) it->move();
 		if (it->x < LAWN_START_X - 4 * LAWN_GRID_WIDTH / 3) {
 			despawn.push_back(it->id);
-			printf("GAME: YOU LOSE\n");
+			levelLost = true;
 		}
 		if (it->state == ZOMBIE_DIE) {
 			FZombie* myDedZom = new FZombie(it->x, it->y);
@@ -226,4 +231,12 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 		removeDeadZombie(it);
 	}
 	return 0;
+}
+
+void FZombie::reset() {
+	vecZombie.clear();
+	deadZombie.clear();
+	ZOMBIE_ID = 0;
+
+	printf("DONE: Reset FZombie\n");
 }

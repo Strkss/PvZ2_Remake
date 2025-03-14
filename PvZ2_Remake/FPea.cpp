@@ -67,6 +67,12 @@ bool FPea::removePea(long long id) {
 	return 1;
 }
 
+void FPea::reset() {
+	PEA_ID = 0;
+	vecPea.clear();
+	printf("DONE: Reset FPea\n");
+}
+
 bool sortByRow(FPea*& lhs, FPea*& rhs) {
 	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getX() < rhs->getX());
 }

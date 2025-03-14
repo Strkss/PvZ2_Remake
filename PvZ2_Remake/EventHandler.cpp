@@ -11,6 +11,13 @@ static enum PLANTS chosen = NONE;
 static bool shovelChosen = false;
 int peashooterSeedPacketTime = 0;
 
+void resetSeedPacket() {
+	chosen = NONE;
+	shovelChosen = false;
+	peashooterSeedPacketTime = 0;
+	printf("DONE: Reset Seed Packet\n");
+}
+
 bool findGrid(int& x, int& y, int& row, int& col) {
 	x -= LAWN_START_X;
 	y -= LAWN_START_Y;

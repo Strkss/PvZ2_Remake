@@ -9,6 +9,7 @@
 
 extern FTexture zombieDieTexture, basicWalkTexture, basicEatTexture;
 extern SDL_Rect zombieDieSprite[ZOMBIE_DIE_FRAME], basicWalkSprite[ZOMBIE_BASIC_WALK_FRAME], basicEatSprite[ZOMBIE_BASIC_EAT_FRAME];
+extern bool levelLost;
 
 class FZombie {
 	int hp;
@@ -30,10 +31,12 @@ public:
 	int getRow();
 	int getX();
 	int getY();
+	void updateAnimFrame(int frame);
 	void takeDamage(int dmg);
 	enum ZOMBIE_STATES getState();
 	void updateState(enum ZOMBIE_STATES state);
 	
+	static void reset();
 	static void loadMedia(SDL_Renderer* mRenderer);
 	static bool renderAll(SDL_Renderer* mRenderer);
 	static bool removeZombie(int id);

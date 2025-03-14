@@ -29,7 +29,8 @@ public:
 	void updateState(enum PEASHOOTER_STATES state);
 	enum PEASHOOTER_STATES getState();
 	void takeDamage(int dmg);
-
+	
+	static void reset();
 	static void renderAll(SDL_Renderer* mRenderer);
 	static bool loadMedia(SDL_Renderer* mRenderer);
 	static bool removePlant(int row, int col);

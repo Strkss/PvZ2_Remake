@@ -104,6 +104,12 @@ bool FPeashooter::removePlant(int row, int col) {
 	return 1;
 }
 
+void FPeashooter::reset() {
+	vecPeashooter.clear();
+
+	printf("DONE: reset FPeashooter\n");
+}
+
 bool sortByRow(FPeashooter*& lhs, FPeashooter*& rhs) {
 	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getCol() < rhs->getCol());
 }

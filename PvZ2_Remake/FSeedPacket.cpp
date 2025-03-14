@@ -37,3 +37,9 @@ void FSeedPacket::updateState(enum PLANTS plant, enum SEEDPACKET_STATES state) {
 	}
 	//printf("DONE: Updated state of %d to state %d\n", plant, state);
 }
+
+void FSeedPacket::reset() {
+	statePeashooter = SEEDPACKET_UNCHOSEN;
+	stateShovel = SEEDPACKET_UNCHOSEN;
+	printf("DONE: Reset SeedPacket\n");
+}

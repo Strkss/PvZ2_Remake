@@ -31,6 +31,7 @@ public:
 	int getSX();
 	int getSY();
 
+	static void reset(SDL_Renderer* mRenderer);
 	static void summonSkySun();
 	static void updateSunCounter(SDL_Renderer* mRenderer, int add);
 	static void renderAll(SDL_Renderer* mRenderer);

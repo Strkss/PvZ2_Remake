@@ -89,6 +89,14 @@ int FSun::getCurSun() {
 	return curSun;
 }
 
+void FSun::reset(SDL_Renderer* mRenderer) {
+	vecSun.clear();
+	curSun = 50;
+	time = 0;
+	sunText.loadFromText(mRenderer, std::to_string(curSun), COLOR_WHITE, 40);
+	printf("DONE: Reset FSun\n");
+}
+
 FSun::FSun(int x, int y) {
 	curX = x;
 	curY = y;
