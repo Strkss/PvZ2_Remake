@@ -15,6 +15,7 @@
 #include "CollisionChecker.hpp"
 #include "ZombieSpawner.hpp"
 #include "FProgressBar.hpp"
+#include "FPlant.hpp"
 
 int newGameFrame = 0, newGameAnimationX;
 
