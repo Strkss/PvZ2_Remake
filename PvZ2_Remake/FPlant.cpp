@@ -4,6 +4,10 @@ SDL_Rect* plantSprite[PLANT_MAX_SPRITE];
 FTexture plantTexture[PLANT_MAX_SPRITE];
 int plantAnimMaxFrame[PLANT_MAX_SPRITE];
 
+bool sortByRow(FPlant*& lhs, FPlant*& rhs) {
+	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getCol() < rhs->getCol());
+}
+
 int FPlant::convertToAnimID(enum PLANTS plant, enum PLANT_STATES state) {
 	return plant * PLANT_STATES_NUM + state;
 }

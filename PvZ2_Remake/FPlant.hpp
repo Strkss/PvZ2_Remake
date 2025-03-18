@@ -13,7 +13,10 @@ extern SDL_Rect* plantSprite[PLANT_MAX_SPRITE];
 extern FTexture plantTexture[PLANT_MAX_SPRITE];
 extern int plantAnimMaxFrame[PLANT_MAX_SPRITE];
 
+bool sortByRow(FPlant*& lhs, FPlant*& rhs);
+
 class FPlant {
+protected:
 	int hp;
 	int row, col;
 	SDL_Rect hitbox;
