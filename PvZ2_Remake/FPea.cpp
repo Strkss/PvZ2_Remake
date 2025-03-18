@@ -48,8 +48,7 @@ void FPea::render(SDL_Renderer* mRenderer) {
 }
 
 bool FPea::update() {
-	if (hitbox.x > SCREEN_WIDTH) return 1;
-	if (isExploded) return 1;
+	if (hitbox.x > SCREEN_WIDTH || isExploded) return 1;
 	return 0;
 }
 

@@ -44,5 +44,9 @@ void loadMedia(SDL_Renderer* mRenderer) {
 
 	printf("DONE: FPea -> loadMedia\n");
 
+	sunTexture.loadFromFile(mRenderer, UI_SUN);
+	sunCounterTexture.loadFromFile(mRenderer, UI_SUN_COUNTER);
+	sunTextTexture.loadFromText(mRenderer, "", COLOR_WHITE, 40);
 
+	printf("DONE: FSun -> loadMedia\n");
 }

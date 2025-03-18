@@ -159,6 +159,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="FProgressBar.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
+    <ClCompile Include="SunManager.cpp" />
     <ClCompile Include="ZombieSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="FProgressBar.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
+    <ClInclude Include="SunManager.hpp" />
     <ClInclude Include="ZombieSpawner.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

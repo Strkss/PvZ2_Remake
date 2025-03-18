@@ -5,6 +5,8 @@
 
 #include "FTexture.hpp"
 
+class FPea;
+
 extern FTexture peaTexture;
 
 bool sortByRow(FPea*& lhs, FPea*& rhs);

@@ -108,24 +108,6 @@ void Level::removePea(int id) {
 	return;
 }
 
-void Level::removeSun(int id) {
-	int delIndex = -1;
-	for (int i = 0; i < (int)vecSun.size(); i++) {
-		if (vecSun[i]->getID() == id) {
-			delIndex = i;
-			break;
-		}
-	}
-	if (delIndex == -1) {
-		printf("Can't remove sun with ID %d\n", id);
-		return;
-	}
-	delete vecSun[delIndex];
-	vecSun.erase(vecSun.begin() + delIndex);
-	printf("DONE: Removed sun with ID %d\n", id);
-	return;
-}
-
 void Level::render(SDL_Renderer* mRenderer) {
 	for (auto& it : vecPlant) {
 		it->render(mRenderer);

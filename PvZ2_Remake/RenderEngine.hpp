@@ -10,6 +10,7 @@
 #include "Constants.hpp"
 #include "FPlant.hpp"
 #include "FPea.hpp"
+#include "FSun.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 

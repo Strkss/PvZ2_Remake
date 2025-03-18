@@ -16,7 +16,6 @@
 
 class Level {
 	std::vector<FPlant*> vecPlant;
-	std::vector<FSun*> vecSun;
 	std::vector<FZombie*> vecZombie;
 	std::vector<FZombie*> dedZombie;
 	std::vector<FPea*> vecPea;
@@ -29,7 +28,6 @@ public:
 	void removeZombie(int id);
 	void removeDeadZombie(int id);
 	void removePea(int id);
-	void removeSun(int id);
 
 	void render(SDL_Renderer* mRenderer);
 	void update();
