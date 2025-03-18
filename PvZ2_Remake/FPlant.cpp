@@ -39,6 +39,10 @@ int FPlant::getID() {
 	return id;
 }
 
+SDL_Rect FPlant::getHitbox() {
+	return hitbox;
+}
+
 void FPlant::takeDamage(int dmg) {
 	hp -= dmg;
 }

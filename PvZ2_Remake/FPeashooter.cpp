@@ -28,7 +28,7 @@ FPeashooter::~FPeashooter() {
 }
 
 void FPeashooter::shoot(std::vector<FPea*>& vecPea) {
-	vecPea.push_back(new FPea(hitbox.x + LAWN_GRID_WIDTH / 4, hitbox.y, row));
+	vecPea.push_back(new FPea(row, col));
 }
 
 bool FPeashooter::update() {

@@ -20,7 +20,7 @@ protected:
 	int hp;
 	int row, col;
 	SDL_Rect hitbox;
-	int rX, rY;
+	int rX, rY; // render pos
 	int animFrame;
 	int animID;
 	int id;
@@ -38,5 +38,6 @@ public:
 
 	int getRow();
 	int getCol();
+	SDL_Rect getHitbox();
 	void takeDamage(int dmg);
 };

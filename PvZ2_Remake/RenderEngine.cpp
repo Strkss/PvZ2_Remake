@@ -7,7 +7,6 @@
 
 #include "Constants.hpp"
 #include "RenderEngine.hpp"
-#include "FPlant.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 	SDL_DestroyRenderer(mRenderer);
@@ -41,7 +40,9 @@ void loadMedia(SDL_Renderer* mRenderer) {
 
 	printf("DONE: FPlant -> loadMedia\n");
 
+	peaTexture.loadFromFile(mRenderer, PEA_IMG);
 
+	printf("DONE: FPea -> loadMedia\n");
 
 
 }

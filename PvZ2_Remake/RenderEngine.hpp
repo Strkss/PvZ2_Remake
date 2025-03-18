@@ -8,6 +8,8 @@
 #include <SDL_mixer.h>
 
 #include "Constants.hpp"
+#include "FPlant.hpp"
+#include "FPea.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 
