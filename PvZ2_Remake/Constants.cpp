@@ -19,5 +19,7 @@ Mix_Chunk* sfxPlant = NULL;
 Mix_Chunk* sfxSun = NULL;
 Mix_Chunk* sfxBuzz = NULL;
 
-long long PEA_ID = 0;
+int PEA_ID = 0;
 int ZOMBIE_ID = 0;
+int SUN_ID = 0;
+int PLANT_ID = 0;

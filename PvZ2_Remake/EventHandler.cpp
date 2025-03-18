@@ -18,16 +18,6 @@ void resetSeedPacket() {
 	printf("DONE: Reset Seed Packet\n");
 }
 
-bool findGrid(int& x, int& y, int& row, int& col) {
-	x -= LAWN_START_X;
-	y -= LAWN_START_Y;
-	if (x < 0 || y < 0 || x > LAWN_END_X || y > LAWN_END_Y) return 0;
-	col = x / LAWN_GRID_WIDTH;
-	row = y / LAWN_GRID_HEIGHT;
-	if (col >= LAWN_COLUMN_NUM || row >= LAWN_ROW_NUM) return 0;
-	return 1;
-}
-
 void refreshSeedPacket() {
 	if (peashooterSeedPacketTime - 1 == 0) FSeedPacket::updateState(PEASHOOTER, SEEDPACKET_UNCHOSEN);
 	peashooterSeedPacketTime = std::max(peashooterSeedPacketTime - 1, 0);

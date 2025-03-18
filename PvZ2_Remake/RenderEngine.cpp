@@ -7,6 +7,7 @@
 
 #include "Constants.hpp"
 #include "RenderEngine.hpp"
+#include "FPlant.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 	SDL_DestroyRenderer(mRenderer);
@@ -21,4 +22,26 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 
 	printf("DONE: createRenderer\n");
 	return 1;
+}
+
+void loadMedia(SDL_Renderer* mRenderer) {
+	plantAnimMaxFrame[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)] = PEASHOOTER_IDLE_FRAME;
+	plantAnimMaxFrame[FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK)] = PEASHOOTER_ATTACK_FRAME;
+	plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)] = new SDL_Rect[PEASHOOTER_IDLE_FRAME];
+	plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK)] = new SDL_Rect[PEASHOOTER_ATTACK_FRAME];
+
+	for (int i = 0; i < PEASHOOTER_IDLE_FRAME; i++) {
+		plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)][i] = {PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE};
+	}
+	for (int i = 0; i < PEASHOOTER_ATTACK_FRAME; i++) {
+		plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK)][i] = { PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE };
+	}
+	plantTexture[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)].loadFromFile(mRenderer, PEASHOOTER_IDLE_IMG);
+	plantTexture[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)].loadFromFile(mRenderer, PEASHOOTER_ATTACK_IMG);
+
+	printf("DONE: FPlant -> loadMedia\n");
+
+
+
+
 }

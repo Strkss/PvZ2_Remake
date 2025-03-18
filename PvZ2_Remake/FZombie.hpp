@@ -27,7 +27,7 @@ public:
 	void free();
 	void move();
 	int getID();
-	void playAnim(SDL_Renderer* mRenderer);
+	void render(SDL_Renderer* mRenderer);
 	int getRow();
 	int getX();
 	int getY();

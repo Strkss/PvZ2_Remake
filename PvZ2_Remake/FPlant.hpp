@@ -11,8 +11,7 @@ class FPlant;
 
 extern SDL_Rect* plantSprite[PLANT_MAX_SPRITE];
 extern FTexture plantTexture[PLANT_MAX_SPRITE];
-extern std::vector<FPlant*> vecPlant;
-extern int plantAnimMaxFrame[];
+extern int plantAnimMaxFrame[PLANT_MAX_SPRITE];
 
 class FPlant {
 	int hp;
@@ -21,21 +20,18 @@ class FPlant {
 	int rX, rY;
 	int animFrame;
 	int animID;
+	int id;
 
 public:
-	static void loadMedia(SDL_Renderer* mRenderer);
-
 	virtual bool update() = 0;
-	static void updateAll();
 
 	static int convertToAnimID(enum PLANTS plant, enum PLANT_STATES state);
 	void updateAnimID(int id);
 	int getAnimID();
 
-	static void renderAll(SDL_Renderer* mRenderer);
-	void render(SDL_Renderer* mRenderer);
+	int getID();
 
-	static void removePlant(int row, int col);
+	void render(SDL_Renderer* mRenderer);
 
 	int getRow();
 	int getCol();

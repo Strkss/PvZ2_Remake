@@ -153,6 +153,8 @@
     <ClCompile Include="FTexture.cpp" />
     <ClCompile Include="FZombie.cpp" />
     <ClCompile Include="Init.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Level.hpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="FProgressBar.cpp" />

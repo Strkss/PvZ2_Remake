@@ -120,7 +120,6 @@ const int POTATOMINE_COST = 25;
 
 const std::string PEA_IMG = "Assets/Etc/pea.png";
 const int PEA_VEL = 7;
-extern long long PEA_ID;
 const int PEA_DMG = 20;
 const int PEA_SPRITE_WIDTH = 30;
 const int PEA_SPRITE_HEIGHT = 30;
@@ -133,6 +132,13 @@ enum ZOMBIE_TYPES {
 	ZOMBIE_TYPES_NUM
 };
 
+enum ZOMBIE_HP_TIERS {
+	ZOMBIE_NORMAL,
+	ZOMBIE_DAMAGED_0,
+	ZOMBIE_DAMAGED_1,
+	ZOMBIE_HP_TIERS_NUM
+};
+
 enum ZOMBIE_STATES {
 	ZOMBIE_WALK,
 	ZOMBIE_EAT,
@@ -140,11 +146,12 @@ enum ZOMBIE_STATES {
 	ZOMBIE_STATES_NUM
 };
 
+const int ZOMBIE_MAX_SPRITE = ZOMBIE_TYPES_NUM * ZOMBIE_HP_TIERS_NUM * ZOMBIE_STATES_NUM;
+
 const int ZOMBIE_BASIC_HP = 190;
 const int ZOMBIE_CONE_HP = 560;
 const int ZOMBIE_BUCKET_HP = 1290;
 const int ZOMBIE_FLAG_HP = 190;
-extern int ZOMBIE_ID;
 
 const int ZOMBIE_INV_VEL = 4;
 const int ZOMBIE_DMG = 2;
@@ -179,3 +186,8 @@ const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
 const std::string LEVEL_WON_IMG = "Assets/UI/level_won_screen.png";
 const std::string LEVEL_LOST_IMG = "Assets/UI/level_lost_screen.png";
+
+extern int PEA_ID;
+extern int SUN_ID;
+extern int ZOMBIE_ID;
+extern int PLANT_ID;

@@ -35,10 +35,14 @@ void FPea::loadMedia(SDL_Renderer* mRenderer) {
 	peaTexture.loadFromFile(mRenderer, "Assets/Etc/pea.png");
 }
 
+void FPea::render(SDL_Renderer* mRenderer) {
+	peaTexture.renderAtPosition(mRenderer, x, y, NULL, SPRITE_DOWNSCALE);
+}
+
 void FPea::renderAll(SDL_Renderer* mRenderer) {
 	std::vector<long long> despawn;
 	for (auto it : vecPea) {
-		peaTexture.renderAtPosition(mRenderer, it->x, it->y, NULL, SPRITE_DOWNSCALE);
+		it->render(mRenderer);
 		it->move();
 		if (it->x > SCREEN_WIDTH) {
 			despawn.push_back(it->id);

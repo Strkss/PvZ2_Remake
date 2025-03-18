@@ -21,6 +21,10 @@ void FSun::loadMedia(SDL_Renderer* mRenderer) {
 	sunText.loadFromText(mRenderer, "200", COLOR_WHITE, 40);
 }
 
+void FSun::render(SDL_Renderer* mRenderer) {
+	sun.renderAtPosition(mRenderer, curX, curY, NULL, SPRITE_DOWNSCALE);
+}
+
 void FSun::renderAll(SDL_Renderer* mRenderer) {
 	++time;
 	if (time >= 600)	summonSkySun();
@@ -29,7 +33,7 @@ void FSun::renderAll(SDL_Renderer* mRenderer) {
 	vector<FSun*> collected;
 	vector<FSun*> despawn;
 	for (auto it : vecSun) {
-		sun.renderAtPosition(mRenderer, it->curX, it->curY, NULL, SPRITE_DOWNSCALE);
+		it->render(mRenderer);
 		it->despawnTime++;
 		if (it->state == SUN_MOVE) it->move();
 		if (inSourceRect(it->curX, it->curY, 150, 50)) collected.push_back(it);
@@ -49,21 +53,21 @@ void FSun::updateSunCounter(SDL_Renderer* mRenderer, int add) {
 	sunText.loadFromText(mRenderer, std::to_string(curSun), COLOR_WHITE, 40);
 }
 
-void FSun::removeSun(int x, int y) {
+void FSun::removeSun(int id) {
 	int delIndex = -1;
 	for (int i = 0; i < (int)vecSun.size(); i++) {
-		if (vecSun[i]->getSX() == x && vecSun[i]->getSY() == y) {
+		if (vecSun[i]->getID() == id) {
 			delIndex = i;
 			break;
 		}
 	}
 	if (delIndex == -1) {
-		printf("Can't remove sun at %d %d\n", x, y);
+		printf("Can't remove sun with ID %d\n", id);
 		return;
 	}
-	vecSun[delIndex]->free();
+	delete vecSun[delIndex];
 	vecSun.erase(vecSun.begin() + delIndex);
-	printf("DONE: Removed sun at %d %d\n", x, y);
+	printf("DONE: Removed sun with ID %d\n", id);
 	return;
 }
 
@@ -142,4 +146,8 @@ int FSun::getSX() {
 
 int FSun::getSY() {
 	return sY;
+}
+
+int FSun::getID() {
+	return id;
 }

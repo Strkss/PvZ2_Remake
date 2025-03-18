@@ -19,6 +19,7 @@ class FSun {
 	int curX, curY;
 	int velX, velY;
 	int despawnTime;
+	int id;
 	enum SUN_STATES state;
 	static int curSun;
 	static int time;
@@ -30,13 +31,15 @@ public:
 	void decideVel();
 	int getSX();
 	int getSY();
+	int getID();
+	void render(SDL_Renderer* mRenderer);
 
 	static void reset(SDL_Renderer* mRenderer);
 	static void summonSkySun();
 	static void updateSunCounter(SDL_Renderer* mRenderer, int add);
 	static void renderAll(SDL_Renderer* mRenderer);
 	static void loadMedia(SDL_Renderer* mRenderer);
-	static void removeSun(int x, int y);
+	static void removeSun(int id);
 	static bool findSunClick(int x, int y);
 	static int getCurSun();
 };

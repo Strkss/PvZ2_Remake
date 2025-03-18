@@ -20,6 +20,7 @@ public:
 	int getRow();
 	int getX();
 	int getY();
+	void render(SDL_Renderer* mRenderer);
 
 	static void reset();
 	static void renderAll(SDL_Renderer* mRenderer);

@@ -75,7 +75,7 @@ void FZombie::updateAnimFrame(int frame) {
 	animFrame = frame;
 }
 
-void FZombie::playAnim(SDL_Renderer* mRenderer) {
+void FZombie::render(SDL_Renderer* mRenderer) {
 	++animFrame;
 	switch (state) {
 	case ZOMBIE_WALK:
@@ -200,12 +200,12 @@ bool FZombie::renderAll(SDL_Renderer* mRenderer) {
 	std::vector<int> removeDead;
 	for (auto it : deadZombie) {
 		if ((it->animFrame + 1) / FRAME_PACING >= ZOMBIE_DIE_FRAME) removeDead.push_back(it->id);
-		else it->playAnim(mRenderer);
+		else it->render(mRenderer);
 	}
 	for (auto it : vecZombie) {
 		switch (it->type) {
 		case ZOMBIE_BASIC:
-			it->playAnim(mRenderer);
+			it->render(mRenderer);
 			break;
 		case ZOMBIE_CONE:
 			break;
