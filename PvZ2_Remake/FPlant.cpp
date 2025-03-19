@@ -24,7 +24,7 @@ int FPlant::getAnimID() {
 void FPlant::render(SDL_Renderer* mRenderer) {
 	++animFrame;
 	if (animFrame / FRAME_PACING >= plantAnimMaxFrame[animID]) animFrame = 0;
-	plantTexture->renderAtPosition(mRenderer, rX, rY, &plantSprite[animID][animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+	plantTexture[animID].renderAtPosition(mRenderer, rX, rY, &plantSprite[animID][animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 }
 
 int FPlant::getRow() {

@@ -3,6 +3,7 @@
 SunManager::SunManager() {
 	curSun = 50;
 	skyTimer = 0;
+	curSunChanged = false;
 }
 
 SunManager::~SunManager() {
@@ -19,7 +20,7 @@ void SunManager::summonSkySun() {
 	}
 }
 
-void SunManager::handleSunClick(int x, int y) {
+bool SunManager::handleMouse(int x, int y) {
 	SDL_Point mousePos = { x, y };
 	FSun* chosen = NULL;
 	for (auto& it : vecSun) {
@@ -32,7 +33,9 @@ void SunManager::handleSunClick(int x, int y) {
 	if (chosen != NULL) {
 		chosen->updateState(SUN_MOVE);
 		Mix_PlayChannel(-1, sfxSun, 0);
+		return 1;
 	}
+	return 0;
 }
 
 void SunManager::removeSun(int id) {
@@ -68,6 +71,7 @@ void SunManager::update() {
 
 void SunManager::render(SDL_Renderer* mRenderer) {
 	if (curSunChanged) sunTextTexture.loadFromText(mRenderer, std::to_string(curSun), COLOR_WHITE, 40);
+	curSunChanged = false;
 
 	sunCounterTexture.renderAtPosition(mRenderer, 10, 5);
 	sunTextTexture.renderAtPosition(mRenderer, 120, 30);

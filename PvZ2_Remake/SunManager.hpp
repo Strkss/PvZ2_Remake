@@ -17,7 +17,7 @@ public:
 	~SunManager();
 
 	void summonSkySun();
-	void handleSunClick(int x, int y);
+	bool handleMouse(int x, int y);
 	void removeSun(int id);
 	void render(SDL_Renderer* mRenderer);
 	void update();

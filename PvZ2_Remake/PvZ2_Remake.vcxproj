@@ -149,6 +149,9 @@
     <ClCompile Include="FPeashooter.cpp" />
     <ClCompile Include="FPlant.cpp" />
     <ClCompile Include="FSeedPacket.cpp" />
+    <ClCompile Include="FSeedPeashooter.cpp" />
+    <ClCompile Include="FSeedPeashooter.hpp" />
+    <ClCompile Include="FSeedShovel.cpp" />
     <ClCompile Include="FSun.cpp" />
     <ClCompile Include="FTexture.cpp" />
     <ClCompile Include="FZombie.cpp" />
@@ -159,6 +162,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="FProgressBar.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
+    <ClCompile Include="SlotManager.cpp" />
     <ClCompile Include="SunManager.cpp" />
     <ClCompile Include="ZombieSpawner.cpp" />
   </ItemGroup>
@@ -172,6 +176,7 @@
     <ClInclude Include="FPeashooter.hpp" />
     <ClInclude Include="FPlant.hpp" />
     <ClInclude Include="FSeedPacket.hpp" />
+    <ClInclude Include="FSeedShovel.hpp" />
     <ClInclude Include="FSun.hpp" />
     <ClInclude Include="FZombie.hpp" />
     <ClInclude Include="Init.hpp" />
@@ -179,6 +184,7 @@
     <ClInclude Include="FProgressBar.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
+    <ClInclude Include="SlotManager.hpp" />
     <ClInclude Include="SunManager.hpp" />
     <ClInclude Include="ZombieSpawner.hpp" />
   </ItemGroup>

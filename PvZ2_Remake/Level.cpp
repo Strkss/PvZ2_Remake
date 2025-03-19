@@ -18,11 +18,6 @@ Level::~Level() {
 	}
 	vecZombie.clear();
 
-	for (auto& it : vecSun) {
-		delete it;
-	}
-	vecSun.clear();
-
 	for (auto& it : vecPea) {
 		delete it;
 	}
@@ -124,10 +119,6 @@ void Level::render(SDL_Renderer* mRenderer) {
 	for (auto& it : vecPea) {
 		it->render(mRenderer);
 	}
-
-	for (auto& it : vecSun) {
-		it->render(mRenderer);
-	}
 }
 
 void Level::update() {
@@ -172,17 +163,5 @@ void Level::update() {
 		removePlant(delID);
 	}
 	pendingDelete.clear();
-
-	for (auto& it : vecSun) {
-		if (it->update()) {
-			pendingDelete.push_back(it->getID());
-		}
-	}
-	for (auto& delID : pendingDelete) {
-		removePlant(delID);
-	}
-	pendingDelete.clear();
-
-
 }
 

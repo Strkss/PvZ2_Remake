@@ -7,7 +7,7 @@
 #include "FLawn.hpp"
 #include "Constants.hpp"
 
-FPeashooter::FPeashooter(int row, int col) {
+FPeashooter::FPeashooter(int row, int col) { // viec update grid se do manager quan ly
 	hp = 300;
 	this->row = row;
 	this->col = col;
@@ -20,12 +20,9 @@ FPeashooter::FPeashooter(int row, int col) {
 	animFrame = 0;
 	animID = convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
 	id = ++PLANT_ID;
-	FLawn::updateGrid(row, col, GRID_PEASHOOTER);
 }
 
-FPeashooter::~FPeashooter() {
-	FLawn::updateGrid(row, col, GRID_EMPTY);
-}
+FPeashooter::~FPeashooter() { }
 
 void FPeashooter::shoot(std::vector<FPea*>& vecPea) {
 	vecPea.push_back(new FPea(row, col));

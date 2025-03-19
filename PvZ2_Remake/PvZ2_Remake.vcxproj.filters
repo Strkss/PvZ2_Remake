@@ -78,6 +78,18 @@
     <ClCompile Include="SunManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SlotManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FSeedPeashooter.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FSeedPeashooter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FSeedShovel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp">
@@ -132,6 +144,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SunManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlotManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSeedShovel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

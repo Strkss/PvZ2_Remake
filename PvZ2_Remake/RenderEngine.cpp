@@ -49,4 +49,20 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	sunTextTexture.loadFromText(mRenderer, "", COLOR_WHITE, 40);
 
 	printf("DONE: FSun -> loadMedia\n");
+
+	seedPacketMaxSprite[PEASHOOTER] = 3;
+	seedPacketTexture[PEASHOOTER].loadFromFile(mRenderer, SEEDPACKET_PEASHOOTER_IMG);
+	seedPacketSprite[PEASHOOTER] = new SDL_Rect[SEEDPACKET_STATES_NUM];
+	for (int i = 0; i <= 2; i++) {
+		seedPacketSprite[PEASHOOTER][i] = { i * 239, 0, 239, 151 };
+	}
+
+	seedPacketMaxSprite[SHOVEL] = 2;
+	seedPacketTexture[SHOVEL].loadFromFile(mRenderer, SEEDPACKET_SHOVEL_IMG);
+	seedPacketSprite[SHOVEL] = new SDL_Rect[SEEDPACKET_STATES_NUM - 1];
+	for (int i = 0; i <= 1; i++) {
+		seedPacketSprite[SHOVEL][i] = { i * 158, 0, 158, 158 };
+	}
+
+	printf("DONE: FSeedPacket -> loadMedia\n");
 }
