@@ -41,12 +41,12 @@ bool SlotManager::handleKeyDown(int key) { // khi chon cai nay thi phai bo chon 
 	return 0;
 }
 
-bool SlotManager::handleMouse(int x, int y, std::vector<FPlant*>& vecPlant, FLawn &lawn) {
+bool SlotManager::handleMouse(int x, int y) {
 	int row = 0, col = 0;
 	if (findGrid(x, y, row, col)) {
 		for (auto& it : vecSeed) {
 			if (it->state == SEEDPACKET_CHOSEN) {
-				it->action(x, y, vecPlant, lawn);
+				it->action(x, y);
 				break;
 			}
 		}

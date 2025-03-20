@@ -25,7 +25,7 @@ public:
 
 	void render(SDL_Renderer *mRenderer);
 	bool update();
-	virtual void action(int row, int col, std::vector<FPlant*>& vecPlant, FLawn& lawn) = 0;
+	virtual void action(int row, int col) = 0;
 	int getKeyPress();
 };
 

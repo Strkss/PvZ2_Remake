@@ -1,4 +1,7 @@
 #include "Level.hpp"
+#include "Global.hpp"
+
+Level* myLevel = NULL;
 
 Level::Level() {
 	PLANT_ID = 0;

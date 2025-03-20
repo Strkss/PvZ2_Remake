@@ -17,7 +17,7 @@ public:
 	~SlotManager();
 
 	bool handleKeyDown(int key);
-	bool handleMouse(int x, int y, std::vector<FPlant*>& vecPlant, FLawn& lawn);
+	bool handleMouse(int x, int y);
 	void update();
 	void render(SDL_Renderer* mRenderer);
 };

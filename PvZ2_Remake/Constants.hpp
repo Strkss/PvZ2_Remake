@@ -23,7 +23,14 @@ extern Mix_Chunk* sfxPlant;
 extern Mix_Chunk* sfxSun;
 extern Mix_Chunk* sfxBuzz;
 
+
+extern int PEA_ID;
+extern int SUN_ID;
+extern int ZOMBIE_ID;
+extern int PLANT_ID;
+
 extern TTF_Font* font;
+
 const std::string FONT = "Assets/Font/font.ttf";
 
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
@@ -189,8 +196,3 @@ const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
 const std::string LEVEL_WON_IMG = "Assets/UI/level_won_screen.png";
 const std::string LEVEL_LOST_IMG = "Assets/UI/level_lost_screen.png";
-
-extern int PEA_ID;
-extern int SUN_ID;
-extern int ZOMBIE_ID;
-extern int PLANT_ID;

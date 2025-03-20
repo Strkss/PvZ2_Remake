@@ -9,10 +9,11 @@
 class SunManager {
 	int curSun;
 	int skyTimer;
-	std::vector<FSun*> vecSun;
 	bool curSunChanged;
 
 public:
+	std::vector<FSun*> vecSun;
+
 	SunManager();
 	~SunManager();
 
@@ -21,4 +22,5 @@ public:
 	void removeSun(int id);
 	void render(SDL_Renderer* mRenderer);
 	void update();
+	int getCurSun();
 };

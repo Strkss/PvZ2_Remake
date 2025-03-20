@@ -1,13 +1,7 @@
-#include <stdio.h>
-#include <SDL.h>
-#include <utility>
-
-#include "FTexture.hpp"
 #include "FPeashooter.hpp"
-#include "FLawn.hpp"
-#include "Constants.hpp"
+#include "Global.hpp"
 
-FPeashooter::FPeashooter(int row, int col) { // viec update grid se do manager quan ly
+FPeashooter::FPeashooter(int row, int col) {
 	hp = 300;
 	this->row = row;
 	this->col = col;
@@ -20,12 +14,15 @@ FPeashooter::FPeashooter(int row, int col) { // viec update grid se do manager q
 	animFrame = 0;
 	animID = convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
 	id = ++PLANT_ID;
+	myLevel->myLawn.updateGrid(row, col, GRID_PEASHOOTER);
 }
 
-FPeashooter::~FPeashooter() { }
+FPeashooter::~FPeashooter() { 
+	myLevel->myLawn.updateGrid(row, col, GRID_EMPTY);
+}
 
-void FPeashooter::shoot(std::vector<FPea*>& vecPea) {
-	vecPea.push_back(new FPea(row, col));
+void FPeashooter::shoot() {
+	myLevel->vecPea.push_back(new FPea(row, col));
 }
 
 bool FPeashooter::update() {

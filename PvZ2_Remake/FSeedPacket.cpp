@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <SDL.h>
-
-#include "FTexture.hpp"
 #include "FSeedPacket.hpp"
 
 FTexture seedPacketTexture[PLANT_NUM];

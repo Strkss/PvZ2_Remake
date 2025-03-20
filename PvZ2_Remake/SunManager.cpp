@@ -3,7 +3,7 @@
 SunManager::SunManager() {
 	curSun = 50;
 	skyTimer = 0;
-	curSunChanged = false;
+	curSunChanged = true;
 }
 
 SunManager::~SunManager() {
@@ -79,4 +79,8 @@ void SunManager::render(SDL_Renderer* mRenderer) {
 	for (auto& it : vecSun) {
 		it->render(mRenderer);
 	}
+}
+
+int SunManager::getCurSun() {
+	return curSun;
 }

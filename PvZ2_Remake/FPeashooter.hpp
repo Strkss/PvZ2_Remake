@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <vector>
 #include <SDL.h>
+#include <utility>
 
 #include "FTexture.hpp"
 #include "Constants.hpp"
@@ -10,11 +11,12 @@
 
 class FPeashooter : public FPlant {
 private:
-	void shoot(std::vector<FPea*>& vecPea);
+	void shoot();
 public:
 	FPeashooter(int row, int col);
 	~FPeashooter();
 	bool update() override;
+	void action();
 };
 
 //extern SDL_Rect peashooterIdleSprite[PEASHOOTER_IDLE_FRAME], peashooterAttackSprite[PEASHOOTER_ATTACK_FRAME];

@@ -1,4 +1,5 @@
 #include "FSeedPeashooter.hpp"
+#include "Global.hpp"
 
 FSeedPeashooter::FSeedPeashooter() {
 	rX = 10;
@@ -12,10 +13,9 @@ FSeedPeashooter::FSeedPeashooter() {
 
 FSeedPeashooter::~FSeedPeashooter() {}
 
-void FSeedPeashooter::action(int row, int col, std::vector<FPlant*>& vecPlant, FLawn& lawn) {
-	if (lawn.getGridState(row, col) == GRID_EMPTY) {
-		vecPlant.push_back(new FPeashooter(row, col));
-		lawn.updateGrid(row, col, GRID_PEASHOOTER);
+void FSeedPeashooter::action(int row, int col) {
+	if (myLevel->myLawn.getGridState(row, col) == GRID_EMPTY && myLevel->mySun.getCurSun() >= PEASHOOTER_COST) {
+		myLevel->vecPlant.push_back(new FPeashooter(row, col));
 		state = SEEDPACKET_COOLDOWN;
 		cooldownTimer = 0;
 	}
