@@ -152,5 +152,8 @@
     <ClInclude Include="FSeedShovel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Global.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

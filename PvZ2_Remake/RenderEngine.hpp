@@ -12,6 +12,7 @@
 #include "FPea.hpp"
 #include "FSun.hpp"
 #include "FSeedPacket.hpp"
+#include "FLawn.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 

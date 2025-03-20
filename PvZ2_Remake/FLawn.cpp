@@ -4,6 +4,8 @@
 #include "Constants.hpp"
 #include "FLawn.hpp"
 
+FTexture lawnTexture;
+
 FLawn::FLawn() {
 	for (int rowI = 0; rowI < LAWN_ROW_NUM; rowI++) {
 		for (int colJ = 0; colJ < LAWN_COLUMN_NUM; colJ++) {
@@ -28,6 +30,9 @@ enum GRID_STATES FLawn::getGridState(int row, int col) {
 	return grid[row][col].state;
 }
 
+void FLawn::render(SDL_Renderer* mRenderer) {
+	lawnTexture.renderAtPosition(mRenderer, -10, 0);
+}
 
 //Debug function
 void FLawn::drawGridHitbox(SDL_Renderer* mRenderer) {

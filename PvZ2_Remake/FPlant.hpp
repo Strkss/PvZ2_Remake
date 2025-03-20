@@ -8,11 +8,11 @@
 #include "FTexture.hpp"
 #include "FLawn.hpp"
 
-class FPlant;
-
 extern SDL_Rect* plantSprite[PLANT_MAX_SPRITE];
 extern FTexture plantTexture[PLANT_MAX_SPRITE];
 extern int plantAnimMaxFrame[PLANT_MAX_SPRITE];
+
+class FPlant;
 
 bool sortByRow(FPlant*& lhs, FPlant*& rhs);
 

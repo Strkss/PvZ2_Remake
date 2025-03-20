@@ -1,14 +1,6 @@
-#include <stdio.h>
-#include <SDL.h>
-#include <vector>
-#include <string>
-#include <cmath>
-
-#include "FTexture.hpp"
 #include "FSun.hpp"
-#include "Math.hpp"
 
-FTexture sun, sunCounter, sunText;
+FTexture sunTexture, sunCounterTexture, sunTextTexture;
 
 FSun::FSun(int x, int y) {
 	rX = x;
@@ -16,8 +8,8 @@ FSun::FSun(int x, int y) {
 	decideVel(velX, velY);
 	hitbox.x = rX;
 	hitbox.y = rY;
-	hitbox.w = sun.getW() / SPRITE_DOWNSCALE;
-	hitbox.h = sun.getH() / SPRITE_DOWNSCALE;
+	hitbox.w = sunTexture.getW() / SPRITE_DOWNSCALE;
+	hitbox.h = sunTexture.getH() / SPRITE_DOWNSCALE;
 	state = SUN_STILL;
 	timer = 0;
 	id = ++SUN_ID;

@@ -8,6 +8,7 @@
 
 #include "FTexture.hpp"
 #include "Math.hpp"
+#include "Constants.hpp"
 
 extern FTexture sunTexture, sunCounterTexture, sunTextTexture;
 

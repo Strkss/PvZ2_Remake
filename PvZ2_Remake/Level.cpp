@@ -44,7 +44,7 @@ void Level::removePlant(int id) {
 		printf("Can't remove plant with ID %d\n", id);
 		return;
 	}
-	FLawn::updateGrid(vecPlant[delIndex]->getRow(), vecPlant[delIndex]->getCol(), GRID_EMPTY);
+	//FLawn::updateGrid(vecPlant[delIndex]->getRow(), vecPlant[delIndex]->getCol(), GRID_EMPTY);
 	delete vecPlant[delIndex];
 	vecPlant.erase(vecPlant.begin() + delIndex);
 	printf("DONE: Removed plant with ID %d\n", id);
@@ -62,7 +62,7 @@ void Level::removeZombie(int id) {
 		printf("Can't remove zombie with ID %d\n", id);
 		return;
 	}
-	deadZombie.push_back(new FZombie(vecZombie[delIndex]->getX(), vecZombie[delIndex]->getY()));
+	//deadZombie.push_back(new FZombie(vecZombie[delIndex]->getX(), vecZombie[delIndex]->getY()));
 	delete vecZombie[delIndex];
 	vecZombie.erase(vecZombie.begin() + delIndex);
 	printf("DONE: Removed zombie with ID %d\n", id);
@@ -134,25 +134,25 @@ void Level::update() {
 	}
 	pendingDelete.clear();
 
-	for (auto& it : vecZombie) {
-		if (it->update()) {
-			pendingDelete.push_back(it->getID());
-		}
-	}
-	for (auto& delID : pendingDelete) {
-		removePlant(delID);
-	}
-	pendingDelete.clear();
+	//for (auto& it : vecZombie) {
+	//	if (it->update()) {
+	//		pendingDelete.push_back(it->getID());
+	//	}
+	//}
+	//for (auto& delID : pendingDelete) {
+	//	removeZombie(delID);
+	//}
+	//pendingDelete.clear();
 
-	for (auto& it : deadZombie) {
-		if (it->update()) {
-			pendingDelete.push_back(it->getID());
-		}
-	}
-	for (auto& delID : pendingDelete) {
-		removePlant(delID);
-	}
-	pendingDelete.clear();
+	//for (auto& it : deadZombie) {
+	//	if (it->update()) {
+	//		pendingDelete.push_back(it->getID());
+	//	}
+	//}
+	//for (auto& delID : pendingDelete) {
+	//	removeZombie(delID);
+	//}
+	//pendingDelete.clear();
 
 	for (auto& it : vecPea) {
 		if (it->update()) {
@@ -160,7 +160,7 @@ void Level::update() {
 		}
 	}
 	for (auto& delID : pendingDelete) {
-		removePlant(delID);
+		removePea(delID);
 	}
 	pendingDelete.clear();
 }

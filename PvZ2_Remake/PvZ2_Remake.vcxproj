@@ -179,6 +179,7 @@
     <ClInclude Include="FSeedShovel.hpp" />
     <ClInclude Include="FSun.hpp" />
     <ClInclude Include="FZombie.hpp" />
+    <ClInclude Include="Global.hpp" />
     <ClInclude Include="Init.hpp" />
     <ClInclude Include="Math.hpp" />
     <ClInclude Include="FProgressBar.hpp" />
