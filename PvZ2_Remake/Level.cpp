@@ -26,11 +26,6 @@ Level::~Level() {
 	}
 	vecPea.clear();
 
-	for (auto& it : deadZombie) {
-		delete it;
-	}
-	deadZombie.clear();
-
 	Mix_HaltMusic();
 	Mix_HaltChannel(-1);
 }
@@ -47,7 +42,6 @@ void Level::removePlant(int id) {
 		printf("Can't remove plant with ID %d\n", id);
 		return;
 	}
-	//FLawn::updateGrid(vecPlant[delIndex]->getRow(), vecPlant[delIndex]->getCol(), GRID_EMPTY);
 	delete vecPlant[delIndex];
 	vecPlant.erase(vecPlant.begin() + delIndex);
 	printf("DONE: Removed plant with ID %d\n", id);
@@ -65,26 +59,9 @@ void Level::removeZombie(int id) {
 		printf("Can't remove zombie with ID %d\n", id);
 		return;
 	}
-	//deadZombie.push_back(new FZombie(vecZombie[delIndex]->getX(), vecZombie[delIndex]->getY()));
+	/*deadZombie.push_back(new FZombie(vecZombie[delIndex]->getX(), vecZombie[delIndex]->getY()));*/
 	delete vecZombie[delIndex];
 	vecZombie.erase(vecZombie.begin() + delIndex);
-	printf("DONE: Removed zombie with ID %d\n", id);
-}
-
-void Level::removeDeadZombie(int id) {
-	int delIndex = -1;
-	for (int i = 0; i < (int)deadZombie.size(); i++) {
-		if (deadZombie[i]->getID() == id) {
-			delIndex = i;
-			break;
-		}
-	}
-	if (delIndex == -1) {
-		printf("Can't remove zombie with ID %d\n", id);
-		return;
-	}
-	delete deadZombie[delIndex];
-	deadZombie.erase(deadZombie.begin() + delIndex);
 	printf("DONE: Removed zombie with ID %d\n", id);
 }
 
@@ -111,10 +88,6 @@ void Level::render(SDL_Renderer* mRenderer) {
 		it->render(mRenderer);
 	}
 
-	for (auto& it : deadZombie) {
-		it->render(mRenderer);
-	}
-
 	for (auto& it : vecZombie) {
 		it->render(mRenderer);
 	}
@@ -137,25 +110,15 @@ void Level::update() {
 	}
 	pendingDelete.clear();
 
-	//for (auto& it : vecZombie) {
-	//	if (it->update()) {
-	//		pendingDelete.push_back(it->getID());
-	//	}
-	//}
-	//for (auto& delID : pendingDelete) {
-	//	removeZombie(delID);
-	//}
-	//pendingDelete.clear();
-
-	//for (auto& it : deadZombie) {
-	//	if (it->update()) {
-	//		pendingDelete.push_back(it->getID());
-	//	}
-	//}
-	//for (auto& delID : pendingDelete) {
-	//	removeZombie(delID);
-	//}
-	//pendingDelete.clear();
+	for (auto& it : vecZombie) {
+		if (it->update()) {
+			pendingDelete.push_back(it->getID());
+		}
+	}
+	for (auto& delID : pendingDelete) {
+		removeZombie(delID);
+	}
+	pendingDelete.clear();
 
 	for (auto& it : vecPea) {
 		if (it->update()) {

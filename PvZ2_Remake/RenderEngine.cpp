@@ -61,4 +61,37 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	lawnTexture.loadFromFile(mRenderer, LAWN_IMG);
 
 	printf("DONE: FLawn -> loadMedia\n");
+
+	// load Basic Normal Walk
+	int animID = FZombie::convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL);
+	zombieAnimMaxFrame[animID] = ZOMBIE_BASIC_WALK_FRAME;
+	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_BASIC_WALK_IMG);
+	zombieSprite[animID] = new SDL_Rect[ZOMBIE_BASIC_WALK_FRAME];
+	for (int i = 0; i <= ZOMBIE_BASIC_WALK_FRAME / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_BASIC_WALK_FRAME) {
+			zombieSprite[animID][i * 10 + j] = { ZOMBIE_BASIC_WALK_SPRITE_WIDTH * j, ZOMBIE_BASIC_WALK_SPRITE_HEIGHT * i, ZOMBIE_BASIC_WALK_SPRITE_WIDTH, ZOMBIE_BASIC_WALK_SPRITE_HEIGHT };
+		}
+	}
+	// load Basic Normal Eat
+	animID = FZombie::convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL);
+	zombieAnimMaxFrame[animID] = ZOMBIE_BASIC_EAT_FRAME;
+	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_BASIC_EAT_IMG);
+	zombieSprite[animID] = new SDL_Rect[ZOMBIE_BASIC_EAT_FRAME];
+	for (int i = 0; i <= ZOMBIE_BASIC_EAT_FRAME / 10; i++) {
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_BASIC_EAT_FRAME) {
+			zombieSprite[animID][i * 10 + j] = { ZOMBIE_BASIC_EAT_SPRITE_WIDTH * j, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT * i, ZOMBIE_BASIC_EAT_SPRITE_WIDTH, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT };
+		}
+	}
+	// load Dead Normal Walk aka Default Dead
+	animID = FZombie::convertToAnimID(ZOMBIE_DEAD, ZOMBIE_WALK, ZOMBIE_NORMAL);
+	zombieAnimMaxFrame[animID] = ZOMBIE_DIE_FRAME;
+	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_DIE_IMG);
+	zombieSprite[animID] = new SDL_Rect[ZOMBIE_DIE_FRAME];
+	for (int i = 0; i <= ZOMBIE_DIE_FRAME / 10; i++) {
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_DIE_FRAME) {
+			zombieSprite[animID][i * 10 + j] = { ZOMBIE_DIE_SPRITE_WIDTH * j, ZOMBIE_DIE_SPRITE_HEIGHT * i, ZOMBIE_DIE_SPRITE_WIDTH, ZOMBIE_DIE_SPRITE_HEIGHT };
+		}
+	}
+
+	printf("DONE: FZombie -> loadMedia\n");
 }

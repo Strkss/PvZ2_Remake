@@ -18,10 +18,10 @@ FSun::FSun(int x, int y) {
 FSun::~FSun() { }
 
 void FSun::move() {
-	rX += SUN_VEL;
-	rY += SUN_VEL;
-	hitbox.x += SUN_VEL;
-	hitbox.y += SUN_VEL;
+	rX -= SUN_VEL;
+	rY -= SUN_VEL;
+	hitbox.x -= SUN_VEL;
+	hitbox.y -= SUN_VEL;
 }
 
 void FSun::decideVel(int& velX, int& velY) {

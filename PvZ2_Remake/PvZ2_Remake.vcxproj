@@ -143,6 +143,8 @@
     <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="FBasicZombie.cpp" />
+    <ClCompile Include="FDeadZombie.cpp" />
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
     <ClCompile Include="FPea.cpp" />
@@ -168,6 +170,8 @@
     <ClInclude Include="CollisionChecker.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="EventHandler.hpp" />
+    <ClInclude Include="FBasicZombie.hpp" />
+    <ClInclude Include="FDeadZombie.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />
     <ClInclude Include="FPea.hpp" />
