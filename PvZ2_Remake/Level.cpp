@@ -3,7 +3,9 @@
 
 Level* myLevel = NULL;
 
-Level::Level() {
+Level::Level(std::string path) {
+	delete myWave;
+	myWave = new WaveManager(path);
 	PLANT_ID = 0;
 	PEA_ID = 0;
 	ZOMBIE_ID = 0;
@@ -32,6 +34,8 @@ Level::~Level() {
 		delete it;
 	}
 	vecPart.clear();
+
+	delete myWave;
 
 	Mix_HaltMusic();
 	Mix_HaltChannel(-1);
@@ -134,6 +138,7 @@ void Level::update() {
 	std::vector<int> pendingDelete;
 	mySlot.update();
 	mySun.update();
+	myWave->update();
 	
 	for (auto& it : vecPlant) {
 		if (it->update()) {

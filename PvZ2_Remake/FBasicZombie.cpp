@@ -5,7 +5,8 @@ FBasicZombie::FBasicZombie(int row) {
 	this->row = row;
 	hp = ZOMBIE_BASIC_HP;
 	animID = convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL);
-	animFrame = 0;
+	// Random animation zombie
+	animFrame = Rand(0, zombieAnimMaxFrame[animID] - 1);
 	step = 0;
 	// lay vi tri cham dat cua zom
 	rY = LAWN_START_Y + LAWN_GRID_HEIGHT * (row + 1);
@@ -14,8 +15,12 @@ FBasicZombie::FBasicZombie(int row) {
 	hitbox.y = rY - 3 * LAWN_GRID_HEIGHT / 4;
 	hitbox.w = LAWN_GRID_WIDTH / 2;
 	hitbox.h = LAWN_GRID_HEIGHT / 2;
+	// Random vi tri zombie xuat hien
+	int posOffset = Rand(0, LAWN_GRID_WIDTH);
+	rX += posOffset;
+	hitbox.x += posOffset;
 	id = ++ZOMBIE_ID;
-	printf("%d %d %d %d\n", rX, rY, hitbox.x, hitbox.y);
+	//printf("%d %d %d %d\n", rX, rY, hitbox.x, hitbox.y);
 }
 
 FBasicZombie::~FBasicZombie() { 

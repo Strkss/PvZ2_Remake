@@ -166,6 +166,7 @@
     <ClCompile Include="RenderEngine.cpp" />
     <ClCompile Include="SlotManager.cpp" />
     <ClCompile Include="SunManager.cpp" />
+    <ClCompile Include="WaveManager.cpp" />
     <ClCompile Include="ZombieSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +194,7 @@
     <ClInclude Include="FTexture.hpp" />
     <ClInclude Include="SlotManager.hpp" />
     <ClInclude Include="SunManager.hpp" />
+    <ClInclude Include="WaveManager.hpp" />
     <ClInclude Include="ZombieSpawner.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

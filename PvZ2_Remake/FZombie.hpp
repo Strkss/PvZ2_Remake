@@ -6,6 +6,7 @@
 
 #include "FTexture.hpp"
 #include "Constants.hpp"
+#include "Math.hpp"
 
 extern FTexture zombieTexture[ZOMBIE_MAX_SPRITE];
 extern SDL_Rect* zombieSprite[ZOMBIE_MAX_SPRITE];
@@ -28,6 +29,7 @@ protected:
 
 	void move();
 public:
+	virtual ~FZombie() = 0;
 	virtual bool update() = 0;
 
 	int getHP();

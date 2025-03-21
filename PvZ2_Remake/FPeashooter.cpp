@@ -19,6 +19,7 @@ FPeashooter::FPeashooter(int row, int col) {
 }
 
 FPeashooter::~FPeashooter() { 
+	//printf("DESTRUCTOR CALLED\n");
 	myLevel->myLawn.updateGrid(row, col, GRID_EMPTY);
 }
 

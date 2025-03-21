@@ -28,6 +28,7 @@ protected:
 	enum ATTACK_RANGES range;
 
 public:
+	virtual ~FPlant() = 0;
 	virtual bool update() = 0;
 
 	static int convertToAnimID(enum PLANTS plant, enum PLANT_STATES state);

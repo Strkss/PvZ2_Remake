@@ -8,6 +8,8 @@ bool sortByRow(FPlant*& lhs, FPlant*& rhs) {
 	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getCol() < rhs->getCol());
 }
 
+FPlant::~FPlant() { }
+
 int FPlant::convertToAnimID(enum PLANTS plant, enum PLANT_STATES state) {
 	return plant * PLANT_STATES_NUM + state;
 }

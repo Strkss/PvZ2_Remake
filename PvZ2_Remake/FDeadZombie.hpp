@@ -1,3 +1,4 @@
+#pragma once
 #include "FParticle.hpp"
 
 class FDeadZombie : public FParticle {

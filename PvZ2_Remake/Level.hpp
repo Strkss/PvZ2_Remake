@@ -15,9 +15,7 @@
 #include "FProgressBar.hpp"
 #include "SunManager.hpp"
 #include "SlotManager.hpp"
-
-#include "EventHandler.hpp"
-#include "ZombieSpawner.hpp"
+#include "WaveManager.hpp"
 
 class Level {
 public:
@@ -28,10 +26,11 @@ public:
 	FLawn myLawn;
 	SunManager mySun;
 	SlotManager mySlot;
+	WaveManager* myWave;
 
 	bool won, lost;
 
-	Level();
+	Level(std::string path);
 	~Level();
 
 	void removePlant(int id);

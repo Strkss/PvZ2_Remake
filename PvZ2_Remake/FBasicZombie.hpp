@@ -1,3 +1,4 @@
+#pragma once
 #include "FZombie.hpp"
 #include "FDeadZombie.hpp"
 
