@@ -15,7 +15,7 @@ class FZombie {
 protected:
 	int hp;
 	SDL_Rect hitbox;
-	int rX, rY; // render pos
+	int rX, rY; // pos zombie cham dat
 	int animFrame;
 	int animID;
 	int id;

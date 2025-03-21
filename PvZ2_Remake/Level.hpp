@@ -11,6 +11,7 @@
 #include "FSun.hpp"
 #include "FZombie.hpp"
 #include "FPea.hpp"
+#include "FParticle.hpp"
 #include "FProgressBar.hpp"
 #include "SunManager.hpp"
 #include "SlotManager.hpp"
@@ -23,6 +24,7 @@ public:
 	std::vector<FPlant*> vecPlant;
 	std::vector<FZombie*> vecZombie;
 	std::vector<FPea*> vecPea;
+	std::vector<FParticle*> vecPart;
 	FLawn myLawn;
 	SunManager mySun;
 	SlotManager mySlot;

@@ -147,6 +147,7 @@
     <ClCompile Include="FDeadZombie.cpp" />
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
+    <ClCompile Include="FParticle.cpp" />
     <ClCompile Include="FPea.cpp" />
     <ClCompile Include="FPeashooter.cpp" />
     <ClCompile Include="FPlant.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="FDeadZombie.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />
+    <ClInclude Include="FParticle.hpp" />
     <ClInclude Include="FPea.hpp" />
     <ClInclude Include="FPeashooter.hpp" />
     <ClInclude Include="FPlant.hpp" />

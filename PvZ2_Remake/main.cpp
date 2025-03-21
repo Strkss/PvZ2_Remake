@@ -52,6 +52,7 @@ int main(int argc, char* argv[]) {
 	createWindow(mWindow);
 	createRenderer(mRenderer, mWindow);
 
+	loadMedia(mRenderer);
 	
 	//FLawn::initGrid();
 	//FProgressBar::init();

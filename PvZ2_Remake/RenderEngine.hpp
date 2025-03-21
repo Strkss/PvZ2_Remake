@@ -14,6 +14,7 @@
 #include "FSeedPacket.hpp"
 #include "FLawn.hpp"
 #include "FZombie.hpp"
+#include "FParticle.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 

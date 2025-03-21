@@ -38,7 +38,7 @@ void loadMedia(SDL_Renderer* mRenderer) {
 
 	sunTexture.loadFromFile(mRenderer, UI_SUN);
 	sunCounterTexture.loadFromFile(mRenderer, UI_SUN_COUNTER);
-	sunTextTexture.loadFromText(mRenderer, "", COLOR_WHITE, 40);
+	sunTextTexture.loadFromText(mRenderer, "50", COLOR_WHITE, 40);
 
 	printf("DONE: FSun -> loadMedia\n");
 
@@ -82,16 +82,19 @@ void loadMedia(SDL_Renderer* mRenderer) {
 			zombieSprite[animID][i * 10 + j] = { ZOMBIE_BASIC_EAT_SPRITE_WIDTH * j, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT * i, ZOMBIE_BASIC_EAT_SPRITE_WIDTH, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT };
 		}
 	}
-	// load Dead Normal Walk aka Default Dead
-	animID = FZombie::convertToAnimID(ZOMBIE_DEAD, ZOMBIE_WALK, ZOMBIE_NORMAL);
-	zombieAnimMaxFrame[animID] = ZOMBIE_DIE_FRAME;
-	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_DIE_IMG);
-	zombieSprite[animID] = new SDL_Rect[ZOMBIE_DIE_FRAME];
+
+	printf("DONE: FZombie -> loadMedia\n");
+
+	// load dead zombie particle
+	animID = ZOMBIE_DEAD;
+	particleAnimMaxFrame[animID] = ZOMBIE_DIE_FRAME;
+	particleTexture[animID].loadFromFile(mRenderer, ZOMBIE_DIE_IMG);
+	particleSprite[animID] = new SDL_Rect[ZOMBIE_DIE_FRAME];
 	for (int i = 0; i <= ZOMBIE_DIE_FRAME / 10; i++) {
 		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_DIE_FRAME) {
-			zombieSprite[animID][i * 10 + j] = { ZOMBIE_DIE_SPRITE_WIDTH * j, ZOMBIE_DIE_SPRITE_HEIGHT * i, ZOMBIE_DIE_SPRITE_WIDTH, ZOMBIE_DIE_SPRITE_HEIGHT };
+			particleSprite[animID][i * 10 + j] = { ZOMBIE_DIE_SPRITE_WIDTH * j, ZOMBIE_DIE_SPRITE_HEIGHT * i, ZOMBIE_DIE_SPRITE_WIDTH, ZOMBIE_DIE_SPRITE_HEIGHT };
 		}
 	}
 
-	printf("DONE: FZombie -> loadMedia\n");
+	printf("DONE: FParticle -> loadMedia\n");
 }

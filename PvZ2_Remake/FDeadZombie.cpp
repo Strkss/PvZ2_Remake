@@ -1,21 +1,10 @@
 #include "FDeadZombie.hpp"
 
-FDeadZombie::FDeadZombie(int x, int y) { // render pos (x, y)
-	hp = ZOMBIE_BASIC_HP;
-	animID = convertToAnimID(ZOMBIE_DEAD, ZOMBIE_WALK, ZOMBIE_NORMAL);
+FDeadZombie::FDeadZombie(int x, int y) { //(x, y) la vi tri zombie cham dat
+	animID = ZOMBIE_DEAD;
 	animFrame = 0;
-	step = 0;
 	rX = x;
-	rY = y;
-	hitbox.x = 0;
-	hitbox.y = 0;
-	hitbox.w = 0;
-	hitbox.y = 0;
+	rY = y - particleSprite[animID][0].h / SPRITE_DOWNSCALE;
 }
 
 FDeadZombie::~FDeadZombie() {}
-
-bool FDeadZombie::update() {
-	if (animFrame / FRAME_PACING >= zombieAnimMaxFrame[animID]) return 1;
-	return 0;
-}

@@ -1,8 +1,7 @@
-#include "FZombie.hpp"
+#include "FParticle.hpp"
 
-class FDeadZombie : public FZombie {
+class FDeadZombie : public FParticle {
 public:
 	FDeadZombie(int x, int y);
 	~FDeadZombie();
-	bool update() override;
 };
