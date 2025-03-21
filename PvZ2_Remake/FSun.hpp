@@ -21,7 +21,7 @@ class FSun {
 	int id;
 	
 	void move();
-	void decideVel(int& velX, int& velY);
+	void decideVel();
 public:
 	FSun(int x, int y);
 	~FSun();

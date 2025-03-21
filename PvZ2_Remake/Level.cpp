@@ -8,6 +8,8 @@ Level::Level() {
 	PEA_ID = 0;
 	ZOMBIE_ID = 0;
 	SUN_ID = 0;
+	won = 0;
+	lost = 0;
 }
 
 Level::~Level() {
@@ -25,6 +27,11 @@ Level::~Level() {
 		delete it;
 	}
 	vecPea.clear();
+
+	for (auto& it : vecPart) {
+		delete it;
+	}
+	vecPart.clear();
 
 	Mix_HaltMusic();
 	Mix_HaltChannel(-1);
@@ -59,7 +66,6 @@ void Level::removeZombie(int id) {
 		printf("Can't remove zombie with ID %d\n", id);
 		return;
 	}
-	/*deadZombie.push_back(new FZombie(vecZombie[delIndex]->getX(), vecZombie[delIndex]->getY()));*/
 	delete vecZombie[delIndex];
 	vecZombie.erase(vecZombie.begin() + delIndex);
 	printf("DONE: Removed zombie with ID %d\n", id);
@@ -83,8 +89,33 @@ void Level::removePea(int id) {
 	return;
 }
 
+void Level::removePart(int id) {
+	int delIndex = -1;
+	for (int i = 0; i < (int)vecPart.size(); i++) {
+		if (vecPart[i]->getID() == id) {
+			delIndex = i;
+			break;
+		}
+	}
+	if (delIndex == -1) {
+		printf("Can't remove particle with ID %d\n", id);
+		return;
+	}
+	delete vecPart[delIndex];
+	vecPart.erase(vecPart.begin() + delIndex);
+	printf("DONE: Removed particle with ID %d\n", id);
+	return;
+}
+
 void Level::render(SDL_Renderer* mRenderer) {
+	myLawn.render(mRenderer);
+	mySlot.render(mRenderer);
+
 	for (auto& it : vecPlant) {
+		it->render(mRenderer);
+	}
+
+	for (auto& it : vecPart) {
 		it->render(mRenderer);
 	}
 
@@ -95,10 +126,14 @@ void Level::render(SDL_Renderer* mRenderer) {
 	for (auto& it : vecPea) {
 		it->render(mRenderer);
 	}
+
+	mySun.render(mRenderer);
 }
 
 void Level::update() {
 	std::vector<int> pendingDelete;
+	mySlot.update();
+	mySun.update();
 	
 	for (auto& it : vecPlant) {
 		if (it->update()) {
@@ -129,5 +164,29 @@ void Level::update() {
 		removePea(delID);
 	}
 	pendingDelete.clear();
+
+	for (auto& it : vecPart) {
+		if (it->update()) {
+			pendingDelete.push_back(it->getID());
+		}
+	}
+	for (auto& delID : pendingDelete) {
+		removePart(delID);
+	}
+	pendingDelete.clear();
 }
 
+void Level::handleEvent(SDL_Event& e) {
+	//printf("a %d\n", e.type);
+
+	if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
+		mySlot.handleKeyDown(e.key.keysym.sym);
+	}
+	else if (e.type == SDL_MOUSEBUTTONDOWN) {
+		int x = -1, y = -1;
+		SDL_GetMouseState(&x, &y);
+		if (!mySun.handleMouse(x, y)) {
+			mySlot.handleMouse(x, y);
+		}
+	}
+}

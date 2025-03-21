@@ -16,6 +16,8 @@
 #include "ZombieSpawner.hpp"
 #include "FProgressBar.hpp"
 #include "FPlant.hpp"
+#include "FBasicZombie.hpp"
+#include "Global.hpp"
 
 //int newGameFrame = 0, newGameAnimationX;
 //
@@ -51,8 +53,42 @@ int main(int argc, char* argv[]) {
 	
 	createWindow(mWindow);
 	createRenderer(mRenderer, mWindow);
-
 	loadMedia(mRenderer);
+
+	enum GAME_STATES gameState = IN_LEVEL;
+	bool gameStateChanged = true;
+
+	bool quit = false;
+	SDL_Event e;
+	while (!quit) {
+		while (SDL_PollEvent(&e)) {
+			if (e.type == SDL_QUIT) {
+				quit = true;
+				break;
+			}
+			//handle event at each state
+			switch (gameState) {
+			case IN_LEVEL:
+				if (!gameStateChanged) {
+					myLevel->handleEvent(e);
+				}
+				break;
+			}
+		}
+		SDL_RenderClear(mRenderer);
+		switch (gameState) {
+		case IN_LEVEL:
+			if (gameStateChanged) {
+				myLevel = new Level();
+				gameStateChanged = false;
+				myLevel->vecZombie.push_back(new FBasicZombie(Rand(0, 4)));
+			}
+			myLevel->update();
+			myLevel->render(mRenderer);
+			break;
+		}
+		SDL_RenderPresent(mRenderer);
+	}
 	
 	//FLawn::initGrid();
 	//FProgressBar::init();

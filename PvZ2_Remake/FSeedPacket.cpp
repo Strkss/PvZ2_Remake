@@ -5,7 +5,7 @@ SDL_Rect* seedPacketSprite[PLANT_NUM];
 int seedPacketMaxSprite[PLANT_NUM];
 
 void FSeedPacket::render(SDL_Renderer* mRenderer) {
-	seedPacketTexture[type].renderAtPosition(mRenderer, rX, rY, &seedPacketSprite[type][state], SPRITE_DOWNSCALE);
+	 seedPacketTexture[type].renderAtPosition(mRenderer, rX, rY, &seedPacketSprite[type][state], SPRITE_DOWNSCALE);
 }
 
 bool FSeedPacket::update() { // phai update state hay khong?

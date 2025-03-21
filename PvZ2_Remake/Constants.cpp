@@ -23,3 +23,4 @@ int PEA_ID = 0;
 int ZOMBIE_ID = 0;
 int SUN_ID = 0;
 int PLANT_ID = 0;
+int PARTICLE_ID = 0;

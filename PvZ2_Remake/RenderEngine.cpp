@@ -16,19 +16,23 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 }
 
 void loadMedia(SDL_Renderer* mRenderer) {
-	plantAnimMaxFrame[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)] = PEASHOOTER_IDLE_FRAME;
-	plantAnimMaxFrame[FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK)] = PEASHOOTER_ATTACK_FRAME;
-	plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)] = new SDL_Rect[PEASHOOTER_IDLE_FRAME];
-	plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK)] = new SDL_Rect[PEASHOOTER_ATTACK_FRAME];
-
+	// load Peashooter idle
+	int animID = FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
+	plantAnimMaxFrame[animID] = PEASHOOTER_IDLE_FRAME;
+	plantSprite[animID] = new SDL_Rect[PEASHOOTER_IDLE_FRAME];
 	for (int i = 0; i < PEASHOOTER_IDLE_FRAME; i++) {
-		plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)][i] = {PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE};
+		plantSprite[animID][i] = {PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE};
 	}
+	plantTexture[animID].loadFromFile(mRenderer, PEASHOOTER_IDLE_IMG);
+
+	// load Peashooter attack
+	animID = FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK);
+	plantAnimMaxFrame[animID] = PEASHOOTER_ATTACK_FRAME;
+	plantSprite[animID] = new SDL_Rect[PEASHOOTER_ATTACK_FRAME];
 	for (int i = 0; i < PEASHOOTER_ATTACK_FRAME; i++) {
-		plantSprite[FPlant::convertToAnimID(PEASHOOTER, PLANT_ATTACK)][i] = { PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE };
+		plantSprite[animID][i] = { PEASHOOTER_SPRITE_SIZE * i, 0, PEASHOOTER_SPRITE_SIZE, PEASHOOTER_SPRITE_SIZE };
 	}
-	plantTexture[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)].loadFromFile(mRenderer, PEASHOOTER_IDLE_IMG);
-	plantTexture[FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0)].loadFromFile(mRenderer, PEASHOOTER_ATTACK_IMG);
+	plantTexture[animID].loadFromFile(mRenderer, PEASHOOTER_ATTACK_IMG);
 
 	printf("DONE: FPlant -> loadMedia\n");
 
@@ -44,17 +48,18 @@ void loadMedia(SDL_Renderer* mRenderer) {
 
 	seedPacketMaxSprite[PEASHOOTER] = 3;
 	seedPacketTexture[PEASHOOTER].loadFromFile(mRenderer, SEEDPACKET_PEASHOOTER_IMG);
-	seedPacketSprite[PEASHOOTER] = new SDL_Rect[SEEDPACKET_STATES_NUM];
-	for (int i = 0; i <= 2; i++) {
+	seedPacketSprite[PEASHOOTER] = new SDL_Rect[3];
+	for (int i = 0; i < 3; i++) {
 		seedPacketSprite[PEASHOOTER][i] = { i * 239, 0, 239, 151 };
 	}
 
 	seedPacketMaxSprite[SHOVEL] = 2;
 	seedPacketTexture[SHOVEL].loadFromFile(mRenderer, SEEDPACKET_SHOVEL_IMG);
-	seedPacketSprite[SHOVEL] = new SDL_Rect[SEEDPACKET_STATES_NUM - 1];
-	for (int i = 0; i <= 1; i++) {
+	seedPacketSprite[SHOVEL] = new SDL_Rect[2];
+	for (int i = 0; i < 2; i++) {
 		seedPacketSprite[SHOVEL][i] = { i * 158, 0, 158, 158 };
 	}
+	seedPacketTexture[SHOVEL].renderAtPosition(mRenderer, 0, 0);
 
 	printf("DONE: FSeedPacket -> loadMedia\n");
 
@@ -63,7 +68,7 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	printf("DONE: FLawn -> loadMedia\n");
 
 	// load Basic Normal Walk
-	int animID = FZombie::convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL);
+	animID = FZombie::convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL);
 	zombieAnimMaxFrame[animID] = ZOMBIE_BASIC_WALK_FRAME;
 	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_BASIC_WALK_IMG);
 	zombieSprite[animID] = new SDL_Rect[ZOMBIE_BASIC_WALK_FRAME];

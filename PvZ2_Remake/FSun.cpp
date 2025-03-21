@@ -5,11 +5,11 @@ FTexture sunTexture, sunCounterTexture, sunTextTexture;
 FSun::FSun(int x, int y) {
 	rX = x;
 	rY = y;
-	decideVel(velX, velY);
 	hitbox.x = rX;
 	hitbox.y = rY;
 	hitbox.w = sunTexture.getW() / SPRITE_DOWNSCALE;
 	hitbox.h = sunTexture.getH() / SPRITE_DOWNSCALE;
+	decideVel();
 	state = SUN_STILL;
 	timer = 0;
 	id = ++SUN_ID;
@@ -18,19 +18,20 @@ FSun::FSun(int x, int y) {
 FSun::~FSun() { }
 
 void FSun::move() {
-	rX -= SUN_VEL;
-	rY -= SUN_VEL;
-	hitbox.x -= SUN_VEL;
-	hitbox.y -= SUN_VEL;
+	rX -= velX;
+	rY -= velY;
+	hitbox.x -= velX;
+	hitbox.y -= velY;
 }
 
-void FSun::decideVel(int& velX, int& velY) {
+void FSun::decideVel() {
 	int dis = getDistance(rX, rY, 120, 30); // Lay khoang cach den SunCounter
 	int disX = abs(rX - 120);
-	int disY = abs(rX - 30);
+	int disY = abs(rY - 30);
 	int frameTaken = dis / SUN_VEL;
 	velX = disX / frameTaken;
 	velY = disY / frameTaken;
+	printf("%d %d %d %d\n", rX, rY, velX, velY);
 }
 
 SDL_Rect FSun::getHitbox() {

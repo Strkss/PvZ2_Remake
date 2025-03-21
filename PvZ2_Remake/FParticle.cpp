@@ -13,3 +13,6 @@ bool FParticle::update() {
 	if (animFrame * FRAME_PACING >= particleAnimMaxFrame[animID]) return 1;
 	return 0;
 }
+int FParticle::getID() {
+	return id;
+}

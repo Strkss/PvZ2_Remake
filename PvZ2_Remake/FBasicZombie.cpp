@@ -9,11 +9,13 @@ FBasicZombie::FBasicZombie(int row) {
 	step = 0;
 	// lay vi tri cham dat cua zom
 	rY = LAWN_START_Y + LAWN_GRID_HEIGHT * (row + 1);
-	rX = LAWN_START_X + LAWN_GRID_WIDTH * 8; // zombie se o xa cot cuoi
+	rX = LAWN_START_X + LAWN_GRID_WIDTH * 9; // zombie se o xa cot cuoi
 	hitbox.x = rX + zombieSprite[animID][0].w / SPRITE_DOWNSCALE / 2 - LAWN_GRID_WIDTH / 4;
-	hitbox.y = LAWN_START_Y + LAWN_GRID_HEIGHT * row + LAWN_GRID_HEIGHT / 4;
+	hitbox.y = rY - 3 * LAWN_GRID_HEIGHT / 4;
 	hitbox.w = LAWN_GRID_WIDTH / 2;
-	hitbox.y = LAWN_GRID_HEIGHT / 2;
+	hitbox.h = LAWN_GRID_HEIGHT / 2;
+	id = ++ZOMBIE_ID;
+	printf("%d %d %d %d\n", rX, rY, hitbox.x, hitbox.y);
 }
 
 FBasicZombie::~FBasicZombie() { 

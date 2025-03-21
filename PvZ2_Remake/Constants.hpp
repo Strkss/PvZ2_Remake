@@ -5,6 +5,8 @@
 #include <SDL_mixer.h>
 #include <fstream>
 
+#define DEBUG_HITBOX
+
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
@@ -28,6 +30,7 @@ extern int PEA_ID;
 extern int SUN_ID;
 extern int ZOMBIE_ID;
 extern int PLANT_ID;
+extern int PARTICLE_ID;
 
 extern TTF_Font* font;
 
@@ -99,7 +102,7 @@ const std::string PEASHOOTER_IDLE_IMG = "Assets/PlantAnimation/peashooter_idle.p
 const std::string SEEDPACKET_PEASHOOTER_IMG = "Assets/SeedPacket/peashooter.png";
 const std::string SEEDPACKET_SHOVEL_IMG = "Assets/SeedPacket/shovel.png";
 
-//const std::string SEEDPACKET_SHOVEL_IMG_UNCHOSEN = "Assets/SeedPacket/shovel_0.png";
+const std::string SEEDPACKET_SHOVEL_IMG_UNCHOSEN = "Assets/SeedPacket/shovel_0.png";
 //const std::string SEEDPACKET_SHOVEL_IMG_CHOSEN = "Assets/SeedPacket/shovel_1.png";
 
 enum SEEDPACKET_STATES {
@@ -211,3 +214,12 @@ const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
 const std::string LEVEL_WON_IMG = "Assets/UI/level_won_screen.png";
 const std::string LEVEL_LOST_IMG = "Assets/UI/level_lost_screen.png";
+
+enum GAME_STATES {
+	IN_LEVEL,
+	IN_INTRO,
+	IN_LOSE,
+	IN_WON,
+	IN_REALM,
+	GAME_STATE_NUM
+};

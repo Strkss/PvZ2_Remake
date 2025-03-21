@@ -18,6 +18,7 @@ FGreenPea::~FGreenPea() {}
 bool FGreenPea::update() {
 	action();
 	if (hitbox.x >= SCREEN_WIDTH || isExploded) return 1;
+	move();
 	return 0;
 }
 

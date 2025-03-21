@@ -29,6 +29,10 @@ void FZombie::render(SDL_Renderer* mRenderer) {
 	++animFrame;
 	if (animFrame / FRAME_PACING >= zombieAnimMaxFrame[animID]) animFrame = 0;
 	zombieTexture[animID].renderAtPosition(mRenderer, rX, rY - zombieSprite[animID][0].h / SPRITE_DOWNSCALE, &zombieSprite[animID][animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+#ifdef DEBUG_HITBOX
+	SDL_GetRenderDrawColor(mRenderer, 0, 0, 0, 0);
+	SDL_RenderDrawRect(mRenderer, &hitbox);
+#endif
 }
 
 SDL_Rect FZombie::getHitbox() {

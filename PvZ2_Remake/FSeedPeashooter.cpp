@@ -18,6 +18,7 @@ void FSeedPeashooter::action(int row, int col) {
 		myLevel->vecPlant.push_back(new FPeashooter(row, col));
 		state = SEEDPACKET_COOLDOWN;
 		cooldownTimer = 0;
+		myLevel->mySun.updateCurSun(-PEASHOOTER_COST);
 	}
 	else {
 		state = SEEDPACKET_UNCHOSEN;

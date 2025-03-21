@@ -9,6 +9,7 @@ FSeedShovel::FSeedShovel() {
 	targetCooldownTimer = 0;
 	keyPress = SDLK_q;
 	type = SHOVEL;
+	state = SEEDPACKET_UNCHOSEN;
 }
 
 FSeedShovel::~FSeedShovel() {}

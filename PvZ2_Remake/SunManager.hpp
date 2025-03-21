@@ -23,4 +23,5 @@ public:
 	void render(SDL_Renderer* mRenderer);
 	void update();
 	int getCurSun();
+	void updateCurSun(int add);
 };

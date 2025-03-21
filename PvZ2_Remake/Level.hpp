@@ -29,13 +29,17 @@ public:
 	SunManager mySun;
 	SlotManager mySlot;
 
+	bool won, lost;
+
 	Level();
 	~Level();
 
 	void removePlant(int id);
 	void removeZombie(int id);
 	void removePea(int id);
+	void removePart(int id);
 
 	void render(SDL_Renderer* mRenderer);
 	void update();
+	void handleEvent(SDL_Event &e);
 };

@@ -46,7 +46,7 @@ bool SlotManager::handleMouse(int x, int y) {
 	if (findGrid(x, y, row, col)) {
 		for (auto& it : vecSeed) {
 			if (it->state == SEEDPACKET_CHOSEN) {
-				it->action(x, y);
+				it->action(row, col);
 				break;
 			}
 		}

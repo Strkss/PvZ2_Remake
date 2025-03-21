@@ -14,6 +14,7 @@ SunManager::~SunManager() {
 }
 
 void SunManager::summonSkySun() {
+	++skyTimer;
 	if (skyTimer >= SUN_SKYFALL_DELAY) {
 		skyTimer = 0;
 		vecSun.push_back(new FSun(Rand(LAWN_START_X, LAWN_END_X - sunTexture.getW()), Rand(LAWN_START_Y, LAWN_END_Y - sunTexture.getH())));
@@ -57,6 +58,7 @@ void SunManager::removeSun(int id) {
 }
 
 void SunManager::update() {
+	summonSkySun();
 	std::vector<int> pendingDelete;
 	for (auto& it : vecSun) {
 		if (it->update()) {
@@ -66,6 +68,9 @@ void SunManager::update() {
 			}
 			pendingDelete.push_back(it->getID());
 		}
+	}
+	for (auto& it : pendingDelete) {
+		removeSun(it);
 	}
 }
 
@@ -83,4 +88,9 @@ void SunManager::render(SDL_Renderer* mRenderer) {
 
 int SunManager::getCurSun() {
 	return curSun;
+}
+
+void SunManager::updateCurSun(int add) {
+	curSun += add;
+	curSunChanged = true;
 }
