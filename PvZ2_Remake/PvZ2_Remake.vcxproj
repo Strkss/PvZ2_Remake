@@ -145,6 +145,7 @@
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FBasicZombie.cpp" />
     <ClCompile Include="FDeadZombie.cpp" />
+    <ClCompile Include="FGreenPea.cpp" />
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
     <ClCompile Include="FParticle.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="EventHandler.hpp" />
     <ClInclude Include="FBasicZombie.hpp" />
     <ClInclude Include="FDeadZombie.hpp" />
+    <ClInclude Include="FGreenPea.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />
     <ClInclude Include="FParticle.hpp" />

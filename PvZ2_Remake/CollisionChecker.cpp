@@ -35,7 +35,7 @@ bool checkZombieInRange(FPlant* plant, std::vector<FZombie*>& vecZom, std::vecto
 				}
 			}
 			break;
-		case NONE:
+		case DEFENSIVE:
 			return 0;
 		}
 	}

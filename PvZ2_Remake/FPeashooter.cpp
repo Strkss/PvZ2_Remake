@@ -23,7 +23,7 @@ FPeashooter::~FPeashooter() {
 }
 
 void FPeashooter::shoot() {
-	myLevel->vecPea.push_back(new FPea(row, col));
+	myLevel->vecPea.push_back(new FGreenPea(row, col));
 }
 
 bool FPeashooter::update() {

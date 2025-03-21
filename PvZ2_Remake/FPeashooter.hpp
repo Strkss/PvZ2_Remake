@@ -6,7 +6,7 @@
 
 #include "FTexture.hpp"
 #include "Constants.hpp"
-#include "FPea.hpp"
+#include "FGreenPea.hpp"
 #include "FPlant.hpp"
 #include "CollisionChecker.hpp"
 

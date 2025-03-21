@@ -1,3 +1,4 @@
+#pragma once
 #include "FPea.hpp"
 #include "CollisionChecker.hpp"
 
