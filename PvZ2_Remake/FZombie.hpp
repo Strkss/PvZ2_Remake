@@ -11,9 +11,14 @@ extern FTexture zombieTexture[ZOMBIE_MAX_SPRITE];
 extern SDL_Rect* zombieSprite[ZOMBIE_MAX_SPRITE];
 extern int zombieAnimMaxFrame[ZOMBIE_MAX_SPRITE];
 
+class FZombie;
+
+bool sortByRow(FZombie*& lhs, FZombie*& rhs);
+
 class FZombie {
 protected:
 	int hp;
+	int row;
 	SDL_Rect hitbox;
 	int rX, rY; // pos zombie cham dat
 	int animFrame;
@@ -25,10 +30,13 @@ protected:
 public:
 	virtual bool update() = 0;
 
+	int getHP();
+
 	static int convertToAnimID(enum ZOMBIES zombie, enum ZOMBIE_STATES state, enum ZOMBIE_HP_TIERS hpTier);
 	void updateAnimID(int id);
 	int getAnimID();
 
+	int getRow();
 	int getID();
 
 	void render(SDL_Renderer* mRenderer);

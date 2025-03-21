@@ -46,3 +46,11 @@ SDL_Rect FPlant::getHitbox() {
 void FPlant::takeDamage(int dmg) {
 	hp -= dmg;
 }
+
+enum ATTACK_RANGES FPlant::getRange() {
+	return range;
+}
+
+int FPlant::getHP() {
+	return hp;
+}

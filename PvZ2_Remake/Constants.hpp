@@ -189,6 +189,14 @@ enum PARTICLES {
 
 const int PARTICLE_MAX_SPRITE = PARTICLE_NUM;
 
+enum ATTACK_RANGES {
+	NONE,
+	ONE_ROW_AHEAD,
+	THREE_BY_THREE_SQUARE,
+	ONE_TILE,
+	ATTACK_RANGE_NUM
+};
+
 const int WAVE_DELAY = 1500;
 
 const std::string WAVE_INFO = "Assets/Level/wave.txt";

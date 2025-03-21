@@ -25,6 +25,7 @@ protected:
 	int animFrame;
 	int animID;
 	int id;
+	enum ATTACK_RANGES range;
 
 public:
 	virtual bool update() = 0;
@@ -34,6 +35,7 @@ public:
 	int getAnimID();
 
 	int getID();
+	enum ATTACK_RANGES getRange();
 
 	void render(SDL_Renderer* mRenderer);
 
@@ -41,4 +43,5 @@ public:
 	int getCol();
 	SDL_Rect getHitbox();
 	void takeDamage(int dmg);
+	int getHP();
 };

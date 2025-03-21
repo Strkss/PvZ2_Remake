@@ -4,6 +4,10 @@ FTexture zombieTexture[ZOMBIE_MAX_SPRITE];
 SDL_Rect* zombieSprite[ZOMBIE_MAX_SPRITE];
 int zombieAnimMaxFrame[ZOMBIE_MAX_SPRITE];
 
+bool sortByRow(FZombie*& lhs, FZombie*& rhs) {
+	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getHitbox().x < rhs->getHitbox().x);
+}
+
 int FZombie::convertToAnimID(enum ZOMBIES zombie, enum ZOMBIE_STATES state, enum ZOMBIE_HP_TIERS hpTier) {
 	return zombie * ZOMBIE_STATES_NUM * ZOMBIE_HP_TIERS_NUM + state * ZOMBIE_HP_TIERS_NUM + hpTier;
 }
@@ -42,6 +46,14 @@ void FZombie::move() {
 		--hitbox.x;
 		step = 0;
 	}
+}
+
+int FZombie::getRow() {
+	return row;
+}
+
+int FZombie::getHP() {
+	return hp;
 }
 
 //FTexture zombieDieTexture, basicWalkTexture, basicEatTexture;

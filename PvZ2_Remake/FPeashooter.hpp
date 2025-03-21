@@ -8,6 +8,7 @@
 #include "Constants.hpp"
 #include "FPea.hpp"
 #include "FPlant.hpp"
+#include "CollisionChecker.hpp"
 
 class FPeashooter : public FPlant {
 private:

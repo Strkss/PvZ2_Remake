@@ -12,6 +12,7 @@ extern FTexture peaTexture;
 bool sortByRow(FPea*& lhs, FPea*& rhs);
 
 class FPea {
+protected:
 	int rX, rY; // render pos
 	SDL_Rect hitbox;
 	int row;
@@ -22,15 +23,12 @@ class FPea {
 public:
 	bool isExploded;
 	
-	FPea(int r, int c);
-	~FPea();
-	
 	int getID();
 	int getRow();
 	SDL_Rect getHitbox();
 
 	void render(SDL_Renderer* mRenderer);
-	bool update();
+	virtual bool update() = 0;
 };
 
 // render pos = hitbox.x + LAWN_GRID_WIDTH / 4, hitbox.y

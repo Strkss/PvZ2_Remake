@@ -2,6 +2,7 @@
 #include "Global.hpp"
 
 FBasicZombie::FBasicZombie(int row) {
+	this->row = row;
 	hp = ZOMBIE_BASIC_HP;
 	animID = convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL);
 	animFrame = 0;

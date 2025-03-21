@@ -14,6 +14,7 @@ FPeashooter::FPeashooter(int row, int col) {
 	animFrame = 0;
 	animID = convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
 	id = ++PLANT_ID;
+	range = ONE_ROW_AHEAD;
 	myLevel->myLawn.updateGrid(row, col, GRID_PEASHOOTER);
 }
 
@@ -27,7 +28,16 @@ void FPeashooter::shoot() {
 
 bool FPeashooter::update() {
 	if (hp <= 0) return 1;
+	action();
 	return 0;
+}
+
+void FPeashooter::action() {
+	if (animID != convertToAnimID(PEASHOOTER, PLANT_ATTACK)) return;
+	std::vector<FZombie*> damagedZom;
+	if (checkZombieInRange(this, myLevel->vecZombie, damagedZom) && animFrame == plantAnimMaxFrame[animID] * FRAME_PACING - 1) {
+		shoot();
+	}
 }
 
 //SDL_Rect peashooterIdleSprite[PEASHOOTER_IDLE_FRAME], peashooterAttackSprite[PEASHOOTER_ATTACK_FRAME];

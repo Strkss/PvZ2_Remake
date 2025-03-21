@@ -12,20 +12,6 @@ bool sortByRow(FPea*& lhs, FPea*& rhs) {
 	return lhs->getRow() < rhs->getRow() || (lhs->getRow() == rhs->getRow() && lhs->getHitbox().x < rhs->getHitbox().x);
 }
 
-FPea::FPea(int r, int c) {
-	rX = LAWN_START_X + LAWN_GRID_WIDTH * c + LAWN_GRID_WIDTH / 2;
-	rY = LAWN_START_Y + LAWN_GRID_HEIGHT * r + LAWN_GRID_HEIGHT / 2 - peaTexture.getH() / SPRITE_DOWNSCALE;
-	hitbox.x = rX;
-	hitbox.y = rY;
-	hitbox.w = peaTexture.getW() / SPRITE_DOWNSCALE;
-	hitbox.h = peaTexture.getH() / SPRITE_DOWNSCALE;
-	row = r;
-	isExploded = false;
-	id = ++PEA_ID;
-}
-
-FPea::~FPea() {}
-
 void FPea::move() {
 	rX += PEA_VEL;
 	hitbox.x += PEA_VEL;
@@ -45,11 +31,6 @@ SDL_Rect FPea::getHitbox() {
 
 void FPea::render(SDL_Renderer* mRenderer) {
 	peaTexture.renderAtPosition(mRenderer, rX, rY, NULL, SPRITE_DOWNSCALE);
-}
-
-bool FPea::update() {
-	if (hitbox.x > SCREEN_WIDTH || isExploded) return 1;
-	return 0;
 }
 
 //std::vector<FPea*> vecPea;
