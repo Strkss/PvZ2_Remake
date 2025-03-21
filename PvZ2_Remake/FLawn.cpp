@@ -32,6 +32,9 @@ enum GRID_STATES FLawn::getGridState(int row, int col) {
 
 void FLawn::render(SDL_Renderer* mRenderer) {
 	lawnTexture.renderAtPosition(mRenderer, -10, 0);
+#ifdef DEBUG_HITBOX
+	drawGridHitbox(mRenderer);
+#endif	
 }
 
 //Debug function

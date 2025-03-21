@@ -25,6 +25,10 @@ void FPlant::render(SDL_Renderer* mRenderer) {
 	++animFrame;
 	if (animFrame / FRAME_PACING >= plantAnimMaxFrame[animID]) animFrame = 0;
 	plantTexture[animID].renderAtPosition(mRenderer, rX, rY, &plantSprite[animID][animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+#ifdef DEBUG_HITBOX
+	SDL_GetRenderDrawColor(mRenderer, 0, 0, 0, 0);
+	SDL_RenderDrawRect(mRenderer, &hitbox);
+#endif	
 }
 
 int FPlant::getRow() {

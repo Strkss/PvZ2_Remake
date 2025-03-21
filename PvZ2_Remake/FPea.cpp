@@ -31,6 +31,10 @@ SDL_Rect FPea::getHitbox() {
 
 void FPea::render(SDL_Renderer* mRenderer) {
 	peaTexture.renderAtPosition(mRenderer, rX, rY, NULL, SPRITE_DOWNSCALE);
+#ifdef DEBUG_HITBOX
+	SDL_GetRenderDrawColor(mRenderer, 0, 0, 0, 0);
+	SDL_RenderDrawRect(mRenderer, &hitbox);
+#endif	
 }
 
 //std::vector<FPea*> vecPea;

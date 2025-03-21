@@ -31,7 +31,6 @@ void FSun::decideVel() {
 	int frameTaken = dis / SUN_VEL;
 	velX = disX / frameTaken;
 	velY = disY / frameTaken;
-	printf("%d %d %d %d\n", rX, rY, velX, velY);
 }
 
 SDL_Rect FSun::getHitbox() {
@@ -48,6 +47,10 @@ enum SUN_STATES FSun::getState() {
 
 void FSun::render(SDL_Renderer* mRenderer) {
 	sunTexture.renderAtPosition(mRenderer, rX, rY, NULL, SPRITE_DOWNSCALE);
+#ifdef DEBUG_HITBOX
+	SDL_GetRenderDrawColor(mRenderer, 0, 0, 0, 0);
+	SDL_RenderDrawRect(mRenderer, &hitbox);
+#endif	
 }
 
 void FSun::updateState(enum SUN_STATES uState) {
