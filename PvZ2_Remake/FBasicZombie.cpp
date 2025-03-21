@@ -24,6 +24,18 @@ FBasicZombie::~FBasicZombie() {
 
 bool FBasicZombie::update() {
 	if (hp <= 0) return 1;
+	action();
 	if (animID == convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL)) move();
 	return 0;
+}
+
+void FBasicZombie::action() {
+	FPlant* damagedPlant = NULL;
+	if (checkPlantInRange(this, myLevel->vecPlant, damagedPlant)) {
+		if (animID != convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL)) updateAnimID(convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL));
+		damagedPlant->takeDamage(ZOMBIE_DMG);
+	}
+	else {
+		if (animID != convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL)) updateAnimID(convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL));
+	}
 }

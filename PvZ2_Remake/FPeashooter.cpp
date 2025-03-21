@@ -38,7 +38,7 @@ void FPeashooter::action() {
 		if (animID != convertToAnimID(PEASHOOTER, PLANT_ATTACK)) {
 			updateAnimID(convertToAnimID(PEASHOOTER, PLANT_ATTACK));
 		}
-		else if (animFrame == plantAnimMaxFrame[animID]) shoot(); // ban o frame giua
+		else if (animFrame == plantAnimMaxFrame[animID] - 1) shoot(); // ban o frame giua
 	}
 	else {
 		if (animID != convertToAnimID(PEASHOOTER, PLANT_IDLE_0)) {

@@ -24,7 +24,7 @@ bool FGreenPea::update() {
 
 void FGreenPea::action() {
 	if (hitbox.x >= SCREEN_WIDTH) isExploded = 1;
-	FZombie* damagedZom;
+	FZombie* damagedZom = NULL;
 	if (checkPeaExploded(this, myLevel->vecZombie, damagedZom) && !isExploded) {
 		isExploded = 1;
 		damagedZom->takeDamage(PEA_DMG);
