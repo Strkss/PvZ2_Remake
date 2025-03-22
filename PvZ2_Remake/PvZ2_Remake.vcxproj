@@ -142,7 +142,6 @@
   <ItemGroup>
     <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="Constants.cpp" />
-    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FBasicZombie.cpp" />
     <ClCompile Include="FDeadZombie.cpp" />
     <ClCompile Include="FGreenPea.cpp" />
@@ -167,12 +166,10 @@
     <ClCompile Include="SlotManager.cpp" />
     <ClCompile Include="SunManager.cpp" />
     <ClCompile Include="WaveManager.cpp" />
-    <ClCompile Include="ZombieSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionChecker.hpp" />
     <ClInclude Include="Constants.hpp" />
-    <ClInclude Include="EventHandler.hpp" />
     <ClInclude Include="FBasicZombie.hpp" />
     <ClInclude Include="FDeadZombie.hpp" />
     <ClInclude Include="FGreenPea.hpp" />
@@ -195,7 +192,6 @@
     <ClInclude Include="SlotManager.hpp" />
     <ClInclude Include="SunManager.hpp" />
     <ClInclude Include="WaveManager.hpp" />
-    <ClInclude Include="ZombieSpawner.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

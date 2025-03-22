@@ -111,3 +111,7 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	
 	printf("DONE: FProgressBar -> loadMedia\n");
 }
+
+void closeMedia(SDL_Renderer* mRenderer) {
+	return;
+}

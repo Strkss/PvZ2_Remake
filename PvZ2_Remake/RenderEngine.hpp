@@ -20,3 +20,5 @@
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 
 void loadMedia(SDL_Renderer* mRenderer);
+
+void closeMedia(SDL_Renderer* mRenderer);
