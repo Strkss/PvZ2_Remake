@@ -17,6 +17,7 @@ Level::Level(std::string path, std::string name) {
 	SUN_ID = 0;
 	won = 0;
 	lost = 0;
+	Mix_PlayMusic(flag_0, INT_MAX);
 }
 
 Level::~Level() {

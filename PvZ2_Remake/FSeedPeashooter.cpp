@@ -19,8 +19,10 @@ void FSeedPeashooter::action(int row, int col) {
 		state = SEEDPACKET_COOLDOWN;
 		cooldownTimer = 0;
 		myLevel->mySun.updateCurSun(-PEASHOOTER_COST);
+		Mix_PlayChannel(-1, sfxPlant, 0);
 	}
 	else {
+		Mix_PlayChannel(-1, sfxBuzz, 0);
 		state = SEEDPACKET_UNCHOSEN;
 	}
 }

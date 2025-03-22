@@ -39,6 +39,7 @@ void FBasicZombie::action() {
 	if (checkPlantInRange(this, myLevel->vecPlant, damagedPlant)) {
 		if (animID != convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL)) updateAnimID(convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL));
 		damagedPlant->takeDamage(ZOMBIE_DMG);
+		if (!Mix_Playing(7)) Mix_PlayChannel(7, sfxEat, 0);
 	}
 	else {
 		if (animID != convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL)) updateAnimID(convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL));

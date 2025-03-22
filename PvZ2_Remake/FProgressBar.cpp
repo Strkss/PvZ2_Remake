@@ -56,7 +56,6 @@ void FProgressBar::render(SDL_Renderer* mRenderer) {
 void FProgressBar::update() {
 	curWave = myLevel->myWave->getCurWave();
 	if (myLevel->myWave->getTimer() >= WAVE_DELAY - 180 && myLevel->myWave->nextFlag()) {
-		if (myLevel->myWave->getTimer() == WAVE_DELAY - 180) Mix_FadeOutMusic(3000);
 		showText = true;
 	}
 	else showText = false;

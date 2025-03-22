@@ -34,6 +34,7 @@ bool WaveManager::spawnWave() {
 	if (myLevel->vecZombie.size() == 0 && timer < WAVE_DELAY && cur + 1 <= total && flagged[cur + 1]) {
 		if (timer < WAVE_DELAY - 200) {
 			timer = WAVE_DELAY - 200;
+			Mix_FadeOutMusic(3000);
 		}
 		return 0;
 	}
@@ -42,7 +43,20 @@ bool WaveManager::spawnWave() {
 		++cur;
 		int numZom = 0;
 		reader >> numZom;
-		if (flagged[cur]) ++passedFlag; // wave nay la flag
+		if (flagged[cur]) { // wave nay la flag, bat music cho flag moi
+			++passedFlag;
+			switch (passedFlag) {
+			case 1:
+				Mix_PlayMusic(flag_1, INT_MAX);
+				break;
+			case 2:
+				Mix_PlayMusic(flag_2, INT_MAX);
+				break;
+			case 3:
+				Mix_PlayMusic(flag_3, INT_MAX);
+				break;
+			}
+		} 
 		for (int i = 0; i < numZom; i++) {
 			int smRow = Rand(0, 4);
 			myLevel->vecZombie.push_back(new FBasicZombie(smRow));

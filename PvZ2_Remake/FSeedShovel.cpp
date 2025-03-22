@@ -24,6 +24,7 @@ void FSeedShovel::action(int row, int col) {
 		}
 		state = SEEDPACKET_UNCHOSEN;
 		cooldownTimer = 0;
+		Mix_PlayChannel(-1, sfxPlant, 0);
 	}
 	else {
 		state = SEEDPACKET_UNCHOSEN;
