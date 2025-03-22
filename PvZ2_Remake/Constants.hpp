@@ -172,6 +172,11 @@ const std::string ZOMBIE_BASIC_WALK_IMG = "Assets/ZombieAnimation/basic_walk.png
 const std::string ZOMBIE_BASIC_EAT_IMG = "Assets/ZombieAnimation/basic_eat.png";
 const std::string ZOMBIE_DIE_IMG = "Assets/ZombieAnimation/zombie_die.png";
 
+const std::string ZOMBIE_CONE_NORMAL_WALK_IMG = "Assets/ZombieAnimation/cone_walk_0.png";
+const std::string ZOMBIE_CONE_DAMAGED_WALK_IMG = "Assets/ZombieAnimation/cone_walk_1.png";
+const std::string ZOMBIE_CONE_NORMAL_EAT_IMG = "Assets/ZombieAnimation/cone_eat_0.png";
+const std::string ZOMBIE_CONE_DAMAGED_EAT_IMG = "Assets/ZombieAnimation/cone_eat_1.png";
+
 const int ZOMBIE_BASIC_WALK_FRAME = 90;
 const int ZOMBIE_BASIC_WALK_SPRITE_WIDTH = 182;
 const int ZOMBIE_BASIC_WALK_SPRITE_HEIGHT = 254;

@@ -5,6 +5,7 @@
 
 #include "FZombie.hpp"
 #include "FBasicZombie.hpp"
+#include "FConeZombie.hpp"
 #include "Math.hpp"
 #include "Constants.hpp"
 
