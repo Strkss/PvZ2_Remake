@@ -207,7 +207,7 @@ const std::string WAVE_INFO = "Assets/Level/wave.txt";
 const std::string PROGRESS_ZOMBIE_IMG = "Assets/UI/progress_meter_zombie.png";
 const std::string PROGRESS_FLAG_IMG = "Assets/UI/progress_meter_flag_full.png";
 const std::string PROGRESS_METER_IMG = "Assets/UI/progress_meter.png";
-const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill.png";
+const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill_pixel.png";
 
 const int PROGRESS_MAX_FILL = 12;
 const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";

@@ -3,8 +3,13 @@
 
 Level* myLevel = NULL;
 
-Level::Level(std::string path) {
+Level::Level(std::string path, std::string name) {
 	delete myWave;
+	myWave = NULL;
+	delete myProgress;
+	myProgress = NULL;
+	this->path = path;
+	this->name = name;
 	myWave = new WaveManager(path);
 	PLANT_ID = 0;
 	PEA_ID = 0;
@@ -36,6 +41,9 @@ Level::~Level() {
 	vecPart.clear();
 
 	delete myWave;
+	myWave = NULL;
+	delete myProgress;
+	myProgress = NULL;
 
 	Mix_HaltMusic();
 	Mix_HaltChannel(-1);
@@ -132,13 +140,16 @@ void Level::render(SDL_Renderer* mRenderer) {
 	}
 
 	mySun.render(mRenderer);
+	myProgress->render(mRenderer);
 }
 
 void Level::update() {
+	if (myProgress == NULL) myProgress = new FProgressBar(name);
 	std::vector<int> pendingDelete;
 	mySlot.update();
 	mySun.update();
 	myWave->update();
+	myProgress->update();
 	
 	for (auto& it : vecPlant) {
 		if (it->update()) {

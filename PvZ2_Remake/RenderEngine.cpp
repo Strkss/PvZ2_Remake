@@ -102,4 +102,12 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	}
 
 	printf("DONE: FParticle -> loadMedia\n");
+
+	meterFillTexture.loadFromFile(mRenderer, PROGRESS_FILL_IMG);
+	meterFlagTexture.loadFromFile(mRenderer, PROGRESS_FLAG_IMG);
+	meterBarTexture.loadFromFile(mRenderer, PROGRESS_METER_IMG);
+	meterZombieTexture.loadFromFile(mRenderer, PROGRESS_ZOMBIE_IMG);
+	flagTextTexture.loadFromText(mRenderer, PROGRESS_FLAG_TEXT, COLOR_RED, 50);
+	
+	printf("DONE: FProgressBar -> loadMedia\n");
 }

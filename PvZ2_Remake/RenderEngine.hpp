@@ -15,6 +15,7 @@
 #include "FLawn.hpp"
 #include "FZombie.hpp"
 #include "FParticle.hpp"
+#include "FProgressBar.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 

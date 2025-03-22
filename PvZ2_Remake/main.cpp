@@ -79,9 +79,8 @@ int main(int argc, char* argv[]) {
 		switch (gameState) {
 		case IN_LEVEL:
 			if (gameStateChanged) {
-				myLevel = new Level(WAVE_INFO);
+				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
 				gameStateChanged = false;
-				myLevel->vecZombie.push_back(new FBasicZombie(Rand(0, 4)));
 			}
 			myLevel->update();
 			myLevel->render(mRenderer);

@@ -16,8 +16,10 @@
 #include "SunManager.hpp"
 #include "SlotManager.hpp"
 #include "WaveManager.hpp"
+#include "FProgressBar.hpp"
 
 class Level {
+	std::string name, path;
 public:
 	std::vector<FPlant*> vecPlant;
 	std::vector<FZombie*> vecZombie;
@@ -27,10 +29,11 @@ public:
 	SunManager mySun;
 	SlotManager mySlot;
 	WaveManager* myWave;
+	FProgressBar* myProgress;
 
 	bool won, lost;
 
-	Level(std::string path);
+	Level(std::string path, std::string name);
 	~Level();
 
 	void removePlant(int id);
