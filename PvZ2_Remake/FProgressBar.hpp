@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <SDL.h>
 #include <fstream>
@@ -5,22 +6,23 @@
 #include <string>
 
 #include "Math.hpp"
-#include "ZombieSpawner.hpp"
+#include "FTexture.hpp"
 #include "Constants.hpp"
 
-extern FTexture meterFillTexture, meterTexture, meterZombieTexture, meterFlagTexture, levelName, levelFlagText;
+// Meter = MeterBar + MeterFill + meterZom + meterFlag
+// Level name
+// Truoc moi wave se hien levelFlag text
+extern FTexture meterFillTexture, meterBarTexture, meterZombieTexture, meterFlagTexture, levelName, flagTextTexture;
 
 class FProgressBar {
-	static int passed;
-	static int flag;
-	static int total;
-	static double fillPerWave;
-	static std::vector<int> flagIndex;
-	static std::string name;
-	static bool displayedText;
-	
+	std::string name;
+	bool needToLoadName, showText;
+	int* flagPos;
+	int totalWave, totalFlag, progressMeterFillLen, curWave;
+	void decideFlagPos();
 public:
-	static void loadMedia(SDL_Renderer* mRenderer);
-	static void init();
-	static void renderAll(SDL_Renderer* mRenderer);
+	FProgressBar(std::string name);
+	~FProgressBar();
+	void update();
+	void render(SDL_Renderer* mRenderer);
 };

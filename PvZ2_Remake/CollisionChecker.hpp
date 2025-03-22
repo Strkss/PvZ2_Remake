@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <SDL.h>
 #include <vector>
@@ -5,16 +6,18 @@
 
 #include "Constants.hpp"
 #include "FPea.hpp"
-#include "FPeashooter.hpp"
+#include "FPlant.hpp"
 #include "FZombie.hpp"
 #include "Math.hpp"
 
 struct sortExtra {
-	bool operator()(FPea*& lhs, FPea*& rhs);
+	bool operator()(FPlant*& lhs, FPlant*& rhs);
 	bool operator()(FZombie*& lhs, FZombie*& rhs);
-	bool operator()(FPeashooter*& lhs, FPeashooter*& rhs);
+	bool operator()(FPea*& lhs, FPea*& rhs);
 };
 
-void checkPeaAndZombie(SDL_Renderer* mRenderer = NULL);
-void checkZombieAndPlant(SDL_Renderer* mRenderer = NULL);
-void detectPeashooterZombie();
+bool checkZombieInRange(FPlant* plant, std::vector<FZombie*>& vecZom, std::vector<FZombie*>& damagedZom);
+bool checkPlantInRange(FZombie* zom, std::vector<FPlant*>& vecPlant, FPlant*& damagedPlant);
+bool checkPeaExploded(FPea* pea, std::vector<FZombie*>& vecZom, FZombie*& damagedZom);
+
+void doDamageToZombieGroup(std::vector<FZombie*>& vecZom, int dmg);

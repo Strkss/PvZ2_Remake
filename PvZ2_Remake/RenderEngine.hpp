@@ -8,5 +8,17 @@
 #include <SDL_mixer.h>
 
 #include "Constants.hpp"
+#include "FPlant.hpp"
+#include "FPea.hpp"
+#include "FSun.hpp"
+#include "FSeedPacket.hpp"
+#include "FLawn.hpp"
+#include "FZombie.hpp"
+#include "FParticle.hpp"
+#include "FProgressBar.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
+
+void loadMedia(SDL_Renderer* mRenderer);
+
+void closeMedia(SDL_Renderer* mRenderer);
