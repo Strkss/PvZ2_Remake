@@ -67,24 +67,13 @@ bool FTexture::loadFromText(SDL_Renderer* mRenderer, const std::string& text, co
 bool FTexture::loadFromFile(SDL_Renderer * mRenderer, const std::string & path) {
 	free();
 
-	SDL_Surface* loadSurf = NULL;
-	loadSurf = IMG_Load(path.c_str());
-
-	if (loadSurf == NULL) {
-		printf("loadFromFile -> loadSurf == NULL\n");
-		return 0;
-	}
-
-	mTexture = SDL_CreateTextureFromSurface(mRenderer, loadSurf);
-	w = loadSurf->w;
-	h = loadSurf->h;
+	mTexture = IMG_LoadTexture(mRenderer, path.c_str());
+	SDL_QueryTexture(mTexture, NULL, NULL, &w, &h);
 
 	if (mTexture == NULL) {
 		printf("loadFromFile -> mTexture == NULL\n");
 		return 0;
 	}
-
-	SDL_FreeSurface(loadSurf);
 
 	printf("DONE: loadFromFile %s\n", path.c_str());
 	return 1;
