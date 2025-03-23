@@ -41,8 +41,8 @@ bool WaveManager::spawnWave() {
 	if (myLevel->vecZombie.size() == 0 || timer == WAVE_DELAY) {
 		timer = 0;
 		++cur;
-		int numBasic = 0, numCone = 0;
-		reader >> numBasic >> numCone;
+		int numBasic = 0, numCone = 0, numBucket = 0;
+		reader >> numBasic >> numCone >> numBucket;
 		if (flagged[cur]) { // wave nay la flag, bat music cho flag moi
 			++passedFlag;
 			switch (passedFlag) {
@@ -64,6 +64,10 @@ bool WaveManager::spawnWave() {
 		for (int i = 0; i < numCone; i++) {
 			int smRow = Rand(0, 4);
 			myLevel->vecZombie.push_back(new FConeZombie(smRow));
+		}
+		for (int i = 0; i < numBucket; i++) {
+			int smRow = Rand(0, 4);
+			myLevel->vecZombie.push_back(new FBucketZombie(smRow));
 		}
 		return 1;
 	}
