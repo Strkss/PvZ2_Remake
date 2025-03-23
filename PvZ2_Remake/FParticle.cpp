@@ -5,8 +5,8 @@ SDL_Rect* particleSprite[PARTICLE_NUM];
 int particleAnimMaxFrame[PARTICLE_NUM];
 
 void FParticle::render(SDL_Renderer* mRenderer) {
-	++animFrame;
 	particleTexture[animID].renderAtPosition(mRenderer, rX, rY, &particleSprite[animID][animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
+	++animFrame;
 }
 
 bool FParticle::update() {
