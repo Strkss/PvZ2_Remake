@@ -99,6 +99,9 @@
     <ClCompile Include="FBucketZombie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FFlagZombie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp">
@@ -177,6 +180,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FBucketZombie.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFlagZombie.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

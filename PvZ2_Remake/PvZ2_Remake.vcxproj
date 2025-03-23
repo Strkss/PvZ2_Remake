@@ -146,6 +146,7 @@
     <ClCompile Include="FBucketZombie.cpp" />
     <ClCompile Include="FConeZombie.cpp" />
     <ClCompile Include="FDeadZombie.cpp" />
+    <ClCompile Include="FFlagZombie.cpp" />
     <ClCompile Include="FGreenPea.cpp" />
     <ClCompile Include="FGrid.cpp" />
     <ClCompile Include="FLawn.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="FBucketZombie.hpp" />
     <ClInclude Include="FConeZombie.hpp" />
     <ClInclude Include="FDeadZombie.hpp" />
+    <ClInclude Include="FFlagZombie.hpp" />
     <ClInclude Include="FGreenPea.hpp" />
     <ClInclude Include="FGrid.hpp" />
     <ClInclude Include="FLawn.hpp" />

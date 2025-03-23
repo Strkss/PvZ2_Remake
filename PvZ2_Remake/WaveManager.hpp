@@ -7,6 +7,7 @@
 #include "FBasicZombie.hpp"
 #include "FConeZombie.hpp"
 #include "FBucketZombie.hpp"
+#include "FFlagZombie.hpp"
 #include "Math.hpp"
 #include "Constants.hpp"
 

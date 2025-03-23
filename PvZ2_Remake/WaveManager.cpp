@@ -18,6 +18,8 @@ WaveManager::WaveManager(std::string path) {
 WaveManager::~WaveManager() {
 	delete[] flagged;
 	flagged = NULL;
+	reader.clear();
+	reader.seekg(0, std::ios::beg);
 	reader.close();
 }
 
@@ -56,6 +58,7 @@ bool WaveManager::spawnWave() {
 				Mix_PlayMusic(flag_3, INT_MAX);
 				break;
 			}
+			myLevel->vecZombie.push_back(new FFlagZombie(Rand(0, 4)));
 		} 
 		for (int i = 0; i < numBasic; i++) {
 			int smRow = Rand(0, 4);

@@ -182,6 +182,9 @@ const std::string ZOMBIE_BUCKET_DAMAGED_WALK_IMG = "Assets/ZombieAnimation/bucke
 const std::string ZOMBIE_BUCKET_NORMAL_EAT_IMG = "Assets/ZombieAnimation/bucket_eat_0.png";
 const std::string ZOMBIE_BUCKET_DAMAGED_EAT_IMG = "Assets/ZombieAnimation/bucket_eat_1.png";
 
+const std::string ZOMBIE_FLAG_WALK_IMG = "Assets/ZombieAnimation/flag_walk.png";
+const std::string ZOMBIE_FLAG_EAT_IMG = "Assets/ZombieAnimation/flag_eat.png";
+
 const int ZOMBIE_BASIC_WALK_FRAME = 90;
 const int ZOMBIE_BASIC_WALK_SPRITE_WIDTH = 182;
 const int ZOMBIE_BASIC_WALK_SPRITE_HEIGHT = 254;
@@ -189,6 +192,14 @@ const int ZOMBIE_BASIC_WALK_SPRITE_HEIGHT = 254;
 const int ZOMBIE_BASIC_EAT_FRAME = 259;
 const int ZOMBIE_BASIC_EAT_SPRITE_WIDTH = 155;
 const int ZOMBIE_BASIC_EAT_SPRITE_HEIGHT = 250;
+
+const int ZOMBIE_FLAG_WALK_FRAME = 90;
+const int ZOMBIE_FLAG_WALK_SPRITE_WIDTH = 221;
+const int ZOMBIE_FLAG_WALK_SPRITE_HEIGHT = 284;
+
+const int ZOMBIE_FLAG_EAT_FRAME = 121;
+const int ZOMBIE_FLAG_EAT_SPRITE_WIDTH = 189;
+const int ZOMBIE_FLAG_EAT_SPRITE_HEIGHT = 274;
 
 const int ZOMBIE_DIE_FRAME = 55;
 const int ZOMBIE_DIE_SPRITE_WIDTH = 208;

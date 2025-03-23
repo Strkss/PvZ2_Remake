@@ -169,6 +169,27 @@ void loadMedia(SDL_Renderer* mRenderer) {
 			zombieSprite[animID][i * 10 + j] = { ZOMBIE_BASIC_EAT_SPRITE_WIDTH * j, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT * i, ZOMBIE_BASIC_EAT_SPRITE_WIDTH, ZOMBIE_BASIC_EAT_SPRITE_HEIGHT };
 		}
 	}
+
+	// load Flag Normal Walk
+	animID = FZombie::convertToAnimID(ZOMBIE_FLAG, ZOMBIE_WALK, ZOMBIE_NORMAL);
+	zombieAnimMaxFrame[animID] = ZOMBIE_FLAG_WALK_FRAME;
+	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_FLAG_WALK_IMG);
+	zombieSprite[animID] = new SDL_Rect[ZOMBIE_FLAG_WALK_FRAME];
+	for (int i = 0; i <= ZOMBIE_FLAG_WALK_FRAME / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_FLAG_WALK_FRAME) {
+			zombieSprite[animID][i * 10 + j] = { ZOMBIE_FLAG_WALK_SPRITE_WIDTH * j, ZOMBIE_FLAG_WALK_SPRITE_HEIGHT * i, ZOMBIE_FLAG_WALK_SPRITE_WIDTH, ZOMBIE_FLAG_WALK_SPRITE_HEIGHT };
+		}
+	}
+	// load Flag Normal Eat
+	animID = FZombie::convertToAnimID(ZOMBIE_FLAG, ZOMBIE_EAT, ZOMBIE_NORMAL);
+	zombieAnimMaxFrame[animID] = ZOMBIE_FLAG_EAT_FRAME;
+	zombieTexture[animID].loadFromFile(mRenderer, ZOMBIE_FLAG_EAT_IMG);
+	zombieSprite[animID] = new SDL_Rect[ZOMBIE_FLAG_EAT_FRAME];
+	for (int i = 0; i <= ZOMBIE_FLAG_EAT_FRAME / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < ZOMBIE_FLAG_EAT_FRAME) {
+			zombieSprite[animID][i * 10 + j] = { ZOMBIE_FLAG_EAT_SPRITE_WIDTH * j, ZOMBIE_FLAG_EAT_SPRITE_HEIGHT * i, ZOMBIE_FLAG_EAT_SPRITE_WIDTH, ZOMBIE_FLAG_EAT_SPRITE_HEIGHT };
+		}
+	}
 	printf("DONE: FZombie -> loadMedia\n");
 
 	// load dead zombie particle
