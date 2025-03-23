@@ -26,7 +26,9 @@ protected:
 	int animID;
 	int id;
 	int step;
-
+	enum ZOMBIE_HP_TIERS hpTier;
+	enum ZOMBIES type;
+	enum ZOMBIE_STATES state;
 	void move();
 public:
 	virtual ~FZombie() = 0;

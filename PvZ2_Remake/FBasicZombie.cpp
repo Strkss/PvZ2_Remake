@@ -16,10 +16,13 @@ FBasicZombie::FBasicZombie(int row) {
 	hitbox.w = LAWN_GRID_WIDTH / 2;
 	hitbox.h = LAWN_GRID_HEIGHT / 2;
 	// Random vi tri zombie xuat hien
-	int posOffset = Rand(0, LAWN_GRID_WIDTH);
+	int posOffset = Rand(0, LAWN_GRID_WIDTH / 2);
 	rX += posOffset;
 	hitbox.x += posOffset;
 	id = ++ZOMBIE_ID;
+	type = ZOMBIE_BASIC;
+	hpTier = ZOMBIE_NORMAL;
+	state = ZOMBIE_WALK;
 	//printf("%d %d %d %d\n", rX, rY, hitbox.x, hitbox.y);
 }
 
@@ -30,18 +33,24 @@ FBasicZombie::~FBasicZombie() {
 bool FBasicZombie::update() {
 	if (hp <= 0) return 1;
 	action();
-	if (animID == convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL)) move();
+	if (state == ZOMBIE_WALK) move();
 	return 0;
 }
 
 void FBasicZombie::action() {
 	FPlant* damagedPlant = NULL;
 	if (checkPlantInRange(this, myLevel->vecPlant, damagedPlant)) {
-		if (animID != convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL)) updateAnimID(convertToAnimID(ZOMBIE_BASIC, ZOMBIE_EAT, ZOMBIE_NORMAL));
+		if (state == ZOMBIE_WALK) {
+			state = ZOMBIE_EAT;
+			updateAnimID(convertToAnimID(type, state, hpTier));
+		}
 		damagedPlant->takeDamage(ZOMBIE_DMG);
 		if (!Mix_Playing(7)) Mix_PlayChannel(7, sfxEat, 0);
 	}
 	else {
-		if (animID != convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL)) updateAnimID(convertToAnimID(ZOMBIE_BASIC, ZOMBIE_WALK, ZOMBIE_NORMAL));
+		if (state == ZOMBIE_EAT) {
+			state = ZOMBIE_WALK;
+			updateAnimID(convertToAnimID(type, state, hpTier));
+		}
 	}
 }

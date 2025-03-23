@@ -152,6 +152,23 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	printf("DONE: FProgressBar -> loadMedia\n");
 }
 
-void closeMedia(SDL_Renderer* mRenderer) {
+void closeMedia() {
+	// delete plant
+	for (int i = 0; i < PLANT_MAX_SPRITE; i++) {
+		delete[] plantSprite[i];
+		plantSprite[i] = NULL;
+	}
+
+	// delete seedpacket
+	for (int i = 0; i < PLANT_NUM; i++) {
+		delete[] seedPacketSprite[i];
+		seedPacketSprite[i] = NULL;
+	}
+
+	// delete zombie
+	for (int i = 0; i < ZOMBIE_MAX_SPRITE; i++) {
+		delete[] zombieSprite[i];
+		zombieSprite[i] = NULL;
+	}
 	return;
 }

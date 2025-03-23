@@ -77,6 +77,8 @@ int main(int argc, char* argv[]) {
 		switch (gameState) {
 		case IN_LEVEL:
 			if (gameStateChanged) {
+				delete myLevel;
+				myLevel = NULL;
 				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
 				gameStateChanged = false;
 			}
@@ -181,6 +183,7 @@ int main(int argc, char* argv[]) {
 	TTF_CloseFont(font);
 	font = NULL;
 	closeMusic();
+	closeMedia();
 	quitEngines();
 
 	return 0;

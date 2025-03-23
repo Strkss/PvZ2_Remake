@@ -16,7 +16,7 @@ FConeZombie::FConeZombie(int row) {
 	hitbox.w = LAWN_GRID_WIDTH / 2;
 	hitbox.h = LAWN_GRID_HEIGHT / 2;
 	// Random vi tri zombie xuat hien
-	int posOffset = Rand(0, LAWN_GRID_WIDTH);
+	int posOffset = Rand(0, LAWN_GRID_WIDTH / 2);
 	rX += posOffset;
 	hitbox.x += posOffset;
 	id = ++ZOMBIE_ID;
@@ -51,7 +51,7 @@ void FConeZombie::action() {
 	if (checkPlantInRange(this, myLevel->vecPlant, damagedPlant)) {
 		if (state == ZOMBIE_WALK) {
 			state = ZOMBIE_EAT;
-			updateAnimID(convertToAnimID(type, ZOMBIE_EAT, hpTier));
+			updateAnimID(convertToAnimID(type, state, hpTier));
 		}
 		damagedPlant->takeDamage(ZOMBIE_DMG);
 		if (!Mix_Playing(7)) Mix_PlayChannel(7, sfxEat, 0);
@@ -59,7 +59,7 @@ void FConeZombie::action() {
 	else {
 		if (state == ZOMBIE_EAT) {
 			state = ZOMBIE_WALK;
-			updateAnimID(convertToAnimID(type, ZOMBIE_WALK, hpTier));
+			updateAnimID(convertToAnimID(type, state, hpTier));
 		}
 	}
 }
