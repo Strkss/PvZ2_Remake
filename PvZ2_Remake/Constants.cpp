@@ -18,6 +18,7 @@ Mix_Chunk* sfxHit = NULL;
 Mix_Chunk* sfxPlant = NULL;
 Mix_Chunk* sfxSun = NULL;
 Mix_Chunk* sfxBuzz = NULL;
+Mix_Chunk* sfxMetalHit = NULL;
 
 int PEA_ID = 0;
 int ZOMBIE_ID = 0;

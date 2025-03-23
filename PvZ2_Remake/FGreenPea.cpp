@@ -28,6 +28,7 @@ void FGreenPea::action() {
 	if (checkPeaExploded(this, myLevel->vecZombie, damagedZom) && !isExploded) {
 		isExploded = 1;
 		damagedZom->takeDamage(PEA_DMG);
-		Mix_PlayChannel(-1, sfxHit, 0);
+		if (damagedZom->getType() == ZOMBIE_BUCKET) Mix_PlayChannel(-1, sfxMetalHit, 0);
+		else Mix_PlayChannel(-1, sfxHit, 0);
 	}
 }

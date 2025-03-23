@@ -114,6 +114,11 @@ bool loadMusic() {
 		printf("loadMusic -> sfxBuzz\n");
 		return 0;
 	}
+	sfxMetalHit = Mix_LoadWAV("Assets/SFX/metal_hit.mp3");
+	if (sfxHit == NULL) {
+		printf("loadMusic -> sfxMetalHit\n");
+		return 0;
+	}
 	printf("DONE: loadMusic\n");
 	return 1;
 }
@@ -132,6 +137,7 @@ bool closeMusic() {
 	Mix_FreeChunk(sfxPlant);
 	Mix_FreeChunk(sfxSun);
 	Mix_FreeChunk(sfxBuzz);
+	Mix_FreeChunk(sfxMetalHit);
 	printf("DONE: closeMusic\n");
 	return 1;
 }

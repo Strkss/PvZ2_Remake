@@ -42,6 +42,7 @@ public:
 
 	int getRow();
 	int getID();
+	enum ZOMBIES getType();
 
 	void render(SDL_Renderer* mRenderer);
 

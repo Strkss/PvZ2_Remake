@@ -24,7 +24,7 @@ extern Mix_Chunk* sfxHit;
 extern Mix_Chunk* sfxPlant;
 extern Mix_Chunk* sfxSun;
 extern Mix_Chunk* sfxBuzz;
-
+extern Mix_Chunk* sfxMetalHit;
 
 extern int PEA_ID;
 extern int SUN_ID;

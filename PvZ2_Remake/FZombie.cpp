@@ -27,6 +27,10 @@ int FZombie::getID() {
 	return id;
 }
 
+enum ZOMBIES FZombie::getType() {
+	return type;
+}
+
 void FZombie::render(SDL_Renderer* mRenderer) {
 	++animFrame;
 	if (animFrame / FRAME_PACING >= zombieAnimMaxFrame[animID]) animFrame = 0;
