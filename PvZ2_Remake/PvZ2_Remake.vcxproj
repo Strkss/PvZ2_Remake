@@ -154,6 +154,7 @@
     <ClCompile Include="FPea.cpp" />
     <ClCompile Include="FPeashooter.cpp" />
     <ClCompile Include="FPlant.cpp" />
+    <ClCompile Include="FPotatomine.cpp" />
     <ClCompile Include="FSeedPacket.cpp" />
     <ClCompile Include="FSeedPeashooter.cpp" />
     <ClCompile Include="FSeedShovel.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="FPea.hpp" />
     <ClInclude Include="FPeashooter.hpp" />
     <ClInclude Include="FPlant.hpp" />
+    <ClInclude Include="FPotatomine.hpp" />
     <ClInclude Include="FSeedPacket.hpp" />
     <ClInclude Include="FSeedPeashooter.hpp" />
     <ClInclude Include="FSeedShovel.hpp" />

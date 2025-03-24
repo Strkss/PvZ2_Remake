@@ -105,9 +105,16 @@ const std::string SUNFLOWER_IDLE_0_IMG = "Assets/PlantAnimation/sunflower_idle.p
 const std::string SUNFLOWER_SPECIAL_IMG = "Assets/PlantAnimation/sunflower_sun.png";
 const int SEEDPACKET_SUNFLOWER_COOLDOWN = 300;
 
+const std::string POTATOMINE_IDLE_0_IMG = "Assets/PlantAnimation/potatomine_idle_0.png";
+const std::string POTATOMINE_IDLE_1_IMG = "Assets/PlantAnimation/potatomine_idle_1.png";
+const std::string POTATOMINE_ATTACK_IMG = "Assets/PlantAnimation/potatomine_attack.png";
+const int SEEDPACKET_POTATOMINE_COOLDOWN = 1200;
+const int POTATOMINE_ARMING_TIME = 14 * 60; // 14s arming
+
 const std::string SEEDPACKET_PEASHOOTER_IMG = "Assets/SeedPacket/peashooter.png";
 const std::string SEEDPACKET_WALLNUT_IMG = "Assets/SeedPacket/wallnut.png";
 const std::string SEEDPACKET_SUNFLOWER_IMG = "Assets/SeedPacket/sunflower.png";
+const std::string SEEDPACKET_POTATOMINE_IMG = "Assets/SeedPacket/potatomine.png";
 const std::string SEEDPACKET_SHOVEL_IMG = "Assets/SeedPacket/shovel.png";
 
 enum SEEDPACKET_STATES {

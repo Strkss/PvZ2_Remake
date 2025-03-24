@@ -100,6 +100,39 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	}
 	plantTexture[animID].loadFromFile(mRenderer, SUNFLOWER_SPECIAL_IMG);
 
+	//load potatomine idle 0
+	animID = FPlant::convertToAnimID(POTATOMINE, PLANT_IDLE_0);
+	plantAnimMaxFrame[animID] = 1;
+	plantSprite[animID] = new SDL_Rect[1];
+	for (int i = 0; i <= 1 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 1) {
+			plantSprite[animID][i * 10 + j] = { 36 * j, 57 * i, 36, 57 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, POTATOMINE_IDLE_0_IMG);
+
+	//load potatomine idle 1
+	animID = FPlant::convertToAnimID(POTATOMINE, PLANT_IDLE_1);
+	plantAnimMaxFrame[animID] = 30;
+	plantSprite[animID] = new SDL_Rect[30];
+	for (int i = 0; i <= 30 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 30) {
+			plantSprite[animID][i * 10 + j] = { 112 * j, 103 * i, 112, 103 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, POTATOMINE_IDLE_1_IMG);
+
+	//load potatomine attack
+	animID = FPlant::convertToAnimID(POTATOMINE, PLANT_ATTACK);
+	plantAnimMaxFrame[animID] = 20;
+	plantSprite[animID] = new SDL_Rect[20];
+	for (int i = 0; i <= 20 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 20) {
+			plantSprite[animID][i * 10 + j] = { 131 * j, 110 * i, 131, 110 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, POTATOMINE_ATTACK_IMG);
+
 	printf("DONE: FPlant -> loadMedia\n");
 
 	peaTexture.loadFromFile(mRenderer, PEA_IMG);
@@ -131,6 +164,13 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	seedPacketSprite[SUNFLOWER] = new SDL_Rect[3];
 	for (int i = 0; i < 3; i++) {
 		seedPacketSprite[SUNFLOWER][i] = { i * 239, 0, 239, 151 };
+	}
+
+	seedPacketMaxSprite[POTATOMINE] = 3;
+	seedPacketTexture[POTATOMINE].loadFromFile(mRenderer, SEEDPACKET_POTATOMINE_IMG);
+	seedPacketSprite[POTATOMINE] = new SDL_Rect[3];
+	for (int i = 0; i < 3; i++) {
+		seedPacketSprite[POTATOMINE][i] = { i * 239, 0, 239, 151 };
 	}
 
 	seedPacketMaxSprite[SHOVEL] = 2;

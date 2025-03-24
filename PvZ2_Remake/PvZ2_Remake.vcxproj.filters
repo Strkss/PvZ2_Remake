@@ -114,6 +114,9 @@
     <ClCompile Include="FSeedSunflower.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FPotatomine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp">
@@ -213,6 +216,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FSeedSunflower.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FPotatomine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

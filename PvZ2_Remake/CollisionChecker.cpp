@@ -26,9 +26,9 @@ bool checkZombieInRange(FPlant* plant, std::vector<FZombie*>& vecZom, std::vecto
 				}
 			}
 			break;
-		case ONE_TILE:
-			if (it->getRow() == plant->getCol()) {
-				plantHitbox = plant->getHitbox();
+		case ONE_TILE: // ko can lay hitbox ma lay luon 1 grid
+			if (it->getRow() == plant->getRow()) {
+				plantHitbox = { LAWN_START_X + plant->getCol() * LAWN_GRID_WIDTH, LAWN_START_Y + plant->getRow() * LAWN_GRID_HEIGHT, LAWN_GRID_WIDTH , LAWN_GRID_HEIGHT };
 				zomHitbox = it->getHitbox();
 				if (SDL_HasIntersection(&plantHitbox, &zomHitbox)) {
 					damagedZom.push_back(it);

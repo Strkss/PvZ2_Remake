@@ -18,6 +18,8 @@ void FPlant::updateAnimID(int id) {
 	if (id == animID) return;
 	animID = id;
 	animFrame = 0;
+	rX = LAWN_START_X + LAWN_GRID_WIDTH * col + LAWN_GRID_WIDTH / 2 - plantSprite[animID][0].w / 2 / SPRITE_DOWNSCALE;
+	// chinh lai render pos
 }
 
 int FPlant::getAnimID() {
