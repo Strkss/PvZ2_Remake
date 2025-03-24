@@ -11,7 +11,7 @@ WaveManager::WaveManager(std::string path) {
 		flagged[flag] = true;
 	}
 	cur = 0;
-	timer = 0;
+	timer = WAVE_DELAY - 15 * 60; // 15 giay truoc wave 1
 	passedFlag = 0;
 }
 
@@ -33,7 +33,8 @@ void WaveManager::update() {
 bool WaveManager::spawnWave() {
 	if (reader.eof()) return 0;
 	if (myLevel->vecZombie.size() > 0 && timer < WAVE_DELAY) return 0;
-	if (myLevel->vecZombie.size() == 0 && timer < WAVE_DELAY && cur + 1 <= total && flagged[cur + 1]) {
+	if (cur == 0 && timer < WAVE_DELAY) return 0; // pause truoc wave 1
+	if (myLevel->vecZombie.size() == 0 && timer < WAVE_DELAY && cur + 1 <= total && flagged[cur + 1]) { // pause truoc flag
 		if (timer < WAVE_DELAY - 200) {
 			timer = WAVE_DELAY - 200;
 			Mix_FadeOutMusic(3000);

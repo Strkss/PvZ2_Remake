@@ -5,7 +5,7 @@
 #include <SDL_mixer.h>
 #include <fstream>
 
-//#define DEBUG_HITBOX
+#define DEBUG_HITBOX
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
