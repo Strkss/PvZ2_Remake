@@ -9,10 +9,17 @@ FPeashooter::FPeashooter(int row, int col) {
 	hitbox.y = LAWN_START_Y + row * LAWN_GRID_HEIGHT + LAWN_GRID_HEIGHT / 4;
 	hitbox.w = LAWN_GRID_WIDTH / 2;
 	hitbox.h = LAWN_GRID_HEIGHT / 2;
-	rX = LAWN_START_X + LAWN_GRID_WIDTH * col + 5;
-	rY = LAWN_START_Y + LAWN_GRID_HEIGHT * row + 8;
 	animFrame = 0;
 	animID = convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
+	// Lay vi tri cua grid
+	rX = LAWN_START_X + LAWN_GRID_WIDTH * col;
+	rY = LAWN_START_Y + LAWN_GRID_HEIGHT * row;
+	// Chinh toa do x
+	rX += LAWN_GRID_WIDTH / 2;
+	rX -= plantSprite[animID][0].w / 2 / SPRITE_DOWNSCALE;
+	// Chinh toa do y;
+	rY += LAWN_GRID_HEIGHT;
+	rY -= 8;
 	id = ++PLANT_ID;
 	range = ONE_ROW_AHEAD;
 	myLevel->myLawn.updateGrid(row, col, GRID_PEASHOOTER);

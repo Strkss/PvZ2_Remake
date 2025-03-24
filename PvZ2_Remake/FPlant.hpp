@@ -21,7 +21,7 @@ protected:
 	int hp;
 	int row, col;
 	SDL_Rect hitbox;
-	int rX, rY; // render pos
+	int rX, rY; // vi tri cham dat cua plant
 	int animFrame;
 	int animID;
 	int id;
