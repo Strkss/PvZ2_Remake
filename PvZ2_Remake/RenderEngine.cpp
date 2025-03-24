@@ -34,6 +34,50 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	}
 	plantTexture[animID].loadFromFile(mRenderer, PEASHOOTER_ATTACK_IMG);
 
+	// load Wallnut idle 0
+	animID = FPlant::convertToAnimID(WALLNUT, PLANT_IDLE_0);
+	plantAnimMaxFrame[animID] = 270;
+	plantSprite[animID] = new SDL_Rect[270];
+	for (int i = 0; i <= 270 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 270) {
+			plantSprite[animID][i * 10 + j] = { 112 * j, 137 * i, 112, 137 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, WALLNUT_IDLE_0_IMG);
+
+	//load Wallnut idle 1
+	animID = FPlant::convertToAnimID(WALLNUT, PLANT_IDLE_1);
+	plantAnimMaxFrame[animID] = 100;
+	plantSprite[animID] = new SDL_Rect[100];
+	for (int i = 0; i <= 100 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 100) {
+			plantSprite[animID][i * 10 + j] = { 112 * j, 137 * i, 112, 137 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, WALLNUT_IDLE_1_IMG);
+
+	//load Wallnut idle 2
+	animID = FPlant::convertToAnimID(WALLNUT, PLANT_IDLE_2);
+	plantAnimMaxFrame[animID] = 100;
+	plantSprite[animID] = new SDL_Rect[100];
+	for (int i = 0; i <= 100 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 100) {
+			plantSprite[animID][i * 10 + j] = { 112 * j, 137 * i, 112, 137 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, WALLNUT_IDLE_2_IMG);
+
+	//load Wallnut idle 3
+	animID = FPlant::convertToAnimID(WALLNUT, PLANT_IDLE_3);
+	plantAnimMaxFrame[animID] = 200;
+	plantSprite[animID] = new SDL_Rect[200];
+	for (int i = 0; i <= 200 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 200) {
+			plantSprite[animID][i * 10 + j] = { 112 * j, 137 * i, 112, 137 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, WALLNUT_IDLE_3_IMG);
+
 	printf("DONE: FPlant -> loadMedia\n");
 
 	peaTexture.loadFromFile(mRenderer, PEA_IMG);

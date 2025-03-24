@@ -15,6 +15,7 @@ int FPlant::convertToAnimID(enum PLANTS plant, enum PLANT_STATES state) {
 }
 
 void FPlant::updateAnimID(int id) {
+	if (id == animID) return;
 	animID = id;
 	animFrame = 0;
 }

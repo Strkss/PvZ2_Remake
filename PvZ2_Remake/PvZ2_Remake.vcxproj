@@ -159,6 +159,7 @@
     <ClCompile Include="FSeedShovel.cpp" />
     <ClCompile Include="FSun.cpp" />
     <ClCompile Include="FTexture.cpp" />
+    <ClCompile Include="FWallnut.cpp" />
     <ClCompile Include="FZombie.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="FSeedPacket.hpp" />
     <ClInclude Include="FSeedShovel.hpp" />
     <ClInclude Include="FSun.hpp" />
+    <ClInclude Include="FWallnut.hpp" />
     <ClInclude Include="FZombie.hpp" />
     <ClInclude Include="Global.hpp" />
     <ClInclude Include="Init.hpp" />

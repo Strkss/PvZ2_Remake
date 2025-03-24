@@ -36,15 +36,11 @@ bool FPeashooter::update() {
 void FPeashooter::action() {
 	std::vector<FZombie*> damagedZom;
 	if (checkZombieInRange(this, myLevel->vecZombie, damagedZom)) {
-		if (animID != convertToAnimID(PEASHOOTER, PLANT_ATTACK)) {
-			updateAnimID(convertToAnimID(PEASHOOTER, PLANT_ATTACK));
-		}
-		else if (animFrame == plantAnimMaxFrame[animID] - 1) shoot(); // ban o frame giua
+		updateAnimID(convertToAnimID(PEASHOOTER, PLANT_ATTACK));
+		if (animFrame == plantAnimMaxFrame[animID] - 1) shoot(); // ban o frame giua
 	}
 	else {
-		if (animID != convertToAnimID(PEASHOOTER, PLANT_IDLE_0)) {
-			updateAnimID(convertToAnimID(PEASHOOTER, PLANT_IDLE_0));
-		}
+		updateAnimID(convertToAnimID(PEASHOOTER, PLANT_IDLE_0));
 	}
 }
 

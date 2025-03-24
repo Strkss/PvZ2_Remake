@@ -95,15 +95,15 @@ const int SEEDPACKET_PEASHOOTER_COOLDOWN = 300;
 const std::string PEASHOOTER_ATTACK_IMG = "Assets/PlantAnimation/peashooter_attack.png";
 const std::string PEASHOOTER_IDLE_IMG = "Assets/PlantAnimation/peashooter_idle.png";
 
-//const std::string SEEDPACKET_PEASHOOTER_IMG_UNCHOSEN = "Assets/SeedPacket/peashooter_0.png";
-//const std::string SEEDPACKET_PEASHOOTER_IMG_CHOSEN = "Assets/SeedPacket/peashooter_1.png";
-//const std::string SEEDPACKET_PEASHOOTER_IMG_COOLDOWN = "Assets/SeedPacket/peashooter_2.png";
+const std::string WALLNUT_IDLE_0_IMG = "Assets/PlantAnimation/wallnut_idle_0.png";
+const std::string WALLNUT_IDLE_1_IMG = "Assets/PlantAnimation/wallnut_idle_1.png";
+const std::string WALLNUT_IDLE_2_IMG = "Assets/PlantAnimation/wallnut_idle_2.png";
+const std::string WALLNUT_IDLE_3_IMG = "Assets/PlantAnimation/wallnut_idle_3.png";
+const int SEEDPACKET_WALLNUT_COOLDOWN = 1200;
 
 const std::string SEEDPACKET_PEASHOOTER_IMG = "Assets/SeedPacket/peashooter.png";
+const std::string SEEDPACKET_WALLNUT_IMG = "Assets/SeedPacket/wallnut.png";
 const std::string SEEDPACKET_SHOVEL_IMG = "Assets/SeedPacket/shovel.png";
-
-const std::string SEEDPACKET_SHOVEL_IMG_UNCHOSEN = "Assets/SeedPacket/shovel_0.png";
-//const std::string SEEDPACKET_SHOVEL_IMG_CHOSEN = "Assets/SeedPacket/shovel_1.png";
 
 enum SEEDPACKET_STATES {
 	SEEDPACKET_UNCHOSEN,
