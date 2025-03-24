@@ -108,6 +108,12 @@
     <ClCompile Include="FSeedWallnut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FSunflower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FSeedSunflower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp">
@@ -201,6 +207,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FSeedWallnut.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSunflower.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSeedSunflower.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

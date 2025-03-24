@@ -6,6 +6,7 @@
 #include "FSeedPacket.hpp"
 #include "FSeedPeashooter.hpp"
 #include "FSeedWallnut.hpp"
+#include "FSeedSunflower.hpp"
 #include "FSeedShovel.hpp"
 #include "Math.hpp"
 

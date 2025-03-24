@@ -119,6 +119,7 @@ enum SEEDPACKET_STATES {
 
 const int SUN_VALUE = 100;
 const int SUN_SKYFALL_DELAY = 600;
+const int SUN_SUNFLOWER_DELAY = 60 * 25; // 25s 1 sun
 const int SUN_DESPAWN_TIME = 500;
 const int SUN_VEL = 30;
 const int SUN_HITBOX = 70;

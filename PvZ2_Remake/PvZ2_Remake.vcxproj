@@ -157,8 +157,10 @@
     <ClCompile Include="FSeedPacket.cpp" />
     <ClCompile Include="FSeedPeashooter.cpp" />
     <ClCompile Include="FSeedShovel.cpp" />
+    <ClCompile Include="FSeedSunflower.cpp" />
     <ClCompile Include="FSeedWallnut.cpp" />
     <ClCompile Include="FSun.cpp" />
+    <ClCompile Include="FSunflower.cpp" />
     <ClCompile Include="FTexture.cpp" />
     <ClCompile Include="FWallnut.cpp" />
     <ClCompile Include="FZombie.cpp" />
@@ -190,8 +192,10 @@
     <ClInclude Include="FSeedPacket.hpp" />
     <ClInclude Include="FSeedPeashooter.hpp" />
     <ClInclude Include="FSeedShovel.hpp" />
+    <ClInclude Include="FSeedSunflower.hpp" />
     <ClInclude Include="FSeedWallnut.hpp" />
     <ClInclude Include="FSun.hpp" />
+    <ClInclude Include="FSunflower.hpp" />
     <ClInclude Include="FWallnut.hpp" />
     <ClInclude Include="FZombie.hpp" />
     <ClInclude Include="Global.hpp" />
