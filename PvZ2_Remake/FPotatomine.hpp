@@ -7,6 +7,7 @@
 #include "FTexture.hpp"
 #include "Constants.hpp"
 #include "FPlant.hpp"
+#include "FExplosionPotatomine.hpp"
 #include "CollisionChecker.hpp"
 
 class FPotatomine : public FPlant {

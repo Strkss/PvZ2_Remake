@@ -117,6 +117,12 @@
     <ClCompile Include="FPotatomine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FSeedPotatomine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FExplosionPotatomine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp">
@@ -219,6 +225,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FPotatomine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSeedPotatomine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FExplosionPotatomine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

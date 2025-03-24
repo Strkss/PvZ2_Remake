@@ -108,6 +108,7 @@ const int SEEDPACKET_SUNFLOWER_COOLDOWN = 300;
 const std::string POTATOMINE_IDLE_0_IMG = "Assets/PlantAnimation/potatomine_idle_0.png";
 const std::string POTATOMINE_IDLE_1_IMG = "Assets/PlantAnimation/potatomine_idle_1.png";
 const std::string POTATOMINE_ATTACK_IMG = "Assets/PlantAnimation/potatomine_attack.png";
+const std::string POTATOMINE_EXPLOSION_IMG = "Assets/PlantAnimation/explosion.png";
 const int SEEDPACKET_POTATOMINE_COOLDOWN = 1200;
 const int POTATOMINE_ARMING_TIME = 14 * 60; // 14s arming
 
@@ -221,6 +222,7 @@ const int ZOMBIE_DIE_SPRITE_HEIGHT = 169;
 enum PARTICLES {
 	ZOMBIE_DEAD,
 	PEA_EXPLODED,
+	POTATOMINE_EXPLOSION,
 	PARTICLE_NUM
 };
 

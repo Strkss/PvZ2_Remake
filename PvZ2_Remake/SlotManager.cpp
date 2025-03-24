@@ -6,6 +6,7 @@ SlotManager::SlotManager(){
 	vecSeed.push_back(new FSeedPeashooter(1));
 	vecSeed.push_back(new FSeedSunflower(2));
 	vecSeed.push_back(new FSeedWallnut(3));
+	vecSeed.push_back(new FSeedPotatomine(4));
 	vecSeed.push_back(new FSeedShovel());
 }
 

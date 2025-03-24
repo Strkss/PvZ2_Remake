@@ -7,6 +7,7 @@
 #include "FPeashooter.hpp"
 #include "FWallnut.hpp"
 #include "FSunflower.hpp"
+#include "FPotatomine.hpp"
 #include "FTexture.hpp"
 #include "Constants.hpp"
 #include "FLawn.hpp"

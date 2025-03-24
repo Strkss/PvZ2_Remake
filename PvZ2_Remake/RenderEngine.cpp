@@ -322,6 +322,17 @@ void loadMedia(SDL_Renderer* mRenderer) {
 		}
 	}
 
+	// load potatomine explosion particle
+	animID = POTATOMINE_EXPLOSION;
+	particleAnimMaxFrame[animID] = 35;
+	particleTexture[animID].loadFromFile(mRenderer, POTATOMINE_EXPLOSION_IMG);
+	particleSprite[animID] = new SDL_Rect[35];
+	for (int i = 0; i <= 35 / 10; i++) {
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 35) {
+			particleSprite[animID][i * 10 + j] = { 424 * j, 483 * i, 424, 483 };
+		}
+	}
+
 	printf("DONE: FParticle -> loadMedia\n");
 
 	meterFillTexture.loadFromFile(mRenderer, PROGRESS_FILL_IMG);

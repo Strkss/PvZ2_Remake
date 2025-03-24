@@ -146,6 +146,7 @@
     <ClCompile Include="FBucketZombie.cpp" />
     <ClCompile Include="FConeZombie.cpp" />
     <ClCompile Include="FDeadZombie.cpp" />
+    <ClCompile Include="FExplosionPotatomine.cpp" />
     <ClCompile Include="FFlagZombie.cpp" />
     <ClCompile Include="FGreenPea.cpp" />
     <ClCompile Include="FGrid.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="FPotatomine.cpp" />
     <ClCompile Include="FSeedPacket.cpp" />
     <ClCompile Include="FSeedPeashooter.cpp" />
+    <ClCompile Include="FSeedPotatomine.cpp" />
     <ClCompile Include="FSeedShovel.cpp" />
     <ClCompile Include="FSeedSunflower.cpp" />
     <ClCompile Include="FSeedWallnut.cpp" />
@@ -182,6 +184,7 @@
     <ClInclude Include="FBucketZombie.hpp" />
     <ClInclude Include="FConeZombie.hpp" />
     <ClInclude Include="FDeadZombie.hpp" />
+    <ClInclude Include="FExplosionPotatomine.hpp" />
     <ClInclude Include="FFlagZombie.hpp" />
     <ClInclude Include="FGreenPea.hpp" />
     <ClInclude Include="FGrid.hpp" />
@@ -193,6 +196,7 @@
     <ClInclude Include="FPotatomine.hpp" />
     <ClInclude Include="FSeedPacket.hpp" />
     <ClInclude Include="FSeedPeashooter.hpp" />
+    <ClInclude Include="FSeedPotatomine.hpp" />
     <ClInclude Include="FSeedShovel.hpp" />
     <ClInclude Include="FSeedSunflower.hpp" />
     <ClInclude Include="FSeedWallnut.hpp" />

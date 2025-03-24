@@ -27,8 +27,6 @@ FPotatomine::FPotatomine(int row, int col) {
 }
 
 FPotatomine::~FPotatomine() {
-	//printf("DESTRUCTOR CALLED\n");
-	// do some explosion effect here
 	myLevel->myLawn.updateGrid(row, col, GRID_EMPTY);
 }
 
@@ -36,6 +34,7 @@ void FPotatomine::explode(std::vector<FZombie*> damagedZom) {
 	for (auto& it : damagedZom) {
 		it->takeDamage(1800);
 	}
+	myLevel->vecPart.push_back(new FExplosionPotatomine(rX + plantSprite[animID][0].w / 2 / SPRITE_DOWNSCALE, rY + 8));
 	hp = 0;
 }
 
