@@ -5,7 +5,7 @@
 #include <SDL_mixer.h>
 #include <fstream>
 
-//#define DEBUG_HITBOX
+#define DEBUG_HITBOX
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -101,8 +101,13 @@ const std::string WALLNUT_IDLE_2_IMG = "Assets/PlantAnimation/wallnut_idle_2.png
 const std::string WALLNUT_IDLE_3_IMG = "Assets/PlantAnimation/wallnut_idle_3.png";
 const int SEEDPACKET_WALLNUT_COOLDOWN = 1200;
 
+const std::string SUNFLOWER_IDLE_0_IMG = "Assets/PlantAnimation/sunflower_idle.png";
+const std::string SUNFLOWER_SPECIAL_IMG = "Assets/PlantAnimation/sunflower_sun.png";
+const int SEEDPACKET_SUNFLOWER_COOLDOWN = 300;
+
 const std::string SEEDPACKET_PEASHOOTER_IMG = "Assets/SeedPacket/peashooter.png";
 const std::string SEEDPACKET_WALLNUT_IMG = "Assets/SeedPacket/wallnut.png";
+const std::string SEEDPACKET_SUNFLOWER_IMG = "Assets/SeedPacket/sunflower.png";
 const std::string SEEDPACKET_SHOVEL_IMG = "Assets/SeedPacket/shovel.png";
 
 enum SEEDPACKET_STATES {

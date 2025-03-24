@@ -3,8 +3,8 @@
 
 SlotManager::SlotManager(){
 	slotCount = 3;
-	vecSeed.push_back(new FSeedPeashooter());
-	vecSeed.push_back(new FSeedWallnut());
+	vecSeed.push_back(new FSeedPeashooter(2));
+	vecSeed.push_back(new FSeedWallnut(1));
 	vecSeed.push_back(new FSeedShovel());
 }
 

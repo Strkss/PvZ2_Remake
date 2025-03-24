@@ -1,12 +1,12 @@
 #include "FSeedWallnut.hpp"
 #include "Global.hpp"
 
-FSeedWallnut::FSeedWallnut() {
+FSeedWallnut::FSeedWallnut(int pos) {
 	rX = 10;
-	rY = 100 + seedPacketSprite[PEASHOOTER][0].h / SPRITE_DOWNSCALE + 5; // o duoi peashooter
+	rY = 100 + (pos - 1) * seedPacketSprite[PEASHOOTER][0].h / SPRITE_DOWNSCALE + (pos - 1) * 5;
 	cooldownTimer = 0;
 	targetCooldownTimer = SEEDPACKET_WALLNUT_COOLDOWN;
-	keyPress = SDLK_2;
+	keyPress = SDLK_0 + pos;
 	type = WALLNUT;
 	state = SEEDPACKET_COOLDOWN;
 }

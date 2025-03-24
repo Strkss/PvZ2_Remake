@@ -78,6 +78,28 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	}
 	plantTexture[animID].loadFromFile(mRenderer, WALLNUT_IDLE_3_IMG);
 
+	//load Sunflower idle
+	animID = FPlant::convertToAnimID(SUNFLOWER, PLANT_IDLE_0);
+	plantAnimMaxFrame[animID] = 60;
+	plantSprite[animID] = new SDL_Rect[60];
+	for (int i = 0; i <= 60 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 60) {
+			plantSprite[animID][i * 10 + j] = { 116 * j, 126 * i, 116, 126 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, SUNFLOWER_IDLE_0_IMG);
+
+	//load Sunflower special
+	animID = FPlant::convertToAnimID(SUNFLOWER, PLANT_SPECIAL);
+	plantAnimMaxFrame[animID] = 60;
+	plantSprite[animID] = new SDL_Rect[60];
+	for (int i = 0; i <= 60 / 10; i++) { // hang = sprite_num / cot
+		for (int j = 0; j < 10; j++) if (i * 10 + j < 60) {
+			plantSprite[animID][i * 10 + j] = { 134 * j, 155 * i, 134, 155 };
+		}
+	}
+	plantTexture[animID].loadFromFile(mRenderer, SUNFLOWER_SPECIAL_IMG);
+
 	printf("DONE: FPlant -> loadMedia\n");
 
 	peaTexture.loadFromFile(mRenderer, PEA_IMG);
@@ -102,6 +124,13 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	seedPacketSprite[WALLNUT] = new SDL_Rect[3];
 	for (int i = 0; i < 3; i++) {
 		seedPacketSprite[WALLNUT][i] = { i * 239, 0, 239, 151 };
+	}
+
+	seedPacketMaxSprite[SUNFLOWER] = 3;
+	seedPacketTexture[SUNFLOWER].loadFromFile(mRenderer, SEEDPACKET_SUNFLOWER_IMG);
+	seedPacketSprite[SUNFLOWER] = new SDL_Rect[3];
+	for (int i = 0; i < 3; i++) {
+		seedPacketSprite[SUNFLOWER][i] = { i * 239, 0, 239, 151 };
 	}
 
 	seedPacketMaxSprite[SHOVEL] = 2;

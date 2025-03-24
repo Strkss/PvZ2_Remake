@@ -1,12 +1,12 @@
 #include "FSeedPeashooter.hpp"
 #include "Global.hpp"
 
-FSeedPeashooter::FSeedPeashooter() {
+FSeedPeashooter::FSeedPeashooter(int pos) {
 	rX = 10;
-	rY = 100;
+	rY = 100 + (pos - 1) * seedPacketSprite[PEASHOOTER][0].h / SPRITE_DOWNSCALE + (pos - 1) * 5;
 	cooldownTimer = 0;
 	targetCooldownTimer = SEEDPACKET_PEASHOOTER_COOLDOWN;
-	keyPress = SDLK_1;
+	keyPress = SDLK_0 + pos;
 	type = PEASHOOTER;
 	state = SEEDPACKET_COOLDOWN;
 }

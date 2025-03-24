@@ -3,7 +3,7 @@
 
 class FSeedWallnut : public FSeedPacket {
 public:
-	FSeedWallnut();
+	FSeedWallnut(int pos);
 	~FSeedWallnut();
 
 	void action(int row, int col);

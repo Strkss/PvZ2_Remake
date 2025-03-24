@@ -3,7 +3,7 @@
 
 class FSeedPeashooter : public FSeedPacket {
 public:
-	FSeedPeashooter();
+	FSeedPeashooter(int pos);
 	~FSeedPeashooter();
 
 	void action(int row, int col);
