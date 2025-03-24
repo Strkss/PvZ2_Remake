@@ -5,6 +5,7 @@
 #include "FPlant.hpp"
 #include "FSeedPacket.hpp"
 #include "FSeedPeashooter.hpp"
+#include "FSeedWallnut.hpp"
 #include "FSeedShovel.hpp"
 #include "Math.hpp"
 

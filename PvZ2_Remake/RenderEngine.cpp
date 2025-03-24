@@ -97,13 +97,19 @@ void loadMedia(SDL_Renderer* mRenderer) {
 		seedPacketSprite[PEASHOOTER][i] = { i * 239, 0, 239, 151 };
 	}
 
+	seedPacketMaxSprite[WALLNUT] = 3;
+	seedPacketTexture[WALLNUT].loadFromFile(mRenderer, SEEDPACKET_WALLNUT_IMG);
+	seedPacketSprite[WALLNUT] = new SDL_Rect[3];
+	for (int i = 0; i < 3; i++) {
+		seedPacketSprite[WALLNUT][i] = { i * 239, 0, 239, 151 };
+	}
+
 	seedPacketMaxSprite[SHOVEL] = 2;
 	seedPacketTexture[SHOVEL].loadFromFile(mRenderer, SEEDPACKET_SHOVEL_IMG);
 	seedPacketSprite[SHOVEL] = new SDL_Rect[2];
 	for (int i = 0; i < 2; i++) {
 		seedPacketSprite[SHOVEL][i] = { i * 158, 0, 158, 158 };
 	}
-	seedPacketTexture[SHOVEL].renderAtPosition(mRenderer, 0, 0);
 
 	printf("DONE: FSeedPacket -> loadMedia\n");
 

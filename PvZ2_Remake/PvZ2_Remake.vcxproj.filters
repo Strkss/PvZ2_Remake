@@ -105,6 +105,9 @@
     <ClCompile Include="FWallnut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FSeedWallnut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp">
@@ -189,6 +192,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FWallnut.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSeedPeashooter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSeedWallnut.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
