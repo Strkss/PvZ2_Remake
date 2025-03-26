@@ -17,6 +17,8 @@
 #include "FParticle.hpp"
 #include "FProgressBar.hpp"
 
+#include "TitleScreen.hpp"
+
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 
 void loadMedia(SDL_Renderer* mRenderer);

@@ -1,10 +1,12 @@
 #pragma once
 #include <stdio.h>
 #include <SDL.h>
+#include "FTexture.hpp"
 
 class Scene {
 public:
 	enum GAME_STATES type;
+	enum GAME_STATES nextScene;
 	virtual ~Scene() = 0;
 	virtual void render(SDL_Renderer* mRenderer) = 0;
 	virtual void update() = 0;

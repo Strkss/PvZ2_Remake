@@ -17,6 +17,7 @@ extern Mix_Music* flag_3;
 extern Mix_Music* intro;
 extern Mix_Music* won;
 extern Mix_Music* lost;
+extern Mix_Music* title;
 
 extern Mix_Chunk* sfxEat;
 extern Mix_Chunk* sfxExplode;
@@ -248,8 +249,9 @@ const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill_pixel.png";
 const int PROGRESS_MAX_FILL = 12;
 const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
-const std::string LEVEL_WON_IMG = "Assets/UI/level_won_screen.png";
-const std::string LEVEL_LOST_IMG = "Assets/UI/level_lost_screen.png";
+const std::string SCENE_WON_IMG = "Assets/UI/level_won_screen.png";
+const std::string SCENE_LOST_IMG = "Assets/UI/level_lost_screen.png";
+const std::string SCENE_TITLE_IMG = "Assets/UI/Menu.png";
 
 enum GAME_STATES {
 	IN_LEVEL,

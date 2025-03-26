@@ -16,6 +16,8 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 }
 
 void loadMedia(SDL_Renderer* mRenderer) {
+	titleTexture.loadFromFile(mRenderer, SCENE_TITLE_IMG);
+
 	// load Peashooter idle
 	int animID = FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
 	plantAnimMaxFrame[animID] = PEASHOOTER_IDLE_FRAME;

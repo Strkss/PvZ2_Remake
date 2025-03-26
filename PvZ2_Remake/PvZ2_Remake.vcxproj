@@ -177,6 +177,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SlotManager.cpp" />
     <ClCompile Include="SunManager.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="WaveManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +218,7 @@
     <ClInclude Include="SceneManager.hpp" />
     <ClInclude Include="SlotManager.hpp" />
     <ClInclude Include="SunManager.hpp" />
+    <ClInclude Include="TitleScreen.hpp" />
     <ClInclude Include="WaveManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

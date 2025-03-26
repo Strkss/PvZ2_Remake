@@ -41,9 +41,7 @@ int main(int argc, char* argv[]) {
 	createRenderer(mRenderer, mWindow);
 	loadMedia(mRenderer);
 
-	bool gameStateChanged = false;
-	myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
-	SceneManager::addScene(myLevel);
+	SceneManager::addScene(new TitleScreen());
 
 	bool quit = false;
 	SDL_Event e;
@@ -53,8 +51,14 @@ int main(int argc, char* argv[]) {
 				quit = true;
 				break;
 			}
-			if (!gameStateChanged) {
-				SceneManager::handleEvent(e);
+			SceneManager::handleEvent(e);
+			switch (SceneManager::sceneStack.top()->nextScene) {
+			case IN_LEVEL:
+				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
+				SceneManager::addScene(myLevel);
+				break;
+			case GAME_STATE_NUM:
+				break;
 			}
 		}
 		SDL_RenderClear(mRenderer);

@@ -18,6 +18,7 @@ Level::Level(std::string path, std::string name) {
 	won = 0;
 	lost = 0;
 	type = IN_LEVEL;
+	nextScene = GAME_STATE_NUM;
 	Mix_PlayMusic(flag_0, INT_MAX);
 }
 

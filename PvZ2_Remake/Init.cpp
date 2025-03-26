@@ -84,6 +84,11 @@ bool loadMusic() {
 		printf("loadMusic -> lost\n");
 		return 0;
 	}
+	title = Mix_LoadMUS("Assets/Music/title.mp3");
+	if (title == NULL) {
+		printf("loadMusic -> title\n");
+		return 0;
+	}
 	sfxEat = Mix_LoadWAV("Assets/SFX/eat.mp3");
 	if (sfxEat == NULL) {
 		printf("loadMusic -> sfxEat\n");
