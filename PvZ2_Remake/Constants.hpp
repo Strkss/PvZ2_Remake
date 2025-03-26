@@ -5,7 +5,7 @@
 #include <SDL_mixer.h>
 #include <fstream>
 
-#define DEBUG_HITBOX
+//#define DEBUG_HITBOX
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -125,7 +125,7 @@ enum SEEDPACKET_STATES {
 	SEEDPACKET_STATES_NUM
 };
 
-const int SUN_VALUE = 100;
+const int SUN_VALUE = 25;
 const int SUN_SKYFALL_DELAY = 600;
 const int SUN_SUNFLOWER_DELAY = 60 * 25; // 25s 1 sun
 const int SUN_DESPAWN_TIME = 500;

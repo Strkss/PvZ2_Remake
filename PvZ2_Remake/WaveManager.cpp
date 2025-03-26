@@ -11,7 +11,7 @@ WaveManager::WaveManager(std::string path) {
 		flagged[flag] = true;
 	}
 	cur = 0;
-	timer = WAVE_DELAY - 15 * 60; // 15 giay truoc wave 1
+	timer = WAVE_DELAY - 18 * 60; // 18 giay truoc wave 1
 	passedFlag = 0;
 }
 

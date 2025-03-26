@@ -22,7 +22,7 @@ FSunflower::FSunflower(int row, int col) {
 	rY -= 8;
 	id = ++PLANT_ID;
 	range = DEFENSIVE;
-	timer = 0;
+	timer = SUN_SUNFLOWER_DELAY - 5 * 60; // sau khi trong se co sun sau 5 giay
 	myLevel->myLawn.updateGrid(row, col, GRID_SUNFLOWER);
 }
 
