@@ -5,7 +5,7 @@
 #include <SDL_mixer.h>
 #include <fstream>
 
-//#define DEBUG_HITBOX
+#define DEBUG_HITBOX
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -84,7 +84,7 @@ enum PLANTS {
 
 const int PLANT_MAX_SPRITE = PLANT_STATES_NUM * PLANT_NUM;
 
-const double SPRITE_DOWNSCALE = 1.75;
+const double SPRITE_DOWNSCALE = 1.67;
 const double SPRITE_DOWNSCALE_OTHER = 1.5;
 const int FRAME_PACING = 2;
 
@@ -125,9 +125,9 @@ enum SEEDPACKET_STATES {
 	SEEDPACKET_STATES_NUM
 };
 
-const int SUN_VALUE = 25;
+const int SUN_VALUE = 50;
 const int SUN_SKYFALL_DELAY = 600;
-const int SUN_SUNFLOWER_DELAY = 60 * 25; // 25s 1 sun
+const int SUN_SUNFLOWER_DELAY = 60 * 50; // 48s 1 sun
 const int SUN_DESPAWN_TIME = 500;
 const int SUN_VEL = 30;
 const int SUN_HITBOX = 70;
@@ -257,5 +257,6 @@ enum GAME_STATES {
 	IN_LOSE,
 	IN_WON,
 	IN_REALM,
+	IN_TITLE,
 	GAME_STATE_NUM
 };

@@ -4,7 +4,7 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 	SDL_DestroyRenderer(mRenderer);
 	mRenderer = NULL;
 
-	mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+	mRenderer = SDL_CreateRenderer(mWindow, 3, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
 
 	if (mRenderer == NULL) {
 		printf("createRenderer -> mRenderer == NULL\n");

@@ -16,6 +16,7 @@
 #include "FPlant.hpp"
 #include "FBasicZombie.hpp"
 #include "Global.hpp"
+#include "SceneManager.hpp"
 
 //int newGameFrame = 0, newGameAnimationX;
 //
@@ -29,19 +30,6 @@
 //	}
 //	lawn.renderAtPosition(mRenderer, -10 - newGameAnimationX, 0);
 //}
-//
-//void startNewGame(SDL_Renderer* mRenderer) {
-//	resetSeedPacket();
-//	FLawn::initGrid();
-//	FPea::reset();
-//	FPeashooter::reset();
-//	FSeedPacket::reset();
-//	FSun::reset(mRenderer);
-//	FZombie::reset();
-//	resetLevel();
-//	FProgressBar::init();
-//	newGameFrame = 0;
-//}
 
 int main(int argc, char* argv[]) {
 	initEngines();
@@ -53,8 +41,9 @@ int main(int argc, char* argv[]) {
 	createRenderer(mRenderer, mWindow);
 	loadMedia(mRenderer);
 
-	enum GAME_STATES gameState = IN_LEVEL;
-	bool gameStateChanged = true;
+	bool gameStateChanged = false;
+	myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
+	SceneManager::addScene(myLevel);
 
 	bool quit = false;
 	SDL_Event e;
@@ -64,28 +53,15 @@ int main(int argc, char* argv[]) {
 				quit = true;
 				break;
 			}
-			//handle event at each state
-			switch (gameState) {
-			case IN_LEVEL:
-				if (!gameStateChanged) {
-					myLevel->handleEvent(e);
-				}
-				break;
+			if (!gameStateChanged) {
+				SceneManager::handleEvent(e);
 			}
 		}
 		SDL_RenderClear(mRenderer);
-		switch (gameState) {
-		case IN_LEVEL:
-			if (gameStateChanged) {
-				delete myLevel;
-				myLevel = NULL;
-				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
-				gameStateChanged = false;
-			}
-			myLevel->update();
-			myLevel->render(mRenderer);
-			break;
-		}
+
+		SceneManager::update();
+		SceneManager::render(mRenderer);
+
 		SDL_RenderPresent(mRenderer);
 	}
 	
@@ -180,6 +156,7 @@ int main(int argc, char* argv[]) {
 	//	SDL_RenderPresent(mRenderer);
 	//}
 
+	SceneManager::clear();
 	TTF_CloseFont(font);
 	font = NULL;
 	closeMusic();

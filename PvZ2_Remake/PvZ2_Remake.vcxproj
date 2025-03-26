@@ -173,6 +173,8 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="FProgressBar.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SlotManager.cpp" />
     <ClCompile Include="SunManager.cpp" />
     <ClCompile Include="WaveManager.cpp" />
@@ -211,6 +213,8 @@
     <ClInclude Include="FProgressBar.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
+    <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="SceneManager.hpp" />
     <ClInclude Include="SlotManager.hpp" />
     <ClInclude Include="SunManager.hpp" />
     <ClInclude Include="WaveManager.hpp" />

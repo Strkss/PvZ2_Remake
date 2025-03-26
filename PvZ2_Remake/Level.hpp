@@ -17,8 +17,9 @@
 #include "SlotManager.hpp"
 #include "WaveManager.hpp"
 #include "FProgressBar.hpp"
+#include "Scene.hpp"
 
-class Level {
+class Level : public Scene{
 	std::string name, path;
 public:
 	std::vector<FPlant*> vecPlant;
