@@ -39,6 +39,7 @@ void FPotatomine::explode(std::vector<FZombie*> damagedZom) {
 }
 
 bool FPotatomine::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	action();
 	return 0;

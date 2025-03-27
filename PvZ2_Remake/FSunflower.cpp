@@ -36,6 +36,7 @@ void FSunflower::giveSun() {
 }
 
 bool FSunflower::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	action();
 	return 0;

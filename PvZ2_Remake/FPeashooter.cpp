@@ -35,6 +35,7 @@ void FPeashooter::shoot() {
 }
 
 bool FPeashooter::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	action();
 	return 0;

@@ -36,11 +36,14 @@ int main(int argc, char* argv[]) {
 	loadMusic();
 	SDL_Renderer* mRenderer = NULL;
 	SDL_Window* mWindow = NULL;
-	
+	FTexture inactiveSceneTexture;
+
 	createWindow(mWindow);
 	createRenderer(mRenderer, mWindow);
 	loadMedia(mRenderer);
+	inactiveSceneTexture.loadFromFile(mRenderer, "Assets/UI/alphagrey.png");
 
+	Scene* previousScene = NULL;
 	SceneManager::addScene(new TitleScreen());
 
 	bool quit = false;
@@ -56,13 +59,16 @@ int main(int argc, char* argv[]) {
 			case IN_LEVEL:
 				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
 				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
+				previousScene = NULL;
 				SceneManager::addScene(myLevel);
 				break;
 			case IN_SETTINGS:
+				previousScene = SceneManager::sceneStack.top();
 				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
 				SceneManager::addScene(new PauseMenu);
 				break;
 			case SCENE_RETURN:
+				previousScene = NULL;
 				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
 				SceneManager::sceneStack.top()->pop = false;
 				SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
@@ -73,6 +79,10 @@ int main(int argc, char* argv[]) {
 		}
 		SDL_RenderClear(mRenderer);
 
+		if (previousScene != NULL) {
+			previousScene->render(mRenderer);
+			inactiveSceneTexture.renderAtPosition(mRenderer, 0, 0);
+		}
 		SceneManager::update();
 		SceneManager::render(mRenderer);
 

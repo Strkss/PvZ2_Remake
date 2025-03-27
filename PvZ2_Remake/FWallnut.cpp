@@ -31,6 +31,7 @@ FWallnut::~FWallnut() {
 }
 
 bool FWallnut::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	if (hp <= 1000) {
 		updateAnimID(convertToAnimID(WALLNUT, PLANT_IDLE_3));

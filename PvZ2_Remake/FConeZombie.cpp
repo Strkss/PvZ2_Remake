@@ -31,6 +31,7 @@ FConeZombie::~FConeZombie() {
 }
 
 bool FConeZombie::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	if (hp <= 190 + 370 / 2 && hp > 190 && hpTier != ZOMBIE_DAMAGED_0) {
 		hpTier = ZOMBIE_DAMAGED_0;

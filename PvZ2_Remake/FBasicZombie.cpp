@@ -31,6 +31,7 @@ FBasicZombie::~FBasicZombie() {
 }
 
 bool FBasicZombie::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	action();
 	if (state == ZOMBIE_WALK) move();

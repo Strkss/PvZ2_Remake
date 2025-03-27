@@ -31,6 +31,7 @@ FBucketZombie::~FBucketZombie() {
 }
 
 bool FBucketZombie::update() {
+	++animFrame;
 	if (hp <= 0) return 1;
 	if (hp <= 190 + 1100 / 2 && hp > 190 && hpTier != ZOMBIE_DAMAGED_0) {
 		hpTier = ZOMBIE_DAMAGED_0;

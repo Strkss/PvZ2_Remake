@@ -32,7 +32,6 @@ enum ZOMBIES FZombie::getType() {
 }
 
 void FZombie::render(SDL_Renderer* mRenderer) {
-	++animFrame;
 	if (animFrame / FRAME_PACING >= zombieAnimMaxFrame[animID]) animFrame = 0;
 	zombieTexture[animID].renderAtPosition(mRenderer, rX, rY - zombieSprite[animID][0].h / SPRITE_DOWNSCALE, &zombieSprite[animID][animFrame / FRAME_PACING], SPRITE_DOWNSCALE);
 #ifdef DEBUG_HITBOX
