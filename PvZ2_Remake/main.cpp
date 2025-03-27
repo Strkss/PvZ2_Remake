@@ -54,8 +54,18 @@ int main(int argc, char* argv[]) {
 			SceneManager::handleEvent(e);
 			switch (SceneManager::sceneStack.top()->nextScene) {
 			case IN_LEVEL:
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
 				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
 				SceneManager::addScene(myLevel);
+				break;
+			case IN_SETTINGS:
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+				SceneManager::addScene(new PauseMenu);
+				break;
+			case SCENE_RETURN:
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+				SceneManager::sceneStack.top()->pop = false;
+				SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
 				break;
 			case GAME_STATE_NUM:
 				break;

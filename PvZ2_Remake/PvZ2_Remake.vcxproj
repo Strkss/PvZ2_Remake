@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="FBasicZombie.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="FProgressBar.cpp" />
+    <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -181,6 +183,7 @@
     <ClCompile Include="WaveManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.hpp" />
     <ClInclude Include="CollisionChecker.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="FBasicZombie.hpp" />
@@ -212,6 +215,7 @@
     <ClInclude Include="Level.hpp" />
     <ClInclude Include="Math.hpp" />
     <ClInclude Include="FProgressBar.hpp" />
+    <ClInclude Include="PauseMenu.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="FTexture.hpp" />
     <ClInclude Include="Scene.hpp" />

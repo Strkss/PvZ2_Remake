@@ -19,6 +19,8 @@ Level::Level(std::string path, std::string name) {
 	lost = 0;
 	type = IN_LEVEL;
 	nextScene = GAME_STATE_NUM;
+	pop = false;
+	Mix_HaltMusic();
 	Mix_PlayMusic(flag_0, INT_MAX);
 }
 
@@ -50,6 +52,7 @@ Level::~Level() {
 
 	Mix_HaltMusic();
 	Mix_HaltChannel(-1);
+	pop = true;
 }
 
 void Level::removePlant(int id) {
@@ -199,7 +202,11 @@ void Level::handleEvent(SDL_Event& e) {
 	//printf("a %d\n", e.type);
 
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
-		mySlot.handleKeyDown(e.key.keysym.sym);
+		if (e.key.keysym.sym == SDLK_ESCAPE) {
+			pop = false;
+			nextScene = IN_SETTINGS;
+		}
+		else mySlot.handleKeyDown(e.key.keysym.sym);
 	}
 	else if (e.type == SDL_MOUSEBUTTONDOWN) {
 		int x = -1, y = -1;

@@ -16,7 +16,11 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 }
 
 void loadMedia(SDL_Renderer* mRenderer) {
+	// load Title Screen
 	titleTexture.loadFromFile(mRenderer, SCENE_TITLE_IMG);
+
+	// load Pause Menu
+	pauseMenuTexture.loadFromFile(mRenderer, SCENE_PAUSE_MENU_IMG);
 
 	// load Peashooter idle
 	int animID = FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0);

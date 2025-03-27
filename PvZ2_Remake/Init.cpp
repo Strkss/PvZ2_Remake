@@ -40,7 +40,9 @@ bool initEngines() {
 	}
 
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 8, 2048) < 0) {
-		printf("initEngines -> Mix_OpenAudio\n");
+		if (Mix_AllocateChannels(32) != 32) {
+			printf("initEngines -> Mix_OpenAudio\n");
+		}
 		return 0;
 	}
 
@@ -124,6 +126,8 @@ bool loadMusic() {
 		printf("loadMusic -> sfxMetalHit\n");
 		return 0;
 	}
+	Mix_Volume(-1, 100);
+	Mix_VolumeMusic(100);
 	printf("DONE: loadMusic\n");
 	return 1;
 }

@@ -17,6 +17,7 @@
 #include "FParticle.hpp"
 #include "FProgressBar.hpp"
 
+#include "PauseMenu.hpp"
 #include "TitleScreen.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);

@@ -249,9 +249,13 @@ const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill_pixel.png";
 const int PROGRESS_MAX_FILL = 12;
 const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
-const std::string SCENE_WON_IMG = "Assets/UI/level_won_screen.png";
-const std::string SCENE_LOST_IMG = "Assets/UI/level_lost_screen.png";
+const std::string SCENE_WON_IMG = "Assets/UI/won.png";
+const std::string SCENE_LOST_IMG = "Assets/UI/lost.png";
 const std::string SCENE_TITLE_IMG = "Assets/UI/Menu.png";
+const std::string SCENE_PAUSE_MENU_IMG = "Assets/UI/pausemenu.png";
+
+const int SCENE_PAUSE_MENU_X = SCREEN_WIDTH / 2 - 640 / 2;
+const int SCENE_PAUSE_MENU_Y = SCREEN_HEIGHT / 2 - 480 / 2;
 
 enum GAME_STATES {
 	IN_LEVEL,
@@ -260,5 +264,7 @@ enum GAME_STATES {
 	IN_WON,
 	IN_REALM,
 	IN_TITLE,
+	IN_SETTINGS,
+	SCENE_RETURN,
 	GAME_STATE_NUM
 };
