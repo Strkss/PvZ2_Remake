@@ -36,7 +36,7 @@ public:
 
 	int getHP();
 
-	static int convertToAnimID(enum ZOMBIES zombie, enum ZOMBIE_STATES state, enum ZOMBIE_HP_TIERS hpTier);
+	static int convertToAnimID(int zombie, int state, int hpTier);
 	void updateAnimID(int id);
 	int getAnimID();
 

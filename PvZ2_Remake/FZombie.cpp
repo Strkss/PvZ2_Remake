@@ -10,7 +10,7 @@ bool sortByRow(FZombie*& lhs, FZombie*& rhs) {
 
 FZombie::~FZombie() {}
 
-int FZombie::convertToAnimID(enum ZOMBIES zombie, enum ZOMBIE_STATES state, enum ZOMBIE_HP_TIERS hpTier) {
+int FZombie::convertToAnimID(int zombie, int state, int hpTier) {
 	return zombie * ZOMBIE_HP_TIERS_NUM * ZOMBIE_STATES_NUM  + hpTier * ZOMBIE_STATES_NUM + state;
 }
 

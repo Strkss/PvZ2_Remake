@@ -33,7 +33,7 @@ void WorldMap::handleEvent(SDL_Event& e) {
 	if (e.type == SDL_MOUSEBUTTONDOWN) {
 		for (int i = 1; i <= 5; i++) {
 			if (levelButton[i].isClicked(e)) {
-				nextScene = IN_LEVEL;
+				nextScene = IN_INTRO;
 				pop = false;
 				levelChosen = i;
 				break;

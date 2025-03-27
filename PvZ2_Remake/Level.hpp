@@ -34,7 +34,7 @@ public:
 
 	bool won, lost;
 
-	Level(std::string path, std::string name);
+	Level(int level);
 	~Level();
 
 	void removePlant(int id);

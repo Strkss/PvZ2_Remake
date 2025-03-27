@@ -170,6 +170,7 @@
     <ClCompile Include="FZombie.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelIntro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="FProgressBar.cpp" />
@@ -214,6 +215,7 @@
     <ClInclude Include="Global.hpp" />
     <ClInclude Include="Init.hpp" />
     <ClInclude Include="Level.hpp" />
+    <ClInclude Include="LevelIntro.hpp" />
     <ClInclude Include="Math.hpp" />
     <ClInclude Include="FProgressBar.hpp" />
     <ClInclude Include="PauseMenu.hpp" />

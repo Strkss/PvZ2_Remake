@@ -3,13 +3,13 @@
 
 Level* myLevel = NULL;
 
-Level::Level(std::string path, std::string name) {
+Level::Level(int level) {
 	delete myWave;
 	myWave = NULL;
 	delete myProgress;
 	myProgress = NULL;
-	this->path = path;
-	this->name = name;
+	this->path = SCENE_LEVEL_PREFIX + "day" + std::to_string(level) + "_wave.txt";
+	this->name = "Modern Day - Day " + std::to_string(level);
 	myWave = new WaveManager(path);
 	PLANT_ID = 0;
 	PEA_ID = 0;

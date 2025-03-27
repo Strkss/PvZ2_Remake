@@ -248,6 +248,8 @@ const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill_pixel.png";
 const int PROGRESS_MAX_FILL = 12;
 const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
+const std::string SCENE_LEVEL_PREFIX = "Assets/Level/";
+
 const std::string SCENE_WON_IMG = "Assets/UI/won.png";
 const std::string SCENE_LOST_IMG = "Assets/UI/lost.png";
 const std::string SCENE_TITLE_IMG = "Assets/UI/Menu.png";

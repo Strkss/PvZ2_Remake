@@ -17,6 +17,7 @@
 #include "FBasicZombie.hpp"
 #include "Global.hpp"
 #include "SceneManager.hpp"
+#include "LevelIntro.hpp"
 
 //int newGameFrame = 0, newGameAnimationX;
 //
@@ -43,9 +44,11 @@ int main(int argc, char* argv[]) {
 	createWindow(mWindow);
 	createRenderer(mRenderer, mWindow);
 	loadMedia(mRenderer);
+	
+	// hien background khi pause game
 	inactiveSceneTexture.loadFromFile(mRenderer, "Assets/UI/alphagrey.png");
-
 	Scene* previousScene = NULL;
+
 	SceneManager::addScene(new TitleScreen());
 
 	bool quit = false;
@@ -58,8 +61,14 @@ int main(int argc, char* argv[]) {
 			}
 			SceneManager::handleEvent(e);
 			switch (SceneManager::sceneStack.top()->nextScene) {
-			case IN_LEVEL: // map -> level
-				myLevel = new Level("Assets/Level/day" + std::to_string(levelChosen) + ".txt", "Modern Day - Day " + std::to_string(levelChosen));
+			case IN_INTRO: //map -> intro
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+				SceneManager::addScene(new LevelIntro(levelChosen));
+				previousScene = NULL;
+				break;
+			case IN_LEVEL: // intro -> level
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+				myLevel = new Level(levelChosen);
 				levelChosen = 0;
 				previousScene = NULL;
 				SceneManager::addScene(myLevel);
@@ -69,10 +78,10 @@ int main(int argc, char* argv[]) {
 				SceneManager::addScene(new PauseMenu);
 				break;
 			case SCENE_RETURN:
-				previousScene = NULL;
 				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
 				SceneManager::sceneStack.top()->pop = false;
 				SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
+				previousScene = NULL;
 				break;
 			case IN_REALM: // title / settings -> realm, realm -> level
 				previousScene = NULL;
