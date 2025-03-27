@@ -34,6 +34,7 @@ void FPotatomine::explode(std::vector<FZombie*> damagedZom) {
 	for (auto& it : damagedZom) {
 		it->takeDamage(1800);
 	}
+	Mix_PlayChannel(-1, sfxExplode, 0);
 	myLevel->vecPart.push_back(new FExplosionPotatomine(rX + plantSprite[animID][0].w / 2 / SPRITE_DOWNSCALE, rY + 8));
 	hp = 0;
 }

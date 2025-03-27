@@ -12,9 +12,9 @@ WorldMap::WorldMap() {
 	Mix_HaltChannel(-1);
 	levelButton[1] = Button(299, 405, 358, 439);
 	levelButton[2] = Button(506, 381, 569, 417);
-	levelButton[3] = Button(-1, -1, -1, -1);
-	levelButton[4] = Button(-1, -1, -1, -1);
-	levelButton[5] = Button(-1, -1, -1, -1);
+	levelButton[3] = Button(694, 310, 762, 347);
+	levelButton[4] = Button(911, 244, 978, 277);
+	levelButton[5] = Button(1042, 408, 1109, 442);
 }
 
 WorldMap::~WorldMap() { 

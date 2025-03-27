@@ -40,10 +40,12 @@ bool initEngines() {
 	}
 
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 8, 2048) < 0) {
-		if (Mix_AllocateChannels(32) != 32) {
-			printf("initEngines -> Mix_OpenAudio\n");
-		}
+		printf("initEngines -> Mix_OpenAudio\n");
 		return 0;
+	}
+
+	if (Mix_AllocateChannels(32) != 32) {
+		printf("initEngines -> Mix_AllocateChannel\n");
 	}
 
 	printf("DONE: initEngines\n");

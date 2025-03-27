@@ -55,7 +55,7 @@ void FBucketZombie::action() {
 			updateAnimID(convertToAnimID(type, state, hpTier));
 		}
 		damagedPlant->takeDamage(ZOMBIE_DMG);
-		if (!Mix_Playing(7)) Mix_PlayChannel(7, sfxEat, 0);
+		if (!Mix_Playing(28)) Mix_PlayChannel(28, sfxEat, 0);
 	}
 	else {
 		if (state == ZOMBIE_EAT) {
