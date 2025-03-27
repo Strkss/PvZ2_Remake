@@ -18,6 +18,7 @@ extern Mix_Music* intro;
 extern Mix_Music* won;
 extern Mix_Music* lost;
 extern Mix_Music* title;
+extern Mix_Music* worldmap;
 
 extern Mix_Chunk* sfxEat;
 extern Mix_Chunk* sfxExplode;
@@ -239,8 +240,6 @@ enum ATTACK_RANGES {
 
 const int WAVE_DELAY = 1500;
 
-const std::string WAVE_INFO = "Assets/Level/wave.txt";
-
 const std::string PROGRESS_ZOMBIE_IMG = "Assets/UI/progress_meter_zombie.png";
 const std::string PROGRESS_FLAG_IMG = "Assets/UI/progress_meter_flag_full.png";
 const std::string PROGRESS_METER_IMG = "Assets/UI/progress_meter.png";
@@ -253,9 +252,11 @@ const std::string SCENE_WON_IMG = "Assets/UI/won.png";
 const std::string SCENE_LOST_IMG = "Assets/UI/lost.png";
 const std::string SCENE_TITLE_IMG = "Assets/UI/Menu.png";
 const std::string SCENE_PAUSE_MENU_IMG = "Assets/UI/pausemenu.png";
+const std::string SCENE_WORLDMAP_IMG = "Assets/Map/worldmap.png";
 
 const int SCENE_PAUSE_MENU_X = SCREEN_WIDTH / 2 - 640 / 2;
 const int SCENE_PAUSE_MENU_Y = SCREEN_HEIGHT / 2 - 480 / 2;
+const int LEVEL_NUM = 5;
 
 enum GAME_STATES {
 	IN_LEVEL,

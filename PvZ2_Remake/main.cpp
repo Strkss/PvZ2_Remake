@@ -31,6 +31,8 @@
 //	lawn.renderAtPosition(mRenderer, -10 - newGameAnimationX, 0);
 //}
 
+extern int levelChosen;
+
 int main(int argc, char* argv[]) {
 	initEngines();
 	loadMusic();
@@ -56,21 +58,28 @@ int main(int argc, char* argv[]) {
 			}
 			SceneManager::handleEvent(e);
 			switch (SceneManager::sceneStack.top()->nextScene) {
-			case IN_LEVEL:
-				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
-				myLevel = new Level(WAVE_INFO, "Modern Day - Day 1");
+			case IN_LEVEL: // map -> level
+				myLevel = new Level("Assets/Level/day" + std::to_string(levelChosen) + ".txt", "Modern Day - Day " + std::to_string(levelChosen));
+				levelChosen = 0;
 				previousScene = NULL;
 				SceneManager::addScene(myLevel);
 				break;
-			case IN_SETTINGS:
-				previousScene = SceneManager::sceneStack.top();
-				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+			case IN_SETTINGS: // level -> settings, settings -> level (return) / map
+				previousScene = SceneManager::sceneStack.top(); 
 				SceneManager::addScene(new PauseMenu);
 				break;
 			case SCENE_RETURN:
 				previousScene = NULL;
 				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
 				SceneManager::sceneStack.top()->pop = false;
+				SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
+				break;
+			case IN_REALM: // title / settings -> realm, realm -> level
+				previousScene = NULL;
+				if (SceneManager::sceneStack.size() == 1) {
+					SceneManager::addScene(new WorldMap);
+				}
+				while (SceneManager::sceneStack.top()->type != IN_REALM) SceneManager::removeScene();
 				SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
 				break;
 			case GAME_STATE_NUM:

@@ -1,5 +1,7 @@
 #include "Button.hpp"
 
+Button::Button() { }
+
 Button::Button(int x1, int y1, int x2, int y2) {
 	box = { x1, y1, x2 - x1, y2 - y1 };
 }

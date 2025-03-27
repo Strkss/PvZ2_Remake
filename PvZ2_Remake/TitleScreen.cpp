@@ -8,7 +8,9 @@ TitleScreen::TitleScreen() {
 	Mix_HaltMusic();
 }
 
-TitleScreen::~TitleScreen() { }
+TitleScreen::~TitleScreen() { 
+	Mix_HaltMusic();
+}
 
 void TitleScreen::render(SDL_Renderer* mRenderer) {
 	titleTexture.renderAtPosition(mRenderer, 0, 0);
@@ -20,6 +22,6 @@ void TitleScreen::update() {
 
 void TitleScreen::handleEvent(SDL_Event& e) {
 	if (e.type == SDL_MOUSEBUTTONDOWN && e.key.repeat == 0) {
-		nextScene = IN_LEVEL;
+		nextScene = IN_REALM;
 	}
 }

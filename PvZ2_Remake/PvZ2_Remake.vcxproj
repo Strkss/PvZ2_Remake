@@ -181,6 +181,7 @@
     <ClCompile Include="SunManager.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="WaveManager.cpp" />
+    <ClCompile Include="WorldMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.hpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="SunManager.hpp" />
     <ClInclude Include="TitleScreen.hpp" />
     <ClInclude Include="WaveManager.hpp" />
+    <ClInclude Include="WorldMap.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

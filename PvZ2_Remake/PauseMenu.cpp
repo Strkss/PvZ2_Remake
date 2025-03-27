@@ -11,6 +11,7 @@ Button downSFXButton(SCENE_PAUSE_MENU_X + 293, SCENE_PAUSE_MENU_Y + 219, SCENE_P
 PauseMenu::PauseMenu() {
 	pop = false;
 	nextScene = GAME_STATE_NUM;
+	type = IN_SETTINGS;
 	sfxVolumeChanged = 1;
 	musicVolumeChanged = 1;
 	Mix_PauseMusic();

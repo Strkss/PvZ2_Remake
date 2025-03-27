@@ -91,6 +91,11 @@ bool loadMusic() {
 		printf("loadMusic -> title\n");
 		return 0;
 	}
+	worldmap = Mix_LoadMUS("Assets/Music/worldmap.mp3");
+	if (worldmap == NULL) {
+		printf("loadMusic -> worldmap\n");
+		return 0;
+	}
 	sfxEat = Mix_LoadWAV("Assets/SFX/eat.mp3");
 	if (sfxEat == NULL) {
 		printf("loadMusic -> sfxEat\n");

@@ -12,6 +12,7 @@ Mix_Music* intro = NULL;
 Mix_Music* won = NULL;
 Mix_Music* lost = NULL;
 Mix_Music* title = NULL;
+Mix_Music* worldmap = NULL;
 
 Mix_Chunk* sfxEat = NULL;	
 Mix_Chunk* sfxExplode = NULL;

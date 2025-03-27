@@ -19,6 +19,7 @@
 
 #include "PauseMenu.hpp"
 #include "TitleScreen.hpp"
+#include "WorldMap.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 
