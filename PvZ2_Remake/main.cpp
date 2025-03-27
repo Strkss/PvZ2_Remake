@@ -19,19 +19,6 @@
 #include "SceneManager.hpp"
 #include "LevelIntro.hpp"
 
-//int newGameFrame = 0, newGameAnimationX;
-//
-//void newGameAnimation(SDL_Renderer* mRenderer, FTexture &lawn) {
-//	++newGameFrame;
-//	if (newGameFrame >= 360) {
-//		newGameAnimationX -= 3;
-//	}
-//	else if (newGameFrame <= 180){
-//		newGameAnimationX += 3;
-//	}
-//	lawn.renderAtPosition(mRenderer, -10 - newGameAnimationX, 0);
-//}
-
 extern int levelChosen;
 
 int main(int argc, char* argv[]) {
@@ -82,6 +69,16 @@ int main(int argc, char* argv[]) {
 				SceneManager::sceneStack.top()->pop = false;
 				SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
 				previousScene = NULL;
+				break;
+			case IN_LOSE:
+				previousScene = NULL;
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+				SceneManager::addScene(new LevelLose);
+				break;
+			case IN_WON:
+				previousScene = NULL;
+				if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+				SceneManager::addScene(new LevelWin);
 				break;
 			case IN_REALM: // title / settings -> realm, realm -> level
 				previousScene = NULL;

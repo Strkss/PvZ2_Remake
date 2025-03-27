@@ -25,6 +25,10 @@ void loadMedia(SDL_Renderer* mRenderer) {
 	// load World Map
 	worldMapTexture.loadFromFile(mRenderer, SCENE_WORLDMAP_IMG);
 
+	// load Win/Lose
+	loseTexture.loadFromFile(mRenderer, SCENE_LOST_IMG);
+	winTexture.loadFromFile(mRenderer, SCENE_WON_IMG);
+
 	// load Peashooter idle
 	int animID = FPlant::convertToAnimID(PEASHOOTER, PLANT_IDLE_0);
 	plantAnimMaxFrame[animID] = PEASHOOTER_IDLE_FRAME;

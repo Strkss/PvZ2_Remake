@@ -20,6 +20,8 @@
 #include "PauseMenu.hpp"
 #include "TitleScreen.hpp"
 #include "WorldMap.hpp"
+#include "LevelLose.hpp"
+#include "LevelWin.hpp"
 
 bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
 

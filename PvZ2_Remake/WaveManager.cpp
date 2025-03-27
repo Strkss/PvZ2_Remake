@@ -13,6 +13,7 @@ WaveManager::WaveManager(std::string path) {
 	cur = 0;
 	timer = WAVE_DELAY - 18 * 60; // 18 giay truoc wave 1
 	passedFlag = 0;
+	done = 0;
 }
 
 WaveManager::~WaveManager() {
@@ -31,7 +32,12 @@ void WaveManager::update() {
 }
 
 bool WaveManager::spawnWave() {
-	if (reader.eof()) return 0;
+	if (reader.eof()) { // da het wave
+		if (myLevel->vecZombie.size() == 0) { // het zombie
+			done = true;
+		}
+		return 0;
+	}
 	if (myLevel->vecZombie.size() > 0 && timer < WAVE_DELAY) return 0;
 	if (cur == 0 && timer < WAVE_DELAY) return 0; // pause truoc wave 1
 	if (myLevel->vecZombie.size() == 0 && timer < WAVE_DELAY && cur + 1 <= total && flagged[cur + 1]) { // pause truoc flag
@@ -100,4 +106,8 @@ int WaveManager::getTotalFlag() {
 
 bool WaveManager::nextFlag() {
 	return cur + 1 <= total && flagged[cur + 1];
+}
+
+bool WaveManager::isDone() {
+	return done;
 }

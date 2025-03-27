@@ -5,13 +5,13 @@
 #include "Button.hpp"
 #include "FTexture.hpp"
 
-extern FTexture loseTexture;
-extern Button loseOKButton;
+extern FTexture winTexture;
+extern Button winOKButton;
 
-class LevelLose : public Scene {
+class LevelWin : public Scene {
 public:
-	LevelLose();
-	~LevelLose();
+	LevelWin();
+	~LevelWin();
 	void render(SDL_Renderer* mRenderer);
 	void update();
 	void handleEvent(SDL_Event& e);

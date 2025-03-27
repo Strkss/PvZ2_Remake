@@ -32,8 +32,6 @@ public:
 	WaveManager* myWave;
 	FProgressBar* myProgress;
 
-	bool won, lost;
-
 	Level(int level);
 	~Level();
 

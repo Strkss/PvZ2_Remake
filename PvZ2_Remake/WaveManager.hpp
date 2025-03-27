@@ -19,6 +19,7 @@ class WaveManager {
 	int passedFlag; // cho biet so flag da di qua
 	int totalFlag;
 	bool* flagged;
+	bool done;
 public:
 	WaveManager(std::string path);
 	~WaveManager();
@@ -32,4 +33,5 @@ public:
 	int getTimer();
 	int getPassedFlag();
 	bool nextFlag(); // check xem wave tiep theo la flag khong
+	bool isDone();
 };

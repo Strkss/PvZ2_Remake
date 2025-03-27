@@ -15,8 +15,6 @@ Level::Level(int level) {
 	PEA_ID = 0;
 	ZOMBIE_ID = 0;
 	SUN_ID = 0;
-	won = 0;
-	lost = 0;
 	type = IN_LEVEL;
 	nextScene = GAME_STATE_NUM;
 	pop = false;
@@ -157,6 +155,11 @@ void Level::update() {
 	myWave->update();
 	myProgress->update();
 	
+	if (myWave->isDone()) { // check xem da win chua
+		nextScene = IN_WON;
+		pop = true;
+	}
+	
 	for (auto& it : vecPlant) {
 		if (it->update()) {
 			pendingDelete.push_back(it->getID());
@@ -170,6 +173,10 @@ void Level::update() {
 	for (auto& it : vecZombie) {
 		if (it->update()) {
 			pendingDelete.push_back(it->getID());
+		}
+		else if (it->getHitbox().x <= LAWN_START_X - LAWN_GRID_WIDTH) { // check xem zom den nha chua
+			nextScene = IN_LOSE;
+			pop = true;
 		}
 	}
 	for (auto& delID : pendingDelete) {
