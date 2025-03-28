@@ -34,19 +34,19 @@ public:
 	virtual ~FZombie() = 0;
 	virtual bool update() = 0;
 
-	int getHP();
+	int getHP() const;
 
 	static int convertToAnimID(int zombie, int state, int hpTier);
 	void updateAnimID(int id);
 	int getAnimID();
 
-	int getRow();
-	int getID();
-	enum ZOMBIES getType();
+	int getRow() const;
+	int getID() const;
+	enum ZOMBIES getType() const;
 
 	void render(SDL_Renderer* mRenderer);
 
-	SDL_Rect getHitbox();
+	SDL_Rect getHitbox() const;
 	void takeDamage(int dmg);
 };
 

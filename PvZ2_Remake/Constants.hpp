@@ -59,10 +59,10 @@ enum GRID_STATES {
 	GRID_POTATOMINE
 };
 
-enum PEASHOOTER_STATES {
-	PEASHOOTER_IDLE,
-	PEASHOOTER_ATTACK
-};
+//enum PEASHOOTER_STATES {
+//	PEASHOOTER_IDLE,
+//	PEASHOOTER_ATTACK
+//};
 
 enum PLANT_STATES {
 	PLANT_IDLE_0,
@@ -112,7 +112,7 @@ const std::string POTATOMINE_IDLE_1_IMG = "Assets/PlantAnimation/potatomine_idle
 const std::string POTATOMINE_ATTACK_IMG = "Assets/PlantAnimation/potatomine_attack.png";
 const std::string POTATOMINE_EXPLOSION_IMG = "Assets/PlantAnimation/explosion.png";
 const int SEEDPACKET_POTATOMINE_COOLDOWN = 1200;
-const int POTATOMINE_ARMING_TIME = 14 * 60; // 14s arming
+const int POTATOMINE_ARMING_TIME = 14 * 60; // 14s chuan bi
 
 const std::string SEEDPACKET_PEASHOOTER_IMG = "Assets/SeedPacket/peashooter.png";
 const std::string SEEDPACKET_WALLNUT_IMG = "Assets/SeedPacket/wallnut.png";
@@ -129,7 +129,7 @@ enum SEEDPACKET_STATES {
 
 const int SUN_VALUE = 50;
 const int SUN_SKYFALL_DELAY = 600;
-const int SUN_SUNFLOWER_DELAY = 60 * 50; // 48s 1 sun
+const int SUN_SUNFLOWER_DELAY = 60 * 50; // 50s 1 sun
 const int SUN_DESPAWN_TIME = 500;
 const int SUN_VEL = 30;
 const int SUN_HITBOX = 70;
@@ -231,21 +231,20 @@ enum PARTICLES {
 const int PARTICLE_MAX_SPRITE = PARTICLE_NUM;
 
 enum ATTACK_RANGES {
-	DEFENSIVE,
-	ONE_ROW_AHEAD,
-	THREE_BY_THREE_SQUARE,
-	ONE_TILE,
+	DEFENSIVE, // khong attack
+	ONE_ROW_AHEAD, // truoc mat plant
+	THREE_BY_THREE_SQUARE, // 3x3
+	ONE_TILE, // 1x1
 	ATTACK_RANGE_NUM
 };
 
-const int WAVE_DELAY = 1500;
+const int WAVE_DELAY = 1500; // delay truoc khi spawn wave tiep theo
 
 const std::string PROGRESS_ZOMBIE_IMG = "Assets/UI/progress_meter_zombie.png";
 const std::string PROGRESS_FLAG_IMG = "Assets/UI/progress_meter_flag_full.png";
 const std::string PROGRESS_METER_IMG = "Assets/UI/progress_meter.png";
 const std::string PROGRESS_FILL_IMG = "Assets/UI/progress_meter_fill_pixel.png";
 
-const int PROGRESS_MAX_FILL = 12;
 const std::string PROGRESS_FLAG_TEXT = "A HUGE WAVE OF ZOMBIES IS APPROACHING!";
 
 const std::string SCENE_LEVEL_PREFIX = "Assets/Level/";

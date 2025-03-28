@@ -22,7 +22,7 @@ void FPlant::updateAnimID(int id) {
 	// chinh lai render pos
 }
 
-int FPlant::getAnimID() {
+int FPlant::getAnimID() const {
 	return animID;
 }
 
@@ -35,19 +35,19 @@ void FPlant::render(SDL_Renderer* mRenderer) {
 #endif	
 }
 
-int FPlant::getRow() {
+int FPlant::getRow() const {
 	return row;
 }
 
-int FPlant::getCol() {
+int FPlant::getCol() const {
 	return col;
 }
 
-int FPlant::getID() {
+int FPlant::getID() const {
 	return id;
 }
 
-SDL_Rect FPlant::getHitbox() {
+SDL_Rect FPlant::getHitbox() const {
 	return hitbox;
 }
 
@@ -55,10 +55,10 @@ void FPlant::takeDamage(int dmg) {
 	hp -= dmg;
 }
 
-enum ATTACK_RANGES FPlant::getRange() {
+enum ATTACK_RANGES FPlant::getRange() const {
 	return range;
 }
 
-int FPlant::getHP() {
+int FPlant::getHP() const {
 	return hp;
 }

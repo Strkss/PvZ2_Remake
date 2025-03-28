@@ -23,11 +23,11 @@ int FZombie::getAnimID() {
 	return animID;
 }
 
-int FZombie::getID() {
+int FZombie::getID() const {
 	return id;
 }
 
-enum ZOMBIES FZombie::getType() {
+enum ZOMBIES FZombie::getType() const {
 	return type;
 }
 
@@ -40,7 +40,7 @@ void FZombie::render(SDL_Renderer* mRenderer) {
 #endif
 }
 
-SDL_Rect FZombie::getHitbox() {
+SDL_Rect FZombie::getHitbox() const {
 	return hitbox;
 }
 
@@ -57,11 +57,11 @@ void FZombie::move() {
 	}
 }
 
-int FZombie::getRow() {
+int FZombie::getRow() const {
 	return row;
 }
 
-int FZombie::getHP() {
+int FZombie::getHP() const {
 	return hp;
 }
 

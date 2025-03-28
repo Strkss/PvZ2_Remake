@@ -11,9 +11,9 @@
 #include "Math.hpp"
 
 struct sortExtra {
-	bool operator()(FPlant*& lhs, FPlant*& rhs);
-	bool operator()(FZombie*& lhs, FZombie*& rhs);
-	bool operator()(FPea*& lhs, FPea*& rhs);
+	bool operator()(FPlant*& lhs, FPlant*& rhs); // sort plant theo hang roi theo cot
+	bool operator()(FZombie*& lhs, FZombie*& rhs); // sort zom theo hang roi theo x
+	bool operator()(FPea*& lhs, FPea*& rhs);  // sort pea theo hang roi theo x
 };
 
 bool checkZombieInRange(FPlant* plant, std::vector<FZombie*>& vecZom, std::vector<FZombie*>& damagedZom);

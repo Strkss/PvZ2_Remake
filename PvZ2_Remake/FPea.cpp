@@ -17,15 +17,15 @@ void FPea::move() {
 	hitbox.x += PEA_VEL;
 }
 
-int FPea::getID() {
+int FPea::getID() const {
 	return id;
 }
 
-int FPea::getRow() {
+int FPea::getRow() const {
 	return row;
 }
 
-SDL_Rect FPea::getHitbox() {
+SDL_Rect FPea::getHitbox() const {
 	return hitbox;
 }
 

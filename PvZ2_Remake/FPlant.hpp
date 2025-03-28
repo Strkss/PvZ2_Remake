@@ -33,16 +33,16 @@ public:
 
 	static int convertToAnimID(enum PLANTS plant, enum PLANT_STATES state);
 	void updateAnimID(int id);
-	int getAnimID();
+	int getAnimID() const;
 
-	int getID();
-	enum ATTACK_RANGES getRange();
+	int getID() const;
+	enum ATTACK_RANGES getRange() const;
 
 	void render(SDL_Renderer* mRenderer);
 
-	int getRow();
-	int getCol();
-	SDL_Rect getHitbox();
+	int getRow() const;
+	int getCol() const;
+	SDL_Rect getHitbox() const;
 	void takeDamage(int dmg);
-	int getHP();
+	int getHP() const;
 };

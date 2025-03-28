@@ -23,9 +23,9 @@ protected:
 public:
 	bool isExploded;
 	
-	int getID();
-	int getRow();
-	SDL_Rect getHitbox();
+	int getID() const;
+	int getRow() const;
+	SDL_Rect getHitbox() const;
 
 	void render(SDL_Renderer* mRenderer);
 	virtual bool update() = 0;
