@@ -7,6 +7,7 @@
 
 extern FTexture worldMapTexture;
 extern Button levelButton[LEVEL_NUM + 1];
+extern Button exitGameButton;
 extern int levelChosen;
 
 class WorldMap : public Scene {

@@ -2,6 +2,7 @@
 
 FTexture worldMapTexture;
 Button levelButton[LEVEL_NUM + 1];
+Button exitGameButton;
 int levelChosen = 0;
 
 WorldMap::WorldMap() {
@@ -15,6 +16,7 @@ WorldMap::WorldMap() {
 	levelButton[3] = Button(694, 310, 762, 347);
 	levelButton[4] = Button(911, 244, 978, 277);
 	levelButton[5] = Button(1042, 408, 1109, 442);
+	exitGameButton = Button(1129, 634, 1262, 702);
 }
 
 WorldMap::~WorldMap() { 
@@ -30,14 +32,17 @@ void WorldMap::update() {
 }
 
 void WorldMap::handleEvent(SDL_Event& e) {
-	if (e.type == SDL_MOUSEBUTTONDOWN) {
-		for (int i = 1; i <= 5; i++) {
-			if (levelButton[i].isClicked(e)) {
-				nextScene = IN_INTRO;
-				pop = false;
-				levelChosen = i;
-				break;
-			}
+	if (exitGameButton.isClicked(e)) {
+		nextScene = IN_NULL;
+		pop = true;
+		return;
+	}
+	for (int i = 1; i <= 5; i++) {
+		if (levelButton[i].isClicked(e)) {
+			nextScene = IN_INTRO;
+			pop = false;
+			levelChosen = i;
+			break;
 		}
 	}
 }

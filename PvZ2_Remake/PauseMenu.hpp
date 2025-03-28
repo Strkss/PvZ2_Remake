@@ -10,6 +10,8 @@ extern Button resumeButton, exitButton, upMusicButton, downMusicButton, upSFXBut
 class PauseMenu : public Scene {
 private:
 	bool sfxVolumeChanged, musicVolumeChanged;
+	int lastTick;
+	const int tickGap = 90;
 public:
 	PauseMenu();
 	~PauseMenu();

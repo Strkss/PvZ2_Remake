@@ -16,6 +16,7 @@ PauseMenu::PauseMenu() {
 	musicVolumeChanged = 1;
 	Mix_PauseMusic();
 	Mix_HaltChannel(-1);
+	lastTick = 0;
 }
 
 PauseMenu::~PauseMenu() { }
@@ -34,38 +35,41 @@ void PauseMenu::render(SDL_Renderer* mRenderer) {
 	sfxVolumeTexture.renderAtPosition(mRenderer, SCENE_PAUSE_MENU_X + 386 - 20, SCENE_PAUSE_MENU_Y + 224 - 15);
 }
 
-void PauseMenu::update() { }
+void PauseMenu::update() {  // check xem mouse co dang hold ko phu thuoc vao event!
+	 if (upMusicButton.isHeld() && SDL_GetTicks() - lastTick >= tickGap) {
+		int cur = std::min(Mix_VolumeMusic(-1) + 1, 100);
+		Mix_VolumeMusic(cur);
+		musicVolumeChanged = 1;
+		lastTick = SDL_GetTicks();
+	}
+	else if (upSFXButton.isHeld() && SDL_GetTicks() - lastTick >= tickGap) {
+		int cur = std::min(Mix_Volume(-1, -1) + 1, 100);
+		Mix_Volume(-1, cur);
+		sfxVolumeChanged = 1;
+		lastTick = SDL_GetTicks();
+	}
+	else if (downMusicButton.isHeld() && SDL_GetTicks() - lastTick >= tickGap) {
+		int cur = std::max(Mix_VolumeMusic(-1) - 1, 0);
+		Mix_VolumeMusic(cur);
+		musicVolumeChanged = 1;
+		lastTick = SDL_GetTicks();
+	}
+	else if (downSFXButton.isHeld() && SDL_GetTicks() - lastTick >= tickGap) {
+		int cur = std::max(Mix_Volume(-1, -1) - 1, 0);
+		Mix_Volume(-1, cur);
+		sfxVolumeChanged = 1;
+		lastTick = SDL_GetTicks();
+	}
+}
 
 void PauseMenu::handleEvent(SDL_Event& e) {
-	if (e.type == SDL_MOUSEBUTTONDOWN) {
-		if (resumeButton.isClicked(e)) {
-			pop = true;
-			nextScene = SCENE_RETURN;
-			Mix_ResumeMusic();
-		}
-		else if (exitButton.isClicked(e)) {
-			pop = true;
-			nextScene = IN_REALM;
-		}
-		else if (upMusicButton.isClicked(e)) {
-			int cur = std::min(Mix_VolumeMusic(-1) + 1, 100);
-			Mix_VolumeMusic(cur);
-			musicVolumeChanged = 1;
-		}
-		else if (upSFXButton.isClicked(e)) {
-			int cur = std::min(Mix_Volume(-1, -1) + 1, 100);
-			Mix_Volume(-1, cur);
-			sfxVolumeChanged = 1;
-		}
-		else if (downMusicButton.isClicked(e)) {
-			int cur = std::max(Mix_VolumeMusic(-1) - 1, 0);
-			Mix_VolumeMusic(cur);
-			musicVolumeChanged = 1;
-		}
-		else if (downSFXButton.isClicked(e)) {
-			int cur = std::max(Mix_Volume(-1, -1) - 1, 0);
-			Mix_Volume(-1, cur);
-			sfxVolumeChanged = 1;
-		}
+	if (resumeButton.isClicked(e)) {
+		pop = true;
+		nextScene = SCENE_RETURN;
+		Mix_ResumeMusic();
+	}
+	else if (exitButton.isClicked(e)) {
+		pop = true;
+		nextScene = IN_REALM;
 	}
 }
