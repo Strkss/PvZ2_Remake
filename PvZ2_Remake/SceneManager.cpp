@@ -27,6 +27,7 @@ void SceneManager::clear() {
 	while (!sceneStack.empty()) {
 		removeScene();
 	}
+	printf("DONE: Emptied all scenes\n");
 }
 
 enum GAME_STATES SceneManager::getSceneType() {

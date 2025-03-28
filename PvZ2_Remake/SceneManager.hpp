@@ -5,8 +5,7 @@
 #include "Scene.hpp"
 #include "Constants.hpp"
 
-
-namespace SceneManager {
+namespace SceneManager { // quan ly scene theo scene stack
 	extern std::stack<Scene*> sceneStack;
 	void update();
 	void render(SDL_Renderer* mRenderer);

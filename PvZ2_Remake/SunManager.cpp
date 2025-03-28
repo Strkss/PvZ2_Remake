@@ -86,7 +86,7 @@ void SunManager::render(SDL_Renderer* mRenderer) {
 	}
 }
 
-int SunManager::getCurSun() {
+int SunManager::getCurSun() const {
 	return curSun;
 }
 

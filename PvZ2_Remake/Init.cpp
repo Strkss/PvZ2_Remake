@@ -163,4 +163,5 @@ void quitEngines() {
 	TTF_Quit();
 	IMG_Quit();
 	Mix_Quit();
+	printf("DONE: quitEngines\n");
 }

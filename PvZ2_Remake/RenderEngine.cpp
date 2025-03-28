@@ -375,5 +375,7 @@ void closeMedia() {
 		delete[] zombieSprite[i];
 		zombieSprite[i] = NULL;
 	}
+
+	printf("DONE: closeMedia\n");
 	return;
 }

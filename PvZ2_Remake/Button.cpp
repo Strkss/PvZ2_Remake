@@ -8,7 +8,7 @@ Button::Button(int x1, int y1, int x2, int y2) {
 
 Button::~Button() { }
 
-bool Button::isClicked(SDL_Event & e) {
+bool Button::isClicked(SDL_Event & e) const{
 	if (e.type == SDL_MOUSEBUTTONDOWN) {
 		int mX = -1, mY = -1;
 		SDL_GetMouseState(&mX, &mY);
@@ -20,7 +20,7 @@ bool Button::isClicked(SDL_Event & e) {
 	return false;
 }
 
-bool Button::isHeld() {
+bool Button::isHeld() const{
 	if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
 		int mX = -1, mY = -1;
 		SDL_GetMouseState(&mX, &mY);

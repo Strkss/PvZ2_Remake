@@ -84,30 +84,30 @@ bool WaveManager::spawnWave() {
 	return 0;
 }
 
-int WaveManager::getTotalWave() {
+int WaveManager::getTotalWave() const {
 	return total;
 }
 
-int WaveManager::getCurWave() {
+int WaveManager::getCurWave() const {
 	return cur;
 }
 
-int WaveManager::getTimer() {
+int WaveManager::getTimer() const {
 	return timer;
 }
 
-int WaveManager::getPassedFlag() {
+int WaveManager::getPassedFlag() const {
 	return passedFlag;
 }
 
-int WaveManager::getTotalFlag() {
+int WaveManager::getTotalFlag() const {
 	return totalFlag;
 }
 
-bool WaveManager::nextFlag() {
+bool WaveManager::nextFlag() const {
 	return cur + 1 <= total && flagged[cur + 1];
 }
 
-bool WaveManager::isDone() {
+bool WaveManager::isDone() const {
 	return done;
 }

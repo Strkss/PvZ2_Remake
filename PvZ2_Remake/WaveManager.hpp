@@ -27,11 +27,11 @@ public:
 	void update();
 
 	bool spawnWave();
-	int getTotalWave();
-	int getTotalFlag();
-	int getCurWave();
-	int getTimer();
-	int getPassedFlag();
-	bool nextFlag(); // check xem wave tiep theo la flag khong
-	bool isDone();
+	int getTotalWave() const;
+	int getTotalFlag() const;
+	int getCurWave() const;
+	int getTimer() const;
+	int getPassedFlag() const;
+	bool nextFlag() const; // check xem wave tiep theo la flag khong
+	bool isDone() const;
 };

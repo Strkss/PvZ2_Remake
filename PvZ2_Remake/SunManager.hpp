@@ -22,6 +22,6 @@ public:
 	void removeSun(int id);
 	void render(SDL_Renderer* mRenderer);
 	void update();
-	int getCurSun();
+	int getCurSun() const;
 	void updateCurSun(int add);
 };

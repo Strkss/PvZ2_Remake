@@ -93,10 +93,10 @@ void FTexture::renderAtPosition(SDL_Renderer* mRenderer, int x, int y, SDL_Rect*
 	SDL_RenderCopyEx(mRenderer, mTexture, clip, &renderRect, angle, center, flip);
 }
 
-int FTexture::getW() {
+int FTexture::getW() const {
 	return w;
 }
 
-int FTexture::getH() {
+int FTexture::getH() const {
 	return h;
 }

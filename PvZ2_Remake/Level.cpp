@@ -155,11 +155,6 @@ void Level::update() {
 	myWave->update();
 	myProgress->update();
 	
-	if (myWave->isDone()) { // check xem da win chua
-		nextScene = IN_WON;
-		pop = true;
-	}
-	
 	for (auto& it : vecPlant) {
 		if (it->update()) {
 			pendingDelete.push_back(it->getID());
@@ -203,6 +198,11 @@ void Level::update() {
 		removePart(delID);
 	}
 	pendingDelete.clear();
+
+	if (myWave->isDone() && vecPart.size() == 0) { // check xem da win chua
+		nextScene = IN_WON;
+		pop = true;
+	}
 }
 
 void Level::handleEvent(SDL_Event& e) {

@@ -16,5 +16,5 @@ protected:
 public:
 	bool update();
 	void render(SDL_Renderer* mRenderer);
-	int getID();
+	int getID() const;
 };
