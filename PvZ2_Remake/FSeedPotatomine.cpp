@@ -9,6 +9,7 @@ FSeedPotatomine::FSeedPotatomine(int pos) {
 	keyPress = SDLK_0 + pos;
 	type = POTATOMINE;
 	state = SEEDPACKET_COOLDOWN;
+	cost = POTATOMINE_COST;
 }
 
 FSeedPotatomine::~FSeedPotatomine() {}

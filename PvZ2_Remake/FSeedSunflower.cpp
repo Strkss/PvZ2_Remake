@@ -9,6 +9,7 @@ FSeedSunflower::FSeedSunflower(int pos) {
 	keyPress = SDLK_0 + pos;
 	type = SUNFLOWER;
 	state = SEEDPACKET_UNCHOSEN;
+	cost = SUNFLOWER_COST;
 }
 
 FSeedSunflower::~FSeedSunflower() {}

@@ -1,5 +1,5 @@
 #include "SlotManager.hpp"
-
+#include "Global.hpp"
 
 SlotManager::SlotManager(){
 	slotCount = 4;
@@ -26,7 +26,7 @@ bool SlotManager::handleKeyDown(int key) { // khi chon cai nay thi phai bo chon 
 				vecSeed[i]->state = SEEDPACKET_UNCHOSEN;
 				return 1;
 			}
-			else if (vecSeed[i]->state == SEEDPACKET_UNCHOSEN) {
+			else if (vecSeed[i]->state == SEEDPACKET_UNCHOSEN && myLevel->mySun.getCurSun() >= vecSeed[i]->getCost()) {
 				vecSeed[i]->state = SEEDPACKET_CHOSEN;
 				haveToUnchosenOther = true;
 			}

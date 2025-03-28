@@ -24,6 +24,8 @@ bool createWindow(SDL_Window*& mWindow) {
 }
 
 bool initEngines() {
+	SDL_SetHint(SDL_HINT_RENDER_DRIVER, "direct3d11");
+
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
 		printf("initEngines -> SDL_INIT_VIDEO + SDL_INIT_AUDIO\n");
 		return 0;

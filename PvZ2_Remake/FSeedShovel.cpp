@@ -10,6 +10,7 @@ FSeedShovel::FSeedShovel() {
 	keyPress = SDLK_q;
 	type = SHOVEL;
 	state = SEEDPACKET_UNCHOSEN;
+	cost = 0;
 }
 
 FSeedShovel::~FSeedShovel() {}

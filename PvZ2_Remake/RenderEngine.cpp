@@ -4,6 +4,13 @@ bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow) {
 	SDL_DestroyRenderer(mRenderer);
 	mRenderer = NULL;
 
+	SDL_RendererInfo info;
+	printf("Render Driver Info:\n");
+	for (int i = 0; i < SDL_GetNumRenderDrivers(); i++) {
+		SDL_GetRenderDriverInfo(i, &info);
+		printf("Name: %s\nFlags: %d\nTexture formats: %d\n\n", info.name, info.flags, info.num_texture_formats);
+	}
+
 	mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
 
 	if (mRenderer == NULL) {

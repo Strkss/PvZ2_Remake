@@ -9,6 +9,7 @@ FSeedWallnut::FSeedWallnut(int pos) {
 	keyPress = SDLK_0 + pos;
 	type = WALLNUT;
 	state = SEEDPACKET_COOLDOWN;
+	cost = WALLNUT_COST;
 }
 
 FSeedWallnut::~FSeedWallnut() {}

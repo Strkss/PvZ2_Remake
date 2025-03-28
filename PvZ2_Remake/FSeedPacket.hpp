@@ -23,13 +23,15 @@ protected:
 	int rX, rY; // render pos
 	int keyPress;
 	enum PLANTS type;
+	int cost;
 public:
 	enum SEEDPACKET_STATES state;
 
 	void render(SDL_Renderer *mRenderer);
 	bool update();
 	virtual void action(int row, int col) = 0;
-	int getKeyPress();
+	int getKeyPress() const;
+	int getCost() const;
 };
 
 //#include "EventHandler.hpp"

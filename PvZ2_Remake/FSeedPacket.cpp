@@ -18,6 +18,10 @@ bool FSeedPacket::update() { // phai update state hay khong?
 	return 0;
 }
 
-int FSeedPacket::getKeyPress() {
+int FSeedPacket::getKeyPress() const {
 	return keyPress;
+}
+
+int FSeedPacket::getCost() const {
+	return cost;
 }

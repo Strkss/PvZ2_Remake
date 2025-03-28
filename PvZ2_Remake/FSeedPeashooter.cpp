@@ -9,6 +9,7 @@ FSeedPeashooter::FSeedPeashooter(int pos) {
 	keyPress = SDLK_0 + pos;
 	type = PEASHOOTER;
 	state = SEEDPACKET_COOLDOWN;
+	cost = PEASHOOTER_COST;
 }
 
 FSeedPeashooter::~FSeedPeashooter() {}
