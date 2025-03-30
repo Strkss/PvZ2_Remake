@@ -95,6 +95,7 @@ Flag Zombie: Lượng HP thấp, tuy nhiên sự xuất hiện của Flag Zombie
 - UI, Etc, Lawn và SeedPacket: Giải nén file `UI_AlwaysLoaded.scg`,  `DelayLoad_Background_Modern_Compressed.scg` và `UI_SeedPackets.scg`.
 - Font: Tải ở https://plantsvszombies.fandom.com/f/p/2519622733529499385
 - Các file `worldmap.png`, `pausemenu.png`, `sun_counter.png` được tạo sử dụng [GIMP](https://www.gimp.org/) với các tài nguyên có từ việc giải nén ở trên.
+- Sử dụng https://ezgif.com/gif-to-sprite để chuyển GIF thành spritesheet và https://kuut.xyz/spritesheet/ để chuyển các ảnh thành spritesheet.
 
 ### Âm thanh
 Âm thanh của game được tải từ nhiều nguồn khác nhau trên internet:
@@ -107,5 +108,47 @@ Flag Zombie: Lượng HP thấp, tuy nhiên sự xuất hiện của Flag Zombie
   -  https://plantsvszombies.fandom.com/wiki/Potato_Mine_(PvZ2)
   -  https://plantsvszombies.fandom.com/wiki/Plants_(PvZ)
 
-## Cấu trúc project
+## Cấu trúc của project game 
+- Các chức năng thiết yếu:
+  -  Button: các loại nút bấm trong game.
+  -  Constants: các biến hằng được sử dụng trong game.
+  -  Texture: wrapper class cho SDL_Texture. Source code lấy ý tưởng từ https://lazyfoo.net/tutorials/SDL/11_clip_rendering_and_sprite_sheets/index.php
+  -  Global: các biến toàn cục trong game.
+  -	 Init: khởi tạo SDL, SDL_mixer, SDL_ttf, SDL_image.
+  -	 Math: các hàm liên quan đến tính toán và sinh số ngẫu nhiên.
+  -	 RenderEngine: các hàm liên quan đến việc tải texture và tạo renderer.
+- Các trạng thái của game (đều được kế thừa từ class Scene và được quản lý bằng stack bởi SceneManager):
+  - Level: quản lý và hiển thị các thành phân liên quan đến màn chơi.
+  - LevelIntro: hiện cảnh mở đầu cho màn chơi.
+  - LevelLose: hiện cảnh thua cuộc cho màn chơi.
+  - LevelWin: hiện cảnh chiến thắng cho màn chơi.
+  - PauseMenu: màn hình dừng trong màn chơi.
+  - TitleScreen: màn hình chờ khi mở game.
+  - WorldMap: màn hình chọn level.
+- Các thành phần liên quan đến level (màn chơi):
+  -	FGrid: quản lý các trạng thái của một ô thuộc sân cỏ.
+  -	FLawn: quản lý các đối tượng FGrid và hiển thị sân cỏ.
+  -	FBasicZombie, FBucketZombie, FConeZombie, FFlagZombie: các loại zombie trong game, được kế thừa từ class FZombie.
+  -	FGreenPea: đạn của peashooter, được kế thừa từ class FPea.
+  -	FDeadZombie: hiển thị hiệu ứng khi zombie bị tiêu diệt, được kế thừa từ class FParticle.
+  -	FExplosionPotatomine: hiển thị hiệu ứng khi cây potato mine phát nổ, được kế thừa từ class FParticle.
+  -	FPeashooter, FSunflower, FPotatomine, FWallnut: các loại cây trong game, được kế thừa từ class FPlant.
+  -	CollisionChecker: các hàm kiểm tra va chạm giữa các đối tượng.
+  -	FSun: quản lý sun.
+  -	SunManager: quản lý các đối tượng FSun và xử lý tương tác giữa người chơi và các đối tượng FSun.
+  -	FProgressBar: hiển thị progress bar.
+  -	WaveManager: quản lý và tạo các đợt tấn công của zombie.
+  -	FSeedPeashooter, FSeedPotatomine, FSeedWallnut, FSunflower: các loại seed packet, được kế thừa từ class FSeedPacket.
+  -	FSeedShovel: shovel, được kế thừa từ class FSeedPacket.
+  -	SlotManager: quản lý các đối tượng FSeedPacket và xử lý tương tác giữa người chơi và các đối tượng FSeedPacket.
+ 
+## Các chức năng đã cài được cho game
+-	Màn hình chờ khi mở game.
+-	Màn hình chọn level.
+-	Tất cả các thành phần trong level mà Plants vs. Zombies 2 (PopCap/EA) có như tên level, progress bar, sun, sun counter, seed packet, shovel, lawn, pause menu, các loại cây, zombie, đạn và tương tác giữa chúng.
+-	4 loại cây.
+-	4 loại zombie.
+-	5 level với độ khó tăng dần.
+-	Đồ họa với độ phân giải cao, chuyển động mượt.
+-	Âm thanh, hiệu ứng sinh động, đầy đủ cho toàn bộ game.
 
