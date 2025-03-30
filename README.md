@@ -2,6 +2,19 @@
 
 Demo game: https://youtu.be/EblWeJ6Xlm0
 
+- [Plants vs Zombies 2 Remake](#plants-vs-zombies-2-remake)
+  - [Giới thiệu](#giới-thiệu)
+  - [Hướng dẫn tải](#hướng-dẫn-tải)
+  - [Hướng dẫn chơi](#hướng-dẫn-chơi)
+  - [Các loại cây và zombie](#các-loại-cây-và-zombie)
+    - [Các loại cây](#các-loại-cây)
+    - [Các loại zombie](#các-loại-zombie)
+  - [Đồ họa và âm thanh](#đồ-họa-và-âm-thanh)
+    - [Đồ họa](#đồ-họa)
+    - [Âm thanh](#âm-thanh)
+  - [Cấu trúc của project game](#cấu-trúc-của-project-game)
+  - [Các chức năng đã cài được cho game](#các-chức-năng-đã-cài-được-cho-game)
+
 ## Giới thiệu
 Plants vs Zombies 2 Remake lấy ý tưởng từ Plants vs. Zombies 2 (PopCap/EA), được xây dựng bằng thư viện SDL2, tương thích với các thiết bị máy tính để bàn (thay vì chỉ tương thích với các thiết bị di động như bản gốc). Plants vs Zombies 2 Remake thuộc thể loại tower defense, người chơi phải chiến đấu với zombie bằng cách trồng các loại cây trên sân.
 

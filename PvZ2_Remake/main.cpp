@@ -53,14 +53,14 @@ int main(int argc, char* argv[]) {
 		switch (SceneManager::sceneStack.top()->nextScene) { // decide next scene
 		case IN_INTRO: //map -> intro
 			if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
-			SceneManager::addScene(new LevelIntro(levelChosen));
 			previousScene = NULL;
+			SceneManager::addScene(new LevelIntro(levelChosen));
 			break;
 		case IN_LEVEL: // intro -> level
 			if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+			previousScene = NULL;
 			myLevel = new Level(levelChosen);
 			levelChosen = 0;
-			previousScene = NULL;
 			SceneManager::addScene(myLevel);
 			break;
 		case IN_SETTINGS: // level -> settings, settings -> level (return) / map
@@ -69,26 +69,26 @@ int main(int argc, char* argv[]) {
 			break;
 		case SCENE_RETURN:
 			if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+			previousScene = NULL;
 			SceneManager::sceneStack.top()->pop = false;
 			SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
-			previousScene = NULL;
 			break;
 		case IN_LOSE:
-			previousScene = NULL;
 			if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+			previousScene = NULL;
 			SceneManager::addScene(new LevelLose);
 			break;
 		case IN_WON:
-			previousScene = NULL;
 			if (SceneManager::sceneStack.top()->pop) SceneManager::removeScene();
+			previousScene = NULL;
 			SceneManager::addScene(new LevelWin);
 			break;
-		case IN_REALM: // title / settings -> realm, realm -> level
-			previousScene = NULL;
+		case IN_REALM: // title / settings / win / lose -> realm, realm -> level
 			if (SceneManager::sceneStack.size() == 1) {
 				SceneManager::addScene(new WorldMap);
 			}
 			while (SceneManager::sceneStack.top()->type != IN_REALM) SceneManager::removeScene();
+			previousScene = NULL;
 			SceneManager::sceneStack.top()->nextScene = GAME_STATE_NUM;
 			break;
 		case IN_NULL: // exit the game
