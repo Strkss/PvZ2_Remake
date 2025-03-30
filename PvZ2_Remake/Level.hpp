@@ -20,21 +20,22 @@
 #include "Scene.hpp"
 
 class Level : public Scene{
-	std::string name, path;
+	std::string name, path; // ten level va duong dan den file wave.txt cua level
 public:
-	std::vector<FPlant*> vecPlant;
-	std::vector<FZombie*> vecZombie;
-	std::vector<FPea*> vecPea;
-	std::vector<FParticle*> vecPart;
-	FLawn myLawn;
-	SunManager mySun;
-	SlotManager mySlot;
-	WaveManager* myWave;
-	FProgressBar* myProgress;
+	std::vector<FPlant*> vecPlant; // vector cac plant dang co
+	std::vector<FZombie*> vecZombie; // vector cac zombie dang co
+	std::vector<FPea*> vecPea; // vector cac dan dang co
+	std::vector<FParticle*> vecPart; // vector cac hieu ung dang co
+	FLawn myLawn; // san co
+	SunManager mySun; // mat troi
+	SlotManager mySlot; // seed packet
+	WaveManager* myWave; // wave
+	FProgressBar* myProgress; // progress bar
 
 	Level(int level);
 	~Level();
 
+	// cac ham xoa
 	void removePlant(int id);
 	void removeZombie(int id);
 	void removePea(int id);

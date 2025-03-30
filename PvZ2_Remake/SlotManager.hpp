@@ -20,8 +20,8 @@ public:
 	SlotManager();
 	~SlotManager();
 
-	bool handleKeyDown(int key);
-	bool handleMouse(int x, int y);
+	bool handleKeyDown(int key); // xu ly khi nhan phim vao seed packet
+	bool handleMouse(int x, int y); // xu ly khi nhan chuot vao lawn khi da chon seed packet
 	void update();
 	void render(SDL_Renderer* mRenderer);
 };

@@ -15,10 +15,10 @@ public:
 	FLawn();
 	~FLawn();
 
-	bool updateGrid(int row, int col, enum GRID_STATES state);
-	enum GRID_STATES getGridState(int row, int col) const;
+	bool updateGrid(int row, int col, enum GRID_STATES state); // cap nhat trang thai grid (row, col)
+	enum GRID_STATES getGridState(int row, int col) const; // lay trang thai grid (row, col)
 	void render(SDL_Renderer* mRenderer);
 	
 	// Debug function
-	void drawGridHitbox(SDL_Renderer* mRenderer);
+	void drawGridHitbox(SDL_Renderer* mRenderer); // ve hitbox
 };

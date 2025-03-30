@@ -18,12 +18,12 @@ extern int seedPacketMaxSprite[PLANT_NUM];
 
 class FSeedPacket {
 protected:
-	int cooldownTimer;
-	int targetCooldownTimer;
+	int cooldownTimer; // thoi gian hien tai
+	int targetCooldownTimer; // thoi gian cooldown
 	int rX, rY; // render pos
-	int keyPress;
-	enum PLANTS type;
-	int cost;
+	int keyPress; // phim tat
+	enum PLANTS type; // loai seedpacket
+	int cost; // gia tien
 public:
 	enum SEEDPACKET_STATES state;
 

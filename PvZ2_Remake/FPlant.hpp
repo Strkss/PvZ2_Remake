@@ -14,7 +14,7 @@ extern int plantAnimMaxFrame[PLANT_MAX_SPRITE];
 
 class FPlant;
 
-bool sortByRow(FPlant*& lhs, FPlant*& rhs);
+bool sortByRow(FPlant*& lhs, FPlant*& rhs); // sort plant theo cot roi den hang
 
 class FPlant {
 protected:
@@ -22,10 +22,10 @@ protected:
 	int row, col;
 	SDL_Rect hitbox;
 	int rX, rY; // vi tri cham dat cua plant
-	int animFrame;
-	int animID;
+	int animFrame; // frame cua animation hien tai
+	int animID; // animation dang dung
 	int id;
-	enum ATTACK_RANGES range;
+	enum ATTACK_RANGES range; // tam danh cua plant
 
 public:
 	virtual ~FPlant() = 0;

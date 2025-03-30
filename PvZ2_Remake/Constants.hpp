@@ -176,7 +176,7 @@ const int ZOMBIE_CONE_HP = 560;
 const int ZOMBIE_BUCKET_HP = 1290;
 const int ZOMBIE_FLAG_HP = 190;
 
-const int ZOMBIE_INV_VEL = 4;
+const int ZOMBIE_INV_VEL = 4; // so frame de zombie di duoc 1 pixel
 const int ZOMBIE_DMG = 2;
 
 const std::string ZOMBIE_BASIC_WALK_IMG = "Assets/ZombieAnimation/basic_walk.png";

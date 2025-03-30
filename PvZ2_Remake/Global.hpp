@@ -1,3 +1,3 @@
-#include "Level.hpp" // avoid circular dependency
+#include "Level.hpp" // tranh duoc circular dependency
 
 extern Level* myLevel;

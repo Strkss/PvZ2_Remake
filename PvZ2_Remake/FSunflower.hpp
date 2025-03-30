@@ -12,7 +12,7 @@
 class FSunflower : public FPlant {
 private:
 	int timer;
-	void giveSun();
+	void giveSun(); // cho sun sau mot khoang thoi gian
 public:
 	FSunflower(int row, int col);
 	~FSunflower();

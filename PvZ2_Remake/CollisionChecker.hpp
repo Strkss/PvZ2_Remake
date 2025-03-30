@@ -16,8 +16,8 @@ struct sortExtra {
 	bool operator()(FPea*& lhs, FPea*& rhs);  // sort pea theo hang roi theo x
 };
 
-bool checkZombieInRange(FPlant* plant, std::vector<FZombie*>& vecZom, std::vector<FZombie*>& damagedZom);
-bool checkPlantInRange(FZombie* zom, std::vector<FPlant*>& vecPlant, FPlant*& damagedPlant);
-bool checkPeaExploded(FPea* pea, std::vector<FZombie*>& vecZom, FZombie*& damagedZom);
+bool checkZombieInRange(FPlant* plant, std::vector<FZombie*>& vecZom, std::vector<FZombie*>& damagedZom); // check xem zombie trong tam danh cua plant hay khong
+bool checkPlantInRange(FZombie* zom, std::vector<FPlant*>& vecPlant, FPlant*& damagedPlant); // check xem plant trong tam danh cua zombie hay khong
+bool checkPeaExploded(FPea* pea, std::vector<FZombie*>& vecZom, FZombie*& damagedZom); // check xem pea da va cham voi zombie hay chua
 
-void doDamageToZombieGroup(std::vector<FZombie*>& vecZom, int dmg);
+void doDamageToZombieGroup(std::vector<FZombie*>& vecZom, int dmg); // gay damage len 1 nhom zombie

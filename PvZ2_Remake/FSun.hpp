@@ -14,14 +14,14 @@ extern FTexture sunTexture, sunCounterTexture, sunTextTexture;
 
 class FSun {
 	int rX, rY;
-	int velX, velY;
+	int velX, velY; // van toc khi di chuyen ve sun counter
 	SDL_Rect hitbox;
-	enum SUN_STATES state;
-	int timer;
+	enum SUN_STATES state; // trang thai duoc thu thap hay khong
+	int timer; // timer de dem xem da den luc despawn chua
 	int id;
 	
 	void move();
-	void decideVel();
+	void decideVel(); // tinh toan van toc
 public:
 	FSun(int x, int y);
 	~FSun();

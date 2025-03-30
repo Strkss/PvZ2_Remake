@@ -9,9 +9,9 @@ namespace SceneManager { // quan ly scene theo scene stack
 	extern std::stack<Scene*> sceneStack;
 	void update();
 	void render(SDL_Renderer* mRenderer);
-	void removeScene();
-	void addScene(Scene* scene);
+	void removeScene(); // pop stack
+	void addScene(Scene* scene); // push stack
 	void handleEvent(SDL_Event& e);
-	void clear();
+	void clear(); // empty stack
 	enum GAME_STATES getSceneType();
 }

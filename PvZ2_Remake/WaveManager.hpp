@@ -19,14 +19,14 @@ class WaveManager {
 	int passedFlag; // cho biet so flag da di qua
 	int totalFlag;
 	bool* flagged;
-	bool done;
+	bool done; // cho biet da doc het file wave chua
 public:
 	WaveManager(std::string path);
 	~WaveManager();
 
 	void update();
 
-	bool spawnWave();
+	bool spawnWave(); // tao ra wave moi
 	int getTotalWave() const;
 	int getTotalFlag() const;
 	int getCurWave() const;

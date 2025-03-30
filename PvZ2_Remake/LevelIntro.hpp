@@ -8,12 +8,12 @@
 
 class LevelIntro : public Scene {
 private:
-	int level;
-	std::ifstream reader;
-	int frame;
-	int lawnRX, lawnVelX;
-	int zomType;
-	int zomRX, zomVelX;
+	int level; // so hieu level
+	std::ifstream reader; // doc vao so loai zombie
+	int frame; // frame hien tai cua scene
+	int lawnRX, lawnVelX; // vi tri cua lawn va van toc
+	int zomType; // so loai zombie
+	int zomRX, zomVelX; // vi tri zombie va van toc
 public:
 	LevelIntro(int level);
 	~LevelIntro();

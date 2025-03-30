@@ -22,13 +22,13 @@ protected:
 	int row;
 	SDL_Rect hitbox;
 	int rX, rY; // pos zombie cham dat
-	int animFrame;
-	int animID;
+	int animFrame; // frame cua animation hien tai
+	int animID; // animation dang dung
 	int id;
-	int step;
-	enum ZOMBIE_HP_TIERS hpTier;
-	enum ZOMBIES type;
-	enum ZOMBIE_STATES state;
+	int step; // so buoc da di de co the di chuyen 1 pixel
+	enum ZOMBIE_HP_TIERS hpTier; // ngoai hinh cua zombie normal -> damaged
+	enum ZOMBIES type; // loai zombie
+	enum ZOMBIE_STATES state; // trang thai cua zombie an/di chuyen
 	void move();
 public:
 	virtual ~FZombie() = 0;

@@ -21,7 +21,7 @@ protected:
 	void move();
 
 public:
-	bool isExploded;
+	bool isExploded; // pea da no chua
 	
 	int getID() const;
 	int getRow() const;

@@ -8,9 +8,9 @@
 
 #include "Constants.hpp"
 
-bool createWindow(SDL_Window*& mWindow);
-bool initEngines();
-bool loadMusic();
-bool closeMusic();
+bool createWindow(SDL_Window*& mWindow); // tao window
+bool initEngines(); // khoi tao engine
+bool loadMusic(); // load nhac, sfx
+bool closeMusic(); // unload nhac, sfx
 
-void quitEngines();
+void quitEngines(); // thoat engine

@@ -23,8 +23,8 @@
 #include "LevelLose.hpp"
 #include "LevelWin.hpp"
 
-bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow);
+bool createRenderer(SDL_Renderer*& mRenderer, SDL_Window* mWindow); // tao renderer
 
-void loadMedia(SDL_Renderer* mRenderer);
+void loadMedia(SDL_Renderer* mRenderer); // load texture can thiet
 
-void closeMedia();
+void closeMedia(); // giai phong bo nho da dung

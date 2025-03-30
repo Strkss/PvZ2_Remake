@@ -16,10 +16,10 @@ extern FTexture meterFillTexture, meterBarTexture, meterZombieTexture, meterFlag
 
 class FProgressBar {
 	std::string name;
-	bool needToLoadName, showText;
-	int* flagPos;
-	int totalWave, totalFlag, progressMeterFillLen, curWave;
-	void decideFlagPos();
+	bool needToLoadName, showText; // showText = hien text truoc khi mot dot tan cong lon cua zombie bat dau
+	int* flagPos; // vi tri cua flag
+	int totalWave, totalFlag, progressMeterFillLen, curWave; // tong so wave, tong so flag, chieu dai progress bar, wave hien tai
+	void decideFlagPos(); // tim vi tri render flag
 public:
 	FProgressBar(std::string name);
 	~FProgressBar();
