@@ -86,3 +86,26 @@ Buckethead Zombie: Do đội xô sắt nên có lượng HP gấp gần 7 lần 
 
 Flag Zombie: Lượng HP thấp, tuy nhiên sự xuất hiện của Flag Zombie báo hiệu một cuộc tấn công lớn của zombie.   
 ![Flag_Zombie2](https://github.com/user-attachments/assets/dbfe8963-6757-4a1b-83ef-5756a544cb0d)
+
+## Đồ họa và âm thanh
+
+### Đồ họa
+Đồ họa của game được lấy trực tiếp hoặc được tạo gián tiếp từ các tài nguyên trong game Plants vs. Zombies 2 (PopCap/EA). Toàn bộ các bước giải nén đều sử dụng [Sen Environment](https://github.com/harumazzz/Sen.Environment). Các file đồ họa của game được lấy như sau:
+- Animation của cây và zombie: Tham khảo https://www.youtube.com/watch?v=fSXOXuL7sUo
+- UI, Etc, Lawn và SeedPacket: Giải nén file `UI_AlwaysLoaded.scg`,  `DelayLoad_Background_Modern_Compressed.scg` và `UI_SeedPackets.scg`.
+- Font: Tải ở https://plantsvszombies.fandom.com/f/p/2519622733529499385
+- Các file `worldmap.png`, `pausemenu.png`, `sun_counter.png` được tạo sử dụng [GIMP](https://www.gimp.org/) với các tài nguyên có từ việc giải nén ở trên.
+
+### Âm thanh
+Âm thanh của game được tải từ nhiều nguồn khác nhau trên internet:
+- Âm nhạc của game được tải ở https://plantsvszombies.fandom.com/wiki/Music
+- Hiệu ứng âm thanh của game được tải ở:
+  -  https://plantsvszombies.fandom.com/wiki/Zombie_(PvZ)
+  -  https://plantsvszombies.fandom.com/wiki/Headwear
+  -  https://plantsvszombies.fandom.com/wiki/Pea
+  -  https://plantsvszombies.fandom.com/wiki/Sun
+  -  https://plantsvszombies.fandom.com/wiki/Potato_Mine_(PvZ2)
+  -  https://plantsvszombies.fandom.com/wiki/Plants_(PvZ)
+
+## Cấu trúc project
+
