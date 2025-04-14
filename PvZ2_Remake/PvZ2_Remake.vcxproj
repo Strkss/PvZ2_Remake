@@ -73,8 +73,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\vclib\SDL2-2.32.0\include;C:\vclib\SDL2_ttf-2.24.0\include;C:\vclib\SDL2_mixer-2.8.1\include;C:\vclib\SDL2_image-2.8.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\vclib\SDL2-2.32.0\lib\x64;C:\vclib\SDL2_ttf-2.24.0\lib\x64;C:\vclib\SDL2_mixer-2.8.1\lib\x64;C:\vclib\SDL2_image-2.8.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vclib\SDL2-2.32.4\include;C:\vclib\SDL2_ttf-2.24.0\include;C:\vclib\SDL2_mixer-2.8.1\include;C:\vclib\SDL2_image-2.8.8\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclib\SDL2-2.32.4\lib\x64;C:\vclib\SDL2_ttf-2.24.0\lib\x64;C:\vclib\SDL2_mixer-2.8.1\lib\x64;C:\vclib\SDL2_image-2.8.8\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\vclib\SDL2-2.32.0\include;C:\vclib\SDL2_ttf-2.24.0\include;C:\vclib\SDL2_mixer-2.8.1\include;C:\vclib\SDL2_image-2.8.5\include;$(IncludePath)</IncludePath>
