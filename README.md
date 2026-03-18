@@ -1,167 +1,105 @@
+Here is the English version of the project documentation for **Plants vs. Zombies 2 Remake**:
+
 # Plants vs Zombies 2 Remake
 
-Demo game: https://youtu.be/EblWeJ6Xlm0
+Demo game: [https://youtu.be/EblWeJ6Xlm0](https://youtu.be/EblWeJ6Xlm0)
 
-- [Plants vs Zombies 2 Remake](#plants-vs-zombies-2-remake)
-  - [Giới thiệu](#giới-thiệu)
-  - [Hướng dẫn tải](#hướng-dẫn-tải)
-  - [Hướng dẫn chơi](#hướng-dẫn-chơi)
-  - [Các loại cây và zombie](#các-loại-cây-và-zombie)
-    - [Các loại cây](#các-loại-cây)
-    - [Các loại zombie](#các-loại-zombie)
-  - [Đồ họa và âm thanh](#đồ-họa-và-âm-thanh)
-    - [Đồ họa](#đồ-họa)
-    - [Âm thanh](#âm-thanh)
-  - [Cấu trúc của project game](#cấu-trúc-của-project-game)
-  - [Các chức năng đã cài được cho game](#các-chức-năng-đã-cài-được-cho-game)
+  - [Introduction](#introduction)
+  - [Download Instructions](#download-instructions)
+  - [How to Play](#how-to-play)
+  - [Plants and Zombies](#plants-and-zombies)
+      - [Plants](#plants)
+      - [Zombies](#zombies)
+  - [Graphics and Sound](#graphics-and-sound)
+      - [Graphics](#graphics)
+      - [Sound](#sound)
+  - [Project Structure](#project-structure)
+  - [Implemented Features](#implemented-features)
 
-## Giới thiệu
-Plants vs Zombies 2 Remake lấy ý tưởng từ Plants vs. Zombies 2 (PopCap/EA), được xây dựng bằng thư viện SDL2, tương thích với các thiết bị máy tính để bàn (thay vì chỉ tương thích với các thiết bị di động như bản gốc). Plants vs Zombies 2 Remake thuộc thể loại tower defense, người chơi phải chiến đấu với zombie bằng cách trồng các loại cây trên sân.
+-----
 
-## Hướng dẫn tải
+## Introduction
 
-Tải game được nén thành zip ở https://github.com/Strkss/PvZ2_Remake/releases  
-Giải nén và ấn vào file exe để chạy.  
+**Plants vs Zombies 2 Remake** is inspired by the original *Plants vs. Zombies 2* (PopCap/EA). Built using the SDL2 library, this version is designed for desktop compatibility (unlike the mobile-only original). It is a tower defense game where players must strategically plant various flora to defend their home against waves of zombies.
 
-**Lưu ý:** Do được phát triển trên Microsoft Visual Studio nên game cần Microsoft Visual C++ Redistributable để chạy https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+## Download Instructions
 
-## Hướng dẫn chơi
+1.  Download the compressed game file (ZIP) from: [https://github.com/Strkss/PvZ2\_Remake/releases](https://github.com/Strkss/PvZ2_Remake/releases)
+2.  Extract the file and run the `.exe` file to play.
 
-Khi bắt đầu chạy, game sẽ hiện màn hình chờ, ấn chuột để được chuyển đến World Map (Bản đồ thế giới).
+**Note:** As it was developed using Microsoft Visual Studio, the game requires the Microsoft Visual C++ Redistributable to run: [Download here](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170).
 
-![image](https://github.com/user-attachments/assets/a5ef7cf5-41e0-42ad-8fca-98735a45d43a)
+## How to Play
 
-World Map là nơi có thể chọn level (màn chơi). Có tổng cộng 5 level với độ khó tăng dần. Để chọn level, chỉ cần ấn chuột vào một trong các ô level đã được đánh số. Ngoài ra trong World Map còn có nút Exit để người chơi thoát game.
+Upon launching, the game displays a splash screen. Click anywhere to proceed to the **World Map**.
 
-![{78F14C0B-108E-4749-ACE3-B7C6C8746425}](https://github.com/user-attachments/assets/3fadfab3-278a-4b6e-9af7-81c80c419951)
+### World Map
 
-Đây là bố cục cơ bản của một level:
+The World Map allows you to select levels. There are **5 levels** in total with increasing difficulty. Simply click on a numbered level to start. You can also use the **Exit** button to quit the game.
 
-![{0FC61A65-F566-45B3-91A7-1303348AF416}](https://github.com/user-attachments/assets/992938b4-d4b8-40f0-8fda-c1552e523824)
+### Level Layout & Components
 
-Các thành phần của một level:
+  * **Level Name:** Displays the current level you are playing.
+  * **Progress Bar:** Shows your progress within the level, indicating when large waves of zombies which is marked with flag will attack.
+  * **Sun & Sun Counter:** Sun is the primary currency. Collect falling suns and those produced by Sunflower by clicking on them. The counter tracks your current balance.
+  * **Seed Packets:** Displays available plants and their costs. Press keys **1, 2, 3, 4** to select a plant, then click on the lawn to place it. Packets have a "cooldown" period after use.
+  * **Shovel:** Used to remove plants. Press **Q** and click on a plant to dig it up.
+  * **Lawn:** The 5-lane grid where the battle takes place.
+  * **Pause Menu:** Press **Escape** to pause. Here you can adjust volume, resume, or quit the level.
 
-- Tên level: Cho biết tên level hiện tại đang chơi.  
-![{7750A38B-59B3-4C1B-B857-3D205AF9E134}](https://github.com/user-attachments/assets/789dc2f6-6796-4c57-b78b-03278f02da5b)
+**Win/Loss Conditions:**
 
-- Progress bar (thanh tiến trình): Cho biết tiến trình người chơi trong level, thời điểm và số cuộc tấn công lớn của zombie (kí hiệu bằng lá cờ).  
-![{6E9C3509-0B40-4342-B087-3725E1AD1219}](https://github.com/user-attachments/assets/ce47fb52-c764-4244-9914-37e80edf3e2f)
+  * **Win:** Successfully defeat all waves of zombies.
+  * **Loss:** If a zombie reaches the house at the end of the lawn.
 
-- Sun (mặt trời) và sun counter (bộ đếm mặt trời): Sun là đơn vị tiền tệ chính trong game, sử dụng sun để mua và trồng cây trên sân. Để thu thập sun, chỉ cần click chuột vào nó. Sun counter cho biết số lượng sun người chơi hiện có.  
-![{A3D8C4E7-A1BE-46C4-9D7E-FFDBFA696DF0}](https://github.com/user-attachments/assets/4ab0fff0-bdd0-48bf-a604-62c57cafb086)
+## Plants and Zombies
 
-- Seed packet (hạt giống cây): Cho biết số loại cây có thể trồng trên sân và giá của chúng. Ấn phím 1, 2, 3, 4 để chọn cây rồi nhấp chuột vào một ô bất kì trên sân để trồng loại cây tương ứng. Seed packet sau khi được mua sẽ ở trạng thái nghỉ, cần đợi một lúc để mua tiếp.  
-![{21B19CEB-29AF-438B-9662-766EA5602158}](https://github.com/user-attachments/assets/1c44f255-a8b0-4353-8b11-222d017c3009)
+### Plants
 
-- Shovel (xẻng): Dùng để xóa đi một cây trên sân. Ấn phím Q rồi nhấp chuột vào cây muốn xóa.  
-![{40A24040-F02F-4D23-B725-9B6B59A660F4}](https://github.com/user-attachments/assets/664cef84-52c9-494a-bc38-ca7859ec3d8e)
+  * **Peashooter:** Shoots peas to attack zombies in its lane.
+  * **Sunflower:** Generates sun over time.
+  * **Wall-nut:** Has a hard shell to provide a high-defense barrier.
+  * **Potato Mine:** Explodes on contact with a zombie (requires time to arm itself underground).
 
-- Lawn (sân cỏ): Là khu vực người chơi trồng cây bảo vệ ngôi nhà đằng sau khỏi sự tấn công của zombie.
-![{92497652-A409-4702-BC7D-D34FEC410381}](https://github.com/user-attachments/assets/cd6d3695-25b7-47aa-aa41-26d588b969c7)
+### Zombies
 
-- Pause menu (màn hình dừng): Được kích hoạt khi ấn phím Escape, sẽ tạm dừng toàn bộ level. Tại đây người chơi có thể chỉnh âm lượng, tiếp tục hoặc thoát level.  
-![{AC12FB68-6750-4787-AA8A-EC8C19522F86}](https://github.com/user-attachments/assets/d47962f3-fc3a-4890-b2af-b982bd11c0d3)
+  * **Basic Zombie:** Low health, standard movement.
+  * **Conehead Zombie:** Wears a traffic cone, having 3x the health of a Basic Zombie.
+  * **Buckethead Zombie:** Wears a metal bucket, having nearly 7x the health of a Basic Zombie.
+  * **Flag Zombie:** Marks the arrival of a huge wave of zombies.
 
-Nếu thành công tiêu diệt tất cả zombie trong level, người chơi sẽ thắng cuộc.  
-![{F0B18C15-AA3D-4BB2-8FE9-0D66554743E0}](https://github.com/user-attachments/assets/4f60355f-8874-41bc-9591-6ec5eae1f8f0)
+## Graphics and Sound
 
-Ngược lại, nếu zombie thành công vượt qua sân cỏ và tiến đến ngôi nhà, người chơi sẽ thua cuộc.  
-![{B6EB914C-3E90-407C-97EF-EC1EA195995D}](https://github.com/user-attachments/assets/57732070-f663-4f88-b531-a6c44e6cd287)
+### Graphics
 
-## Các loại cây và zombie
+Assets are sourced directly or adapted from *Plants vs. Zombies 2*. Extraction was handled via [Sen Environment](https://github.com/harumazzz/Sen.Environment).
 
-### Các loại cây
+  * **Animations:** https://www.youtube.com/watch?v=fSXOXuL7sUo
+  * **UI/Lawn/Packets:** Extracted from `.scg` files (`UI_AlwaysLoaded.scg`, etc.).
+  * **Fonts:** https://plantsvszombies.fandom.com/f/p/2519622733529499385
+  * **Tools:** Used [GIMP](https://www.gimp.org/) to make UI components, used various websites like [ezgif](https://ezgif.com/gif-to-sprite), [kuut.xyz](https://kuut.xyz/spritesheet/), ... for spritesheet conversion.
 
-Peashooter: Bắn ra hạt đậu để tấn công zombie trước mặt.  
-![Peashooter2](https://github.com/user-attachments/assets/d5884b43-fce8-4e02-8b83-8aad96f2ce8a)  
+### Sound
 
-Sunflower: Tạo ra sun sau một khoảng thời gian nhất định.  
-![Sunflower2](https://github.com/user-attachments/assets/e27bbb22-9686-41ab-b691-8736a89f93c6)  
+  * **Music:** https://plantsvszombies.fandom.com/wiki/Music
+  * **SFX:** From various PvZ Fandom wiki entries.
 
-Wall-nut: Có vỏ ngoài rất cứng, chịu được nhiều nhát cắn của zombie.  
-![Wall-nut2](https://github.com/user-attachments/assets/a3767d64-3006-472e-9caf-a2ae7df080c0)
+## Project Structure
 
-Potato Mine: Ngay lập tức phát nổ và tiêu diệt zombie nếu chúng đến gần nhưng cần thời gian để chuẩn bị.  
-![Potato_Mine2](https://github.com/user-attachments/assets/a157aee8-c814-49f7-b9da-d3c9077a9746)
+  * **Essentials:** Buttons, Constants, Texture wrappers, Global, Init, Math and RenderEngine.
+  * **Game States (Scene Management):** Used a stack-based `SceneManager` to handle transitions between `TitleScreen`, `WorldMap`, `Level`, `PauseMenu`, `Win/Lose`, and `LevelIntro` screen.
+  * **Level Components:** 
+      * `FLawn`, `FGrid`: Grid and lawn management.
+      * `FPlant`, `FZombie` (and inherited subclasses): Specific entity logic.
+      * `SunManager`, `SlotManager`: Handling sun and plant selection.
+      * `WaveManager`: Zombie spawning logic.
+      * `CollisionChecker`: Collision-related helper functions.
 
-### Các loại zombie
+## Implemented Features
 
-Zombie luôn tiến về phía ngôi nhà, có thể ăn cây nếu cây đó chặn đường.
-
-Basic Zombie: Lượng HP thấp.  
-![Basic_Zombie2](https://github.com/user-attachments/assets/b669cae5-0556-467c-84c1-3bc1f64db02c)
-
-Conehead Zombie: Do đội cọc tiêu nên có lượng HP gấp 3 lần Basic Zombie.  
-![Conehead_Zombie2](https://github.com/user-attachments/assets/cb4dfc93-58bc-4b3d-b1b5-b751052c39a4)
-
-Buckethead Zombie: Do đội xô sắt nên có lượng HP gấp gần 7 lần Basic Zombie.   
-![Buckethead_Zombie2](https://github.com/user-attachments/assets/feefdfd2-4509-4ea7-8c25-f8ceda6927f3)
-
-Flag Zombie: Lượng HP thấp, tuy nhiên sự xuất hiện của Flag Zombie báo hiệu một cuộc tấn công lớn của zombie.   
-![Flag_Zombie2](https://github.com/user-attachments/assets/dbfe8963-6757-4a1b-83ef-5756a544cb0d)
-
-## Đồ họa và âm thanh
-
-### Đồ họa
-Đồ họa của game được lấy trực tiếp hoặc được tạo gián tiếp từ các tài nguyên trong game Plants vs. Zombies 2 (PopCap/EA). Toàn bộ các bước giải nén đều sử dụng [Sen Environment](https://github.com/harumazzz/Sen.Environment). Các file đồ họa của game được lấy như sau:
-- Animation của cây và zombie: Tham khảo https://www.youtube.com/watch?v=fSXOXuL7sUo
-- UI, Etc, Lawn và SeedPacket: Giải nén file `UI_AlwaysLoaded.scg`,  `DelayLoad_Background_Modern_Compressed.scg` và `UI_SeedPackets.scg`.
-- Font: Tải ở https://plantsvszombies.fandom.com/f/p/2519622733529499385
-- Các file `worldmap.png`, `pausemenu.png`, `sun_counter.png` được tạo sử dụng [GIMP](https://www.gimp.org/) với các tài nguyên có từ việc giải nén ở trên.
-- Sử dụng https://ezgif.com/gif-to-sprite để chuyển GIF thành spritesheet và https://kuut.xyz/spritesheet/ để chuyển các ảnh thành spritesheet.
-
-### Âm thanh
-Âm thanh của game được tải từ nhiều nguồn khác nhau trên internet:
-- Âm nhạc của game được tải ở https://plantsvszombies.fandom.com/wiki/Music
-- Hiệu ứng âm thanh của game được tải ở:
-  -  https://plantsvszombies.fandom.com/wiki/Zombie_(PvZ)
-  -  https://plantsvszombies.fandom.com/wiki/Headwear
-  -  https://plantsvszombies.fandom.com/wiki/Pea
-  -  https://plantsvszombies.fandom.com/wiki/Sun
-  -  https://plantsvszombies.fandom.com/wiki/Potato_Mine_(PvZ2)
-  -  https://plantsvszombies.fandom.com/wiki/Plants_(PvZ)
-
-## Cấu trúc của project game 
-- Các chức năng thiết yếu:
-  -  Button: các loại nút bấm trong game.
-  -  Constants: các biến hằng được sử dụng trong game.
-  -  Texture: wrapper class cho SDL_Texture. Source code lấy ý tưởng từ https://lazyfoo.net/tutorials/SDL/11_clip_rendering_and_sprite_sheets/index.php
-  -  Global: các biến toàn cục trong game.
-  -	 Init: khởi tạo SDL, SDL_mixer, SDL_ttf, SDL_image.
-  -	 Math: các hàm liên quan đến tính toán và sinh số ngẫu nhiên.
-  -	 RenderEngine: các hàm liên quan đến việc tải texture và tạo renderer.
-- Các trạng thái của game (đều được kế thừa từ class Scene và được quản lý bằng stack bởi SceneManager):
-  - Level: quản lý và hiển thị các thành phân liên quan đến màn chơi.
-  - LevelIntro: hiện cảnh mở đầu cho màn chơi.
-  - LevelLose: hiện cảnh thua cuộc cho màn chơi.
-  - LevelWin: hiện cảnh chiến thắng cho màn chơi.
-  - PauseMenu: màn hình dừng trong màn chơi.
-  - TitleScreen: màn hình chờ khi mở game.
-  - WorldMap: màn hình chọn level.
-- Các thành phần liên quan đến level (màn chơi):
-  -	FGrid: quản lý các trạng thái của một ô thuộc sân cỏ.
-  -	FLawn: quản lý các đối tượng FGrid và hiển thị sân cỏ.
-  -	FBasicZombie, FBucketZombie, FConeZombie, FFlagZombie: các loại zombie trong game, được kế thừa từ class FZombie.
-  -	FGreenPea: đạn của peashooter, được kế thừa từ class FPea.
-  -	FDeadZombie: hiển thị hiệu ứng khi zombie bị tiêu diệt, được kế thừa từ class FParticle.
-  -	FExplosionPotatomine: hiển thị hiệu ứng khi cây potato mine phát nổ, được kế thừa từ class FParticle.
-  -	FPeashooter, FSunflower, FPotatomine, FWallnut: các loại cây trong game, được kế thừa từ class FPlant.
-  -	CollisionChecker: các hàm kiểm tra va chạm giữa các đối tượng.
-  -	FSun: quản lý sun.
-  -	SunManager: quản lý các đối tượng FSun và xử lý tương tác giữa người chơi và các đối tượng FSun.
-  -	FProgressBar: hiển thị progress bar.
-  -	WaveManager: quản lý và tạo các đợt tấn công của zombie.
-  -	FSeedPeashooter, FSeedPotatomine, FSeedWallnut, FSunflower: các loại seed packet, được kế thừa từ class FSeedPacket.
-  -	FSeedShovel: shovel, được kế thừa từ class FSeedPacket.
-  -	SlotManager: quản lý các đối tượng FSeedPacket và xử lý tương tác giữa người chơi và các đối tượng FSeedPacket.
- 
-## Các chức năng đã cài được cho game
--	Màn hình chờ khi mở game.
--	Màn hình chọn level.
--	Tất cả các thành phần trong level mà Plants vs. Zombies 2 (PopCap/EA) có như tên level, progress bar, sun, sun counter, seed packet, shovel, lawn, pause menu, các loại cây, zombie, đạn và tương tác giữa chúng.
--	4 loại cây.
--	4 loại zombie.
--	5 level với độ khó tăng dần.
--	Đồ họa với độ phân giải cao, chuyển động mượt.
--	Âm thanh, hiệu ứng sinh động, đầy đủ cho toàn bộ game.
-
+  * Functional Splash Screen and Level Selection.
+  * Core PvZ 2 level mechanics.
+  * 4 distinct Plant types and 4 distinct Zombie types.
+  * 5 progressive levels.
+  * High-resolution graphics with smooth animations.
+  * Full audio suite including background music and interactive sound effects.
