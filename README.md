@@ -1,8 +1,6 @@
-Here is the English version of the project documentation for **Plants vs. Zombies 2 Remake**:
-
 # Plants vs Zombies 2 Remake
 
-Demo game: [https://youtu.be/EblWeJ6Xlm0](https://youtu.be/EblWeJ6Xlm0)
+Demo video: [https://youtu.be/EblWeJ6Xlm0](https://youtu.be/EblWeJ6Xlm0)
 
   - [Introduction](#introduction)
   - [Download Instructions](#download-instructions)
@@ -58,12 +56,12 @@ The World Map allows you to select levels. There are **5 levels** in total with 
 
   * **Peashooter:** Shoots peas to attack zombies in its lane.
   * **Sunflower:** Generates sun over time.
-  * **Wall-nut:** Has a hard shell to provide a high-defense barrier.
+  * **Wall-nut:** Has a hard shell to act as a barrier.
   * **Potato Mine:** Explodes on contact with a zombie (requires time to arm itself underground).
 
 ### Zombies
 
-  * **Basic Zombie:** Low health, standard movement.
+  * **Basic Zombie:** Low health, slow movement.
   * **Conehead Zombie:** Wears a traffic cone, having 3x the health of a Basic Zombie.
   * **Buckethead Zombie:** Wears a metal bucket, having nearly 7x the health of a Basic Zombie.
   * **Flag Zombie:** Marks the arrival of a huge wave of zombies.
@@ -72,12 +70,12 @@ The World Map allows you to select levels. There are **5 levels** in total with 
 
 ### Graphics
 
-Assets are sourced directly or adapted from *Plants vs. Zombies 2*. Extraction was handled via [Sen Environment](https://github.com/harumazzz/Sen.Environment).
+Assets are acquired directly or adapted from *Plants vs. Zombies 2*. Extraction was handled via [Sen Environment](https://github.com/harumazzz/Sen.Environment).
 
   * **Animations:** https://www.youtube.com/watch?v=fSXOXuL7sUo
   * **UI/Lawn/Packets:** Extracted from `.scg` files (`UI_AlwaysLoaded.scg`, etc.).
   * **Fonts:** https://plantsvszombies.fandom.com/f/p/2519622733529499385
-  * **Tools:** Used [GIMP](https://www.gimp.org/) to make UI components, used various websites like [ezgif](https://ezgif.com/gif-to-sprite), [kuut.xyz](https://kuut.xyz/spritesheet/), ... for spritesheet conversion.
+  * **Tools:** Used [GIMP](https://www.gimp.org/) to make UI components and various websites like [ezgif](https://ezgif.com/gif-to-sprite), [kuut.xyz](https://kuut.xyz/spritesheet/), ... for spritesheet conversion.
 
 ### Sound
 
@@ -86,13 +84,13 @@ Assets are sourced directly or adapted from *Plants vs. Zombies 2*. Extraction w
 
 ## Project Structure
 
-  * **Essentials:** Buttons, Constants, Texture wrappers, Global, Init, Math and RenderEngine.
+  * **Essentials:** Buttons, Constants, Texture wrapper, Global, Init, Math and RenderEngine.
   * **Game States (Scene Management):** Used a stack-based `SceneManager` to handle transitions between `TitleScreen`, `WorldMap`, `Level`, `PauseMenu`, `Win/Lose`, and `LevelIntro` screen.
   * **Level Components:** 
-      * `FLawn`, `FGrid`: Grid and lawn management.
-      * `FPlant`, `FZombie` (and inherited subclasses): Specific entity logic.
-      * `SunManager`, `SlotManager`: Handling sun and plant selection.
-      * `WaveManager`: Zombie spawning logic.
+      * `FLawn`, `FGrid`: Manage grids and lawn.
+      * `FPlant`, `FZombie` (and inherited subclasses): Entity logic.
+      * `SunManager`, `SlotManager`: Handle sun and plant selection.
+      * `WaveManager`: Zombie spawning mechanic.
       * `CollisionChecker`: Collision-related helper functions.
 
 ## Implemented Features
